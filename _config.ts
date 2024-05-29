@@ -8,8 +8,14 @@ import postcss from "lume/plugins/postcss.ts";
 const site = lume({
   src: './src',
   // TODO Update this with the proper URL
-  location: new URL("https://open-innovations.github.io/oi-lume-template/"),
+  location: new URL("https://open-innovations.github.io/lcc-culture-dashboard/"),
 });
+
+
+
+
+
+
 site.use(nunjucks()); // For Lume 2
 site.use(base_path());
 site.use(metas({
