@@ -1,0 +1,22 @@
+---
+# https://css-tricks.com/a-responsive-grid-layout-with-no-media-queries/
+css: |
+  .auto-grid {
+    --auto-grid-min-size: 16rem;
+    --auto-grid-gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-grid-min-size)), 1fr));
+    grid-gap: var(--auto-grid-gap);
+
+  .auto-grid h2 { 
+    padding-top: 1em;
+  }
+  }
+---
+<div class="auto-grid"
+  style="
+  {%- if min-width %}--auto-grid-min-size: {{ min-width }};{% endif -%}
+  {% if columns %}grid-template-columns: repeat( {{ columns }}, minmax(0, 1fr));{% endif %}
+  ">
+  {{- content | safe -}}
+</div>

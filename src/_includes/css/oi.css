@@ -132,13 +132,14 @@ section { padding: 2em 0; }
 
 header h1 { margin-top: 0; }
 header nav ul {
-	width: min-content;
+	width: max-content;
 	text-align: center;
 	margin: 0 auto;
 	font-size: 1.2em;
 	position: relative;
 	font-family: Poppins;
 	display: flex;
+    padding-top:2em;
 }
 header nav ul li { display: inline-block; }
 header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%; color: inherit; }

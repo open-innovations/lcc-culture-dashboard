@@ -1,4 +1,25 @@
 ---
 title: Leeds Culture Dashboard
 ---
+{% from 'macros.njk' import dateFormatterNoYear as dateFormatter %}
 
+
+{{
+	comp.oi.dashboard({
+		config: {
+			data: "dummy_headline",
+			title: "Headline",
+			value: "Value",
+			width: "200px",
+			panels: [{
+				name: "This"
+			},{
+				name: "Is"
+			},{
+				name: "A"
+			},{
+				name: "Dashboard"
+			}]
+		}
+	}) | safe
+}}
