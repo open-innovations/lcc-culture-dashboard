@@ -40,7 +40,7 @@ site.use(oiViz(oiVizConfig));
 site.use(base_path());
 site.use(metas({
   defaultPageData: {
-    title: 'LCC Culture Dashboard', // Use the `date` value as fallback.
+    title: 'Culture Dashboard', // Use the `date` value as fallback.
   },
 }));
 site.use(date());

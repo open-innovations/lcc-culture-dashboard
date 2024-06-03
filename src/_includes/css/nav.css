@@ -43,9 +43,6 @@
 	align-items: center;
 	gap: 0.5rem;
 }
-.menu-toggle:hover span {
-	text-decoration: underline;
-}
 .menu-toggle .indicator {
 	height: 0.7rem;
 	transition: var(--transition-timing);

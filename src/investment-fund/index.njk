@@ -1,0 +1,26 @@
+---
+title: Leeds Cultural Investment Fund
+---
+{% from 'macros.njk' import dateFormatterNoYear as dateFormatter %}
+
+
+{{
+	comp.oi.dashboard({
+		config: {
+			data: "dummy_headline",
+			title: "Headline",
+			value: "Value",
+			width: "200px",
+            postfix: "Suffix",
+			panels: [{
+				name: "Number of surgeries"
+			},{
+				name: "Funding requested"
+			},{
+				name: "Funding from Leeds City Council"
+			},{
+				name: "Funding from Arts Council"
+			}]
+		}
+	}) | safe
+}}

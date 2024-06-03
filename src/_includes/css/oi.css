@@ -71,7 +71,6 @@ h1:first-child, h2:first-child, h3:first-child, .title { margin-top: 0; }
 h1 + *, h2 + *, h3 + * { margin-top: 1em; }
 strong { font-weight: 700; }
 em { font-style: italic; }
-a { color: #18AD87; text-decoration: underline; }
 .bold { color: #18AD87; }
 p, time, li, td, th, footer, div { font-weight: 300; }
 p, iframe, h2, h3, figure, ul, ol, .block, .padded-bottom { margin-bottom: 1em; }
@@ -130,10 +129,18 @@ section { padding: 2em 0; }
 .skip-to-content-link { position: absolute; top: -3rem; right: 0.5rem; z-index: 2000; transition: top 0.3s; padding: 0.5rem 1rem; }
 .skip-to-content-link:focus { top: 0.25rem; }
 
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+  }
+
+
+
 header h1 { margin-top: 0; }
 header nav ul {
 	width: max-content;
-	text-align: center;
 	margin: 0 auto;
 	font-size: 1.2em;
 	position: relative;
@@ -143,10 +150,20 @@ header nav ul {
 }
 header nav ul li { display: inline-block; }
 header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%; color: inherit; }
-header nav ul > li > a:hover, header nav ul > li > a:focus { background: white; color: black; }
+/* header nav ul > li > a:hover, header nav ul > li > a:focus { background: white; color: black; } */
 
-.grid { display: grid; grid-template-columns: repeat(2,1fr); grid-gap: 1em; }
-.grid .pane { background: #f9f9f9; }
+.grid { display: grid; grid-template-columns: 50% 50%; grid-gap: 0.5em; }
+ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+ul.grid > li > a { display: block; text-decoration: none!important;}
+ul.grid > li > a > *:last-child { margin-bottom: 0; }
+.grid .pane { background: #0a2f45; color: #ffffff; height: 300px;}
+
+.dashboard { padding: 2em; }
+
+.oi-dashboard { grid-gap: 0.5rem!important;}
+.oi-dashboard .panel h3 { font-size: 1.5em!important; font-weight: normal!important; text-align: center; }
+.oi-dashboard .panel { display: grid; }
+
 
 .grid-list { display: grid; grid-template-columns: repeat(3,1fr); grid-gap: 0.5em; list-style: none; margin: 0; margin-bottom: 2em; }
 .grid-list > li > a { padding: 1em; background: #dfdfdf; text-decoration: none; display: block; text-align: center; height: 100%; }
