@@ -8,6 +8,7 @@
   Could be modularised, given PostCSS could enable much smaller css packages to be created.
 */
 @import 'css/oi.css';
+@import 'css/fonts.css';
 
 .dashboard-item {
   text-align: center;
@@ -30,7 +31,7 @@
 }
 
 * {
-  --background-colour: #0a2f45;
+  --background-colour: #91cfce;
   --header-height: 112px;
   }
 
@@ -40,7 +41,7 @@
 /* OI dashboard component */
 .oi-dashboard .oi-dashboard-inner { --auto-dashboard-min-size: 200px; width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-dashboard-min-size)), 1fr)); grid-gap: 1em; padding: 2em;}
 .oi-dashboard .panel h3 { font-weight: normal; font-size: 1.5em; text-align: center; }
-.oi-dashboard .panel { padding: 2em; background: #0a2f45; color: #ffff; border-style: solid; border-width: thin; }
+.oi-dashboard .panel { padding: 2em; background: #91cfce; color: #0a2f45; border-style: solid; border-width: thin; }
 .oi-dashboard .bignum { font-size: 4em; line-height: 1.25em; font-weight: bold; text-align: center; display: block; margin-top: 0; }
 .oi-dashboard .footnote { font-size: 0.8em; text-align: center; display: block; }
 

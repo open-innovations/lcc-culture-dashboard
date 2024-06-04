@@ -1,0 +1,59 @@
+---
+title: Leeds Cultural Investment Programme
+---
+{% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
+
+
+{{
+	comp.oi.dashboard({
+		config: {
+			data: "dummy_headline",
+			title: "Headline",
+			value: "Value",
+			width: "200px",
+            postfix: "Suffix",
+			panels: [{
+				name: "Number of surgeries"
+			},{
+				name: "Funding requested"
+			},{
+				name: "Funding from Leeds City Council"
+			},{
+				name: "Funding from Arts Council"
+			}]
+		}
+	}) | safe
+}}
+
+{# <h3>Example line chart</h3>
+{{ comp.oi.chart.line({ config: {
+    categories: "dummy_linechart.columns.date",
+    width: 25,
+    height: 15,
+    padding: { left: 4 },
+    series: [
+      {
+        label: 'Value',
+        yValues: "dummy_linechart.columns.value",
+        markerOptions: { s: 5 }
+      }
+    ],
+    xAxis: {
+      title: 'Date',
+      majorTick: 10
+    },
+    plotArea: {
+      yMax: 2013
+    },
+    yAxis: {
+      title: 'Value',
+      titleOffset: 3,
+      majorTick: 2000
+    },
+    legend: {
+      width: '30em'
+    }, 
+    line: {
+        "stroke-dasharray": [6,2]
+    }
+  } }) | safe }} #}
