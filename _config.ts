@@ -19,6 +19,8 @@ const site = lume({
   location: new URL("https://open-innovations.github.io/lcc-culture-dashboard/"),
 });
 
+
+
 // Need to explicitly include it for Lume 2
 site.use(nunjucks());
 
@@ -36,6 +38,14 @@ site.loadData([".hexjson"], jsonLoader);
 // Import lume viz
 import oiVizConfig from "./oi-viz-config.ts";
 site.use(oiViz(oiVizConfig));
+
+site.use(oiViz({
+	assetPath: '/assets/oi',
+	componentNamespace: 'oi.viz',
+		"scales": {
+			"lightcyan": 'rgb(255,255,255) 0%, hsl(173, 100%, 50%) 100%',
+		}
+}));
 
 site.use(base_path());
 site.use(metas({
