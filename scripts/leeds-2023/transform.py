@@ -159,6 +159,7 @@ if __name__ == "__main__":
     volunteer_headlines = pd.DataFrame({
         'Total confirmed volunteers': TOTAL_CONFIRMED_VOLUNTEERS,
         'Total volunteer shifts completed': volunteer_shifts_by_week.volunteer_shifts.sum(),
+        'Total volunteer hours completed': volunteer_shifts_by_week.volunteer_hours.sum(),
     }, index=[0])
 
     volunteer_headlines = volunteer_headlines.melt(var_name='title', value_name='value')
