@@ -73,9 +73,9 @@ h1 + *, h2 + *, h3 + * { margin-top: 1em; }
 strong { font-weight: 700; }
 em { font-style: italic; }
 .bold { color: #18AD87; }
-p, time, li, td, th, footer, div { font-weight: 300; }
+p, time, li, td, th, footer, div { font-weight: 400; }
 p, iframe, h2, h3, figure, ul, ol, .block, .padded-bottom { margin-bottom: 1em; }
-button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
+button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 3em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
 a:hover, a:focus { text-decoration: underline; }
 a:visited { color: inherit; }
 header a { text-decoration: none; line-height: 0; }
@@ -146,7 +146,6 @@ ul.grid > li > a > *:last-child { margin-bottom: 0; }
 .dashboard { padding: 2em; }
 
 .oi-dashboard { grid-gap: 0.5rem!important;}
-.oi-dashboard .panel h3 { font-size: 1.5em!important; font-weight: normal!important; text-align: center; }
 .oi-dashboard .panel { display: grid; }
 
 

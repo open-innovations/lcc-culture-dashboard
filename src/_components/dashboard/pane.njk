@@ -8,9 +8,6 @@ css: |
     background: var(--background);
     padding-top: 0em;
     padding: 3em;
-    --border: groove;
-    border-style: var(--border);
-    border-width: 1.5px;
   }
 ---
 
@@ -18,7 +15,6 @@ css: |
   style="
     {%- if fg %}--foreground: {{ fg }};{% endif -%}
     {%- if bg %}--background: {{ bg }};{% endif -%}
-    {%- if border %}--border-style: {{ border }};{% endif -%}
   ">
   {{ content | safe }}
 </div>

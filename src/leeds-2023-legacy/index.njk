@@ -1,7 +1,9 @@
 ---
-title: LEEDS 2023 Legacy
+title: LEEDS 2023 Legacy Dashboard
 ---
-{% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
+{% from 'macros.njk' import dateFormatterNoYear as dateFormatter %}
+
+
 
 <p>
 	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
@@ -10,20 +12,91 @@ title: LEEDS 2023 Legacy
 {{
 	comp.oi.dashboard({
 		config: {
-			data: "dummy_headline",
-			title: "Headline",
-			value: "Value",
-			width: "200px",
-            postfix: "Suffix",
+			data: "viz.leeds_2023.events_ticketing_headlines",
+			title: "title",
+			value: "value",
+			width: "20%",
 			panels: [{
-				name: "Number of surgeries"
+				name: "Total events"
 			},{
-				name: "Funding requested"
+				name: "Total in person attendances"
 			},{
-				name: "Funding from Leeds City Council"
+				name: "Total online attendances"
 			},{
-				name: "Funding from Arts Council"
+				name: "Total tickets sold"
 			}]
 		}
 	}) | safe
 }}
+
+<h2>Engagement with young people</h2>
+
+<p>
+	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+</p>
+
+{{
+	comp.oi.dashboard({
+		config: {
+			data: "viz.leeds_2023.schools_headlines",
+			title: "title",
+			value: "value",
+			width: "20%",
+			panels: [{
+				name: "Total school engagements"
+			},{
+				name: "Unique schools"
+			},{
+				name: "Total pupil engagements"
+			},{
+				name: "Percentage of Leeds schools engaged"
+			}]
+		}
+	}) | safe
+}}
+
+
+<h2>Volunteers</h2>
+
+<p>
+	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+</p>
+
+<ul class="grid dashboard" style ="grid-template-columns: repeat( 2, minmax(0, 1fr));">
+
+<li>
+	{{
+	comp.oi.dashboard({
+		config: {
+			data: "viz.leeds_2023.volunteer_headlines",
+			title: "title",
+			value: "value",
+			width: "50%",
+			panels: [{
+				name: "Total confirmed volunteers"
+			},{
+				name: "Total volunteer shifts completed"
+			}]
+		}
+	}) | safe
+}}
+</li>
+
+<li>
+	{{ comp.oi.map.hex_cartogram({
+		config: {
+			hexjson: hex.wards_leeds,
+			data: viz.leeds_2023.volunteers_by_ward,
+			scale: 'Cividis',
+			matchKey: 'ward_code',
+			value: 'confirmed',
+			label: '{{ n | slice(0,3) }}',
+			tooltip: '{{ n }}: <strong>{{ confirmed }}</strong>'
+		}
+	}) | safe }}
+</li>
+
+	</ul>
+
+
+
