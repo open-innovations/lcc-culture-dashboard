@@ -36,7 +36,7 @@
   }
 
 /* OI dashboard component */
-.oi-dashboard .oi-dashboard-inner { --auto-dashboard-min-size: 200px; width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-dashboard-min-size)), 1fr)); grid-gap: 1em; padding: 2em;}
+.oi-dashboard .oi-dashboard-inner { --auto-dashboard-min-size: 200px; width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-dashboard-min-size)), 1fr)); grid-gap: 1em; }
 .oi-dashboard .panel h3 { font-weight: 500; font-size: 1.2em; text-align: center; }
 .oi-dashboard .panel { padding: 2em; background: #91cfce; color: #0a2f45; }
 .oi-dashboard .bignum { font-size: 4em; line-height: 1.25em; font-weight: bold; text-align: center; display: block; margin-top: 0; }
