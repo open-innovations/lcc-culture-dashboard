@@ -1,0 +1,65 @@
+---
+title: Leeds Cultural Investment Programme
+url: /lcip/
+---
+{% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
+
+<p>
+  Leeds Cultural Investment Programme is a framework to enable culture and creativity, support the stability and growth of Leeds’ creative sector and to promote access to cultural and creative opportunities by Leeds residents.
+</p>
+
+<ul class="grid dashboard" style ="grid-template-columns: repeat( 2, minmax(0, 1fr));">
+	<li><a href="/lcip/inspire/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Inspire</h2>
+    <p>
+      Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations.
+    </p>
+		{% endcomp %}
+	</a></li>
+	<li><a href="/lcip/grow-project/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Grow: Project</h2>
+    <p>
+      Grow: Project provides larger grants for one-off larger scale and artistically ambitious projects. Grants offered are between £5,000 to £15,000. This strand is open to individuals and organisations. 
+    </p>
+		{% endcomp %}
+	</a></li>
+
+  <li><a href="/lcip/grow-revenue/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Grow: Revenue</h2>
+    <p>
+      Grow: Project provides larger grants for one-off larger scale and artistically ambitious projects. Grants offered are between £5,000 to £15,000. This strand is open to individuals and organisations. 
+    </p>
+		{% endcomp %}
+	</a></li>
+
+  <li><a href="/lcip/thrive/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Thrive</h2>
+    <p>
+      Thrive provides grants to support ongoing activities for more established cultural organisations delivering positive creative and social impacts through year-round programmes of work in the city.
+    </p>
+		{% endcomp %}
+	</a></li>
+
+  <li><a href="/lcip/cultural-anchors/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Cultural Anchors</h2>
+    <p>
+      Cultural Anchors includes some of the largest, building based, cultural organisations in the city, each attracting significant levels of funding to the city from a range of sources.
+    </p>
+		{% endcomp %}
+	</a></li>
+
+  <li><a href="/lcip/activate/">
+	{% comp "dashboard.pane", { bg: "#91cfce", fg: 'black' }%}
+		<h2>Activate</h2>
+    <p>
+      Activate is a flexible funding strand which enables the Council to distribute external funding, commission projects, make strategic interventions and solicit (invite) applications that respond to a defined need, gap in provision or demand for activity.
+    </p>
+		{% endcomp %}
+	</a></li>
+
+</ul>
