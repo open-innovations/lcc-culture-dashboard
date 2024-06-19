@@ -28,6 +28,8 @@ TICKETS_BY_WARD = os.path.join('working', 'upstream', 'leeds-2023','events',  't
 TICKETS_BY_DATE = os.path.join('working', 'upstream', 'leeds-2023','events',  'tickets_by_event_date.csv')
 VOLUNTEERS_BY_WARD = os.path.join('working', 'upstream', 'leeds-2023', 'volunteers', 'by_ward.csv')
 VOLUNTEER_SHIFTS = os.path.join('working', 'upstream', 'leeds-2023', 'volunteers', 'shifts_by_week.csv')
+COMBINED_CISION = os.path.join('working', 'upstream', 'leeds-2023', 'media_coverage', 'combined_cision.csv')
+COMBINED_HISTORIC = os.path.join('working', 'upstream', 'leeds-2023', 'media_coverage', 'combined_historic.csv')
 
 def load_schools_data():
     return pd.read_csv(SCHOOLS_DATA, parse_dates=['date']).apply(literal_converter)
@@ -164,3 +166,85 @@ if __name__ == "__main__":
 
     volunteer_headlines = volunteer_headlines.melt(var_name='title', value_name='value')
     volunteer_headlines.to_csv(os.path.join(DATA_DIR, 'volunteer_headlines.csv'), index=False)
+
+    # PROCESS MEDIA COVERAGE
+
+    MEDIA_START_DATE = '2021-01-01'
+    MEDIA_END_DATE = '2024-01-31'
+
+    cision_data = pd.read_csv(os.path.join(
+        COMBINED_CISION), parse_dates=['news_date'])
+    historic_data = pd.read_csv(os.path.join(
+        COMBINED_HISTORIC), parse_dates=['news_date'])
+
+    data = pd.concat([cision_data, historic_data]).sort_values('news_date')
+    data = data[data['news_date'].between(MEDIA_START_DATE, MEDIA_END_DATE)]
+
+    data['medium'] = data['medium'].replace(
+        {'Newspaper': 'Print', 'Magazine': 'Print', 'Broadcat': 'Broadcast', 'Pdf': 'Online'})
+    medium_count = pd.DataFrame({'count': data.groupby(
+        ['medium'])['news_headline'].count()}).sort_values('count', ascending=False)
+    medium_count.to_csv(os.path.join(DATA_DIR, 'medium_count.csv'))
+
+    REGION_TAGS = ['International', 'National', 'Regional', 'Local', 'Unknown']
+    by_region = data.filter(['news_date', 'custom_tags', 'news_headline'])
+    by_region.news_date = by_region.news_date.dt.to_period('M')
+    by_region = by_region.set_index('news_date')
+    by_region = by_region.custom_tags \
+        .str.split(";").explode() \
+        .str.strip() \
+        .fillna('Unknown') \
+        .to_frame('region')
+    by_region = by_region[by_region.region.isin(REGION_TAGS)]
+    pre_check = by_region.value_counts().sum()
+    by_region['count'] = 1
+    by_region = by_region.groupby(['news_date', 'region']) \
+        .count().reset_index() \
+        .pivot(index="news_date", columns="region", values="count") \
+        .fillna(0) \
+        .astype(int)
+    by_region['Total'] = by_region.sum(axis=1)
+    by_region.index.names = ['month']
+
+    assert (by_region.Total.sum() == pre_check)
+    by_region.to_csv(os.path.join(DATA_DIR, 'monthly_count.csv'))
+
+    # Summary Stats
+    uv_max = int(data['uv'].max())
+    reach_max = int(data['audience_reach'].max())
+    total_audience_reach = int(data.audience_reach.sum())
+    total_unique_views = int(data.uv.sum())
+
+    # Create a DataFrame
+    stats = pd.DataFrame({
+        'title': [
+            'total_media', 
+            'uv_max', 
+            'reach_max', 
+            'total_media_local',
+            'total_media_regional',
+            'total_media_national',
+            'total_media_international',
+            'total_media_unknown',
+            'total_audience_reach',
+            'total_unique_views',
+            'total_estimated_circulation',
+            'total_editorial_articles'
+        ],
+        'value': [
+            int(data['news_headline'].count()),
+            uv_max,
+            reach_max,
+            int(by_region.Local.sum()),
+            int(by_region.Regional.sum()),
+            int(by_region.National.sum()),
+            int(by_region.International.sum()),
+            int(by_region.Unknown.sum()),
+            total_audience_reach,
+            total_unique_views,
+            total_audience_reach + total_unique_views,
+            2172
+        ]
+    })
+
+    stats.to_csv(os.path.join(DATA_DIR, 'media_headlines.csv'), index=False)
