@@ -30,6 +30,10 @@ VOLUNTEERS_BY_WARD = os.path.join('working', 'upstream', 'leeds-2023', 'voluntee
 VOLUNTEER_SHIFTS = os.path.join('working', 'upstream', 'leeds-2023', 'volunteers', 'shifts_by_week.csv')
 COMBINED_CISION = os.path.join('working', 'upstream', 'leeds-2023', 'media_coverage', 'combined_cision.csv')
 COMBINED_HISTORIC = os.path.join('working', 'upstream', 'leeds-2023', 'media_coverage', 'combined_historic.csv')
+FACEBOOK_WEEKLY = os.path.join('working', 'upstream', 'leeds-2023', 'social_media', 'facebook_weekly.csv')
+INSTAGRAM_WEEKLY = os.path.join('working', 'upstream', 'leeds-2023', 'social_media', 'instagram_weekly.csv')
+LINKEDIN_WEEKLY = os.path.join('working', 'upstream', 'leeds-2023', 'social_media', 'linkedin_weekly.csv')
+TWITTER_WEEKLY = os.path.join('working', 'upstream', 'leeds-2023', 'social_media', 'twitter_weekly.csv')
 
 def load_schools_data():
     return pd.read_csv(SCHOOLS_DATA, parse_dates=['date']).apply(literal_converter)
@@ -181,7 +185,7 @@ if __name__ == "__main__":
     data = data[data['news_date'].between(MEDIA_START_DATE, MEDIA_END_DATE)]
 
     data['medium'] = data['medium'].replace(
-        {'Newspaper': 'Print', 'Magazine': 'Print', 'Broadcat': 'Broadcast', 'Pdf': 'Online'})
+        {'Newspaper': 'Print', 'Magazine': 'Print', 'Broadcat': 'Broadcast', 'Pdf': 'Online', 'Online ': 'Online', 'Onine': 'Online', 'Newletter': 'Newsletter'})
     medium_count = pd.DataFrame({'count': data.groupby(
         ['medium'])['news_headline'].count()}).sort_values('count', ascending=False)
     medium_count.to_csv(os.path.join(DATA_DIR, 'medium_count.csv'))
@@ -218,18 +222,18 @@ if __name__ == "__main__":
     # Create a DataFrame
     stats = pd.DataFrame({
         'title': [
-            'total_media', 
-            'uv_max', 
-            'reach_max', 
-            'total_media_local',
-            'total_media_regional',
-            'total_media_national',
-            'total_media_international',
-            'total_media_unknown',
-            'total_audience_reach',
-            'total_unique_views',
-            'total_estimated_circulation',
-            'total_editorial_articles'
+            'Total media', 
+            'UV Max', 
+            'Reach', 
+            'Total media - Local',
+            'Total media - Regional',
+            'Total media - National',
+            'Total media - International',
+            'Total media - Unknown',
+            'Total audience reach',
+            'Total unique views',
+            'Total estimated circulation',
+            'Total editorial articles'
         ],
         'value': [
             int(data['news_headline'].count()),
@@ -248,3 +252,54 @@ if __name__ == "__main__":
     })
 
     stats.to_csv(os.path.join(DATA_DIR, 'media_headlines.csv'), index=False)
+
+    # PROCESS SOCIAL ANALYTICS
+
+    twitter = pd.read_csv(TWITTER_WEEKLY)
+    instagram = pd.read_csv(INSTAGRAM_WEEKLY)
+    facebook = pd.read_csv(FACEBOOK_WEEKLY)
+    linkedin = pd.read_csv(LINKEDIN_WEEKLY)
+
+    twitter_data = {
+        'Audience last': twitter['audience_last'].sum(),
+        'Total engagements': twitter['engagements_total'].sum(),
+        'Total audience gained': twitter['audience_gained_total'].sum(),
+        'Total impressions': twitter['impressions_total'].sum()
+    }
+
+    instagram_data = {
+        'Audience last': instagram['audience_last'].sum(),
+        'Total engagements': instagram['engagements_total'].sum(),
+        'Total audience gained': instagram['audience_gained_total'].sum(),
+        'Total impressions': instagram['impressions_total'].sum()
+    }
+
+    facebook_data = {
+        'Audience last': facebook['audience_last'].sum(),
+        'Total engagements': facebook['engagements_total'].sum(),
+        'Total audience gained': facebook['audience_gained_total'].sum(),
+        'Total impressions': facebook['impressions_total'].sum()
+    }
+
+    linkedin_data = {
+        'Audience last': linkedin['audience_last'].sum(),
+        'Total engagements': linkedin['engagements_total'].sum(),
+        'Total audience gained': linkedin['audience_gained_total'].sum(),
+        'Total impressions': linkedin['impressions_total'].sum()
+    }
+
+    # Create a summary DataFrame
+    summary_data = {
+        'title': ['Audience last', 'Total engagements', 'Total audience gained', 'Total impressions'],
+        'twitter': [twitter_data['Audience last'], twitter_data['Total engagements'], twitter_data['Total audience gained'], twitter_data['Total impressions']],
+        'instagram': [instagram_data['Audience last'], instagram_data['Total engagements'], instagram_data['Total audience gained'], instagram_data['Total impressions']],
+        'facebook': [facebook_data['Audience last'], facebook_data['Total engagements'], facebook_data['Total audience gained'], facebook_data['Total impressions']],
+        'linkedin': [linkedin_data['Audience last'], linkedin_data['Total engagements'], linkedin_data['Total audience gained'], linkedin_data['Total impressions']]
+    }
+
+    summary_df = pd.DataFrame(summary_data)
+    summary_df['total'] = summary_df[['twitter', 'instagram', 'facebook', 'linkedin']].sum(axis=1)
+
+    # Save the DataFrame to a CSV file
+    summary_csv_path = os.path.join(DATA_DIR, 'social_media_headlines.csv')
+    summary_df.to_csv(summary_csv_path, index=False)

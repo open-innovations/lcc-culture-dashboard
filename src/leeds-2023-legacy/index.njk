@@ -103,10 +103,154 @@ title: LEEDS 2023 Legacy Dashboard
 	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
 </p>
 
+<ul class="grid dashboard" style ="grid-template-columns: repeat( 2, minmax(0, 1fr));">
+
+<li>
+	{{
+	comp.oi.dashboard({
+		config: {
+			data: "viz.leeds_2023.media_headlines",
+			title: "title",
+			value: "value",
+			width: "50%",
+			panels: [{
+				name: "Total media"
+			},{
+				name: "Total editorial articles"
+			},{
+				name: "Total editorial articles"
+			}]
+		}
+	}) | safe
+}}
+</li>
+
+<li>
+{{ comp.oi.viz.chart.bar({ config: {
+    data: "viz.leeds_2023.medium_count",
+    category: 'medium',
+    width: 750,
+    series: [
+      { title: 'Number of articles', value: 'count', scale: 'lightcyan'}
+    ],
+    legend: {
+      show: true,
+      position: "top"
+    },
+    axis: {
+      x: {
+        title: {
+          label: "Number of articles"
+        },
+        "font-weight": oi_viz.bar.axis.x['font-weight'],
+        grid: oi_viz.bar.axis.x.grid
+      },
+      y: {
+        "font-weight": oi_viz.bar.axis.y['font-weight'],
+        grid: oi_viz.bar.axis.y.grid
+      }
+    }
+  } }) | safe }}
+  </li>
+</ul>
+
+
 <h2>Web & Social Analytics</h2>
 
 <p>
 	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
 </p>
+
+<ul class="grid dashboard" style ="grid-template-columns: repeat( 1, minmax(0, 1fr));">
+
+<li>
+	{{
+	comp.oi.dashboard({
+		config: {
+			data: "viz.leeds_2023.social_media_headlines",
+			title: "title",
+			value: "total",
+			width: "30%",
+			panels: [{
+				name: "Total engagements"
+			},{
+				name: "Total audience gained"
+			},{
+				name: "Total impressions"
+			}]
+		}
+	}) | safe
+}}
+</li>
+
+{# <li>
+{{ comp.oi.viz.chart.line({ config: {
+      title: 'Total online audience',
+      categories: search.data('working/social-media').all_weekly.columns.week_ending,
+      width: 25,
+      height: 8,
+      text: { colour: 'white' },
+      xAxis: {
+          title: 'Week ending (Sunday)',
+          titleOffset: 4.2,
+          labelRotate: 35,
+          majorTick: 4,
+          formatter: dateFormatter
+      },
+      yAxis: {
+          title: 'Total Audience',
+          titleOffset: 3.4,
+          majorTick: 5000
+      },
+      plotArea: {
+          yMin: 0,
+          yMax: 50000,
+          colour: 'var(--l23-dark-blue-grey)'
+      },
+      padding: {
+          left: 4,
+          bottom: 5
+      },
+      series: [
+          {
+          id: "all", label: "All",
+          yValues: search.data('metrics/social-media').all_weekly.columns.audience_last,
+          colour: all_colour,
+          markerOptions: { s: 5 }
+          },
+          {
+          id: "twitter", label: "Twitter",
+          yValues: search.data('metrics/social-media').service.twitter_weekly.columns.audience_last,
+          colour: twitter_colour,
+          markerOptions: { s: 5 }
+          },
+          {
+          id: "instagram", label: "Instagram",
+          yValues: search.data('metrics/social-media').service.instagram_weekly.columns.audience_last,
+          colour: instagram_colour,
+          markerOptions: { s: 5 }
+          },
+          {
+          id: "facebook", label: "Facebook",
+          yValues: search.data('metrics/social-media').service.facebook_weekly.columns.audience_last,
+          colour: facebook_colour,
+          markerOptions: { s: 5 }
+          },
+          {
+          id: "linkedin", label: "Linkedin",
+          yValues: search.data('metrics/social-media').service.linkedin_weekly.columns.audience_last,
+          colour: linkedin_colour,
+          markerOptions: { s: 5 }
+          }
+      ],
+      legend: {
+          width: "20em"
+      }
+    } }) | safe }}
+</li> #}
+
+</ul>
+
+
 
 
