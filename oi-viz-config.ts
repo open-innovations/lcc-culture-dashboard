@@ -2,7 +2,7 @@ export default {
 	"assetPath": '/assets',
 	"componentNamespace": 'oi',
 	"colour": {
-		"series": [ '#b2c929','#440d54','#fde725','#404788','#29af7f','#277d8e', '#370496']
+		"series": [ '#1eacaf','#ed7218','#bdbcbc','#148183','#e43748','#0a2f45', '#00aa8d']
 	},
 	"font": {
 		"family": 'Poppins,CenturyGothicStd,"Century Gothic",Arial,sans-serif',

@@ -1,20 +1,8 @@
----
-
-css: |
-  .dashboard .pane {
-    --background: 'black';
-    --foreground: 'white';
-    color: var(--foreground);
-    background: var(--background);
-    padding-top: 0em;
-    padding: 3em;
-  }
----
-
-<div class="dashboard pane"
-  style="
-    {%- if fg %}--foreground: {{ fg }};{% endif -%}
-    {%- if bg %}--background: {{ bg }};{% endif -%}
-  ">
+<li class="dashboard pane" style ="
+    {% if rows %}grid-row:auto/span {{ rows }};{% endif %}
+    {% if columns %}grid-column:span {{ columns }};{% endif %}
+">
+{%-if link -%}<a class="impact-link" href="{{ link | url }}">{%- endif -%}
   {{ content | safe }}
-</div>
+{%-if link -%}</a>{%- endif -%}
+</li>

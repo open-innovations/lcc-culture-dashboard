@@ -1,0 +1,5 @@
+<ul class="grid dashboard" style="
+    {% if columns %}grid-template-columns: repeat( {{ columns }}, minmax(0, 1fr));{% endif %}
+    ">
+  {{ content | safe }}
+</ul>
