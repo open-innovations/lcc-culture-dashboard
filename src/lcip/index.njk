@@ -8,49 +8,91 @@ url: /lcip/
   Leeds Cultural Investment Programme is a framework to enable culture and creativity, support the stability and growth of Leeds’ creative sector and to promote access to cultural and creative opportunities by Leeds residents.
 </p>
 
-	{% comp "dashboard.panels", { columns: 3 } %}
+	{% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
 
-		<h2>Inspire</h2>
-    <p>
-      Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations.
-    </p>
+		<h3>Funding surgeries offered</h3>
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane", { link: "/lcip/grow-project/" } %}
-		<h2>Grow: Project</h2>
-    <p>
-      Grow: Project provides larger grants for one-off larger scale and artistically ambitious projects. Grants offered are between £5,000 to £15,000. This strand is open to individuals and organisations. 
-    </p>
+		
+		<h3>Applications received</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
 		{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/" }  %}
-		<h2>Grow: Revenue</h2>
-    <p>
-      Grow: Project provides larger grants for one-off larger scale and artistically ambitious projects. Grants offered are between £5,000 to £15,000. This strand is open to individuals and organisations. 
-    </p>
-		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/", columns: 2, rows: 2 }  %}
+		
+		<h3>Dummy hexmap data</h3>
+	{% comp "dashboard.embedded_figure", { link: "/lcip/thrive/" }  %}
+	
+	{{ comp.oi.map.hex_cartogram({
+		config: {
+			hexjson: hex.wards_leeds,
+			data: viz.leeds_2023.volunteers_by_ward,
+			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+			matchKey: 'ward_code',
+			value: 'confirmed',
+			label: '{{ n | slice(0,3) }}',
+			tooltip: '{{ n }}: <strong>{{ confirmed }}</strong>'
+		}
+	}) | safe }}
+
+	{% endcomp %}
+	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
-		<h2>Thrive</h2>
-    <p>
-      Thrive provides grants to support ongoing activities for more established cultural organisations delivering positive creative and social impacts through year-round programmes of work in the city.
-    </p>
+		<h3>Thrive</h3>
+		
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
 		{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
-		<h2>Cultural Anchors</h2>
-    <p>
-      Cultural Anchors includes some of the largest, building based, cultural organisations in the city, each attracting significant levels of funding to the city from a range of sources.
-    </p>
+		<h3>Cultural Anchors</h3>
+		
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h2>Activate</h2>
-    <p>
-      Activate is a flexible funding strand which enables the Council to distribute external funding, commission projects, make strategic interventions and solicit (invite) applications that respond to a defined need, gap in provision or demand for activity.
-    </p>
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
 	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
 	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
+		{% endcomp %}
+
+{% endcomp %}

@@ -44,6 +44,8 @@ site.use(oiViz({
 	componentNamespace: 'oi.viz',
 		"scales": {
 			"lightcyan": 'rgb(255,255,255) 0%, hsl(173, 100%, 50%) 100%',
+      "darkcyan": 'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+      
 		}
 }));
 

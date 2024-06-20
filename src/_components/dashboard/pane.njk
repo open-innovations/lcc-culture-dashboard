@@ -1,6 +1,7 @@
 <li class="dashboard pane" style ="
     {% if rows %}grid-row:auto/span {{ rows }};{% endif %}
     {% if columns %}grid-column:span {{ columns }};{% endif %}
+    {% if bg %}background: {{ bg }}!important;{% endif %}
 ">
 {%-if link -%}<a class="impact-link" href="{{ link | url }}">{%- endif -%}
   {{ content | safe }}

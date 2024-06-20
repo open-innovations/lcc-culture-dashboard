@@ -1,29 +1,5 @@
----
-css: |
-  .dashboard-figure {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    & .skip-link {
-      &:first-of-type {
-        top: 1rem;
-      }
-      &:last-of-type {
-        bottom: 1rem;
-      }
-    }
-  }
-
-  .figure-link {
-    color: inherit;
-    text-decoration: none;
-  }
----
 {%-if link -%}<a class="figure-link" href="{{ link | url }}">{%- endif -%}
 <figure class="dashboard-figure" style="
-    {%- if max_width %}--max-width:{{ max_width }};{% endif -%}
-    {%- if min_width %}--min-width:{{ min_width }};{% endif -%}
     {%- if rows %}grid-row:auto/span {{ rows }};{% endif -%}
     {%- if columns %}grid-column:span {{ columns }};{% endif -%}">
   {{ content | safe }} 
