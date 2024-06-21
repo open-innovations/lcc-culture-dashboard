@@ -1,0 +1,53 @@
+/* Site header */
+.site-header {
+  position: sticky;
+  background: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1002;
+}
+
+.site-header-content {
+  display: flex;
+  align-items: center;
+  padding-top: 1.55em;
+  padding-bottom: 1.55em;
+  gap: 1em;
+  width: 90%;
+  max-width: 1600px;
+
+  & > *:first-child {
+    flex-grow: 1;
+  }
+
+  & .logos {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    & > *:last-child {
+      border-left: 2px solid #d4d4d4;
+      padding-left: 25px;
+    }
+  }
+}
+
+.site-header-logo {
+  height: min(90px, 16vw);
+}
+
+.site-footer-logo {
+  height: 90px;
+}
+
+.site-sub-logo {
+  height: 24px;
+  & path {
+    fill: #e55912;
+  }
+}
+
+html {
+  scroll-padding-top: 250px;
+}
