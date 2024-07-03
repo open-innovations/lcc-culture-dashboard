@@ -144,7 +144,7 @@ ul.grid > li > a { display: block; text-decoration: none!important;}
 ul.grid > *:last-child { padding-bottom:2em; }
 .pane { padding: 2em; justify-content: space-evenly;}
 ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: #0a2f45; }
-.grid .pane { background: #91cfce; }
+.grid .pane { background: #91cfce; border-right: groove; border-width: 1px 1px; border-color: #7eb4b3}
 
 .legend { margin-bottom: 1em; text-align: center; }
 .legend .legend-item { display: inline-block; line-height: 1em; margin-right: 1em; cursor: pointer; }
@@ -160,18 +160,18 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
 	color: #0a2f45;
   }
 
-  .dashboard-figure {
+.dashboard-figure {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 
-  .figure-link {
+.figure-link {
     color: inherit;
     text-decoration: none;
   }
 
-	.footnote { text-align: center; color: #0a2f45; padding-top: 2em; font-weight: 400;}
+.footnote { font-size: 1.2em; text-align: center; color: #0a2f45; padding-top: 2em; font-weight: 400;}
 
 
 /* Footer */

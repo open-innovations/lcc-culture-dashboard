@@ -12,7 +12,7 @@ url: /lcip/
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
 
-		<h3>Funding surgeries offered</h3>
+		<h3>Inspire metric</h3>
 		{% comp "dashboard.big_number", { number: 58 } %}
 		{% endcomp %}
       	<p class="footnote">Inspire</p>
@@ -21,9 +21,9 @@ url: /lcip/
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-project/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
 		
-		<h3>Applications received</h3>
+		<h3>Inspire metric</h3>
 		{% comp "dashboard.big_number", { number: 17 } %}
 		{% endcomp %}
       	<p class="footnote">Inspire</p>
@@ -31,10 +31,10 @@ url: /lcip/
 
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/", columns: 2, rows: 2 }  %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/", columns: 2, rows: 2 }  %}
 		
-		<h3>Dummy hexmap data</h3>
-	{% comp "dashboard.embedded_figure", { link: "/lcip/thrive/" }  %}
+		<h3>Inspire ward data</h3>
+	{% comp "dashboard.embedded_figure", { link: "/lcip/inspire/" }  %}
 	
 	{{ comp.oi.map.hex_cartogram({
 		config: {
@@ -53,8 +53,8 @@ url: /lcip/
 	{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
-		<h3>Number of funded artists</h3>
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
+		<h3>Inspire metric</h3>
 		
 		{% comp "dashboard.big_number", { number: 13 } %}
 		{% endcomp %}
@@ -62,8 +62,8 @@ url: /lcip/
 		{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
-		<h3>Total amount awarded</h3>
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
+		<h3>Inspire data</h3>
 		
 		{% comp "dashboard.big_number", { prefix: '£', number: '11k' } %}
 		{% endcomp %}
@@ -72,70 +72,70 @@ url: /lcip/
 
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Funding requested from Leeds City Council</h3>
+	{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+		<h3>Grow: Project metric</h3>
 
 		{% comp "dashboard.big_number", { number:'£8k' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Grow: Project</p>
 
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Funding invested from others</h3>
+		{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+		<h3>Grow: Project metric</h3>
 
 		{% comp "dashboard.big_number", { number: '£3k' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Grow: Project</p>
 
 	{% endcomp %}
 
 		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Artists/creatives</h3>
+		<h3>Activate metric</h3>
 
 		{% comp "dashboard.big_number", { number: 250 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Activate</p>
 
 	{% endcomp %}
 
 		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Volunteers</h3>
+		<h3>Activate metric</h3>
 
 		{% comp "dashboard.big_number", { number: 100 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Activate</p>
 
 		{% endcomp %}
 
-				{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Volunteers</h3>
+		{% comp "dashboard.pane", { link: "/lcip/grow-revenue/" }  %}
+		<h3>Grow: Revenue</h3>
 
 		{% comp "dashboard.big_number", { number: 100 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Grow: Revenue</p>
 
 		{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Broadcast/ online audiences</h3>
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive metric</h3>
 		{% comp "dashboard.big_number", { number: 3000 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Thrive</p>
 		{% endcomp %}
 		
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Online participants</h3>
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive metric</h3>
 		{% comp "dashboard.big_number", { number: 100 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Thrive</p>
 		{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>In person participants</h3>
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive</h3>
 		{% comp "dashboard.big_number", { number: 700 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+      	<p class="footnote">Thrive</p>
 		{% endcomp %}
 
 {% endcomp %}
