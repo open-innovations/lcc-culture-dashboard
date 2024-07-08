@@ -1,28 +1,134 @@
 ---
-title: Leeds Culture Dashboard 
+title: Leeds City Council Culture Dashboard 
 ---
 
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
 </p>
 
-{{
-	comp.oi.dashboard({
+	{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
+
+		<h3>Inspire</h3>
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+
+
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
+		
+		<h3>Inspire</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+
+
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/", columns: 2, rows: 2 }  %}
+		
+		<h3>Inspire ward data</h3>
+	{% comp "dashboard.embedded_figure", { link: "/lcip/inspire/" }  %}
+	
+	{{ comp.oi.map.hex_cartogram({
 		config: {
-			data: "dummy_headline",
-			title: "Headline",
-			value: "Value",
-			width: "200px",
-            postfix: "Suffix",
-			panels: [{
-				name: "Number of surgeries"
-			},{
-				name: "Funding requested"
-			},{
-				name: "Funding from Leeds City Council"
-			},{
-				name: "Funding from Arts Council"
-			}]
+			hexjson: hex.wards_leeds,
+			data: viz.leeds_2023.volunteers_by_ward,
+			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+			matchKey: 'ward_code',
+			value: 'confirmed',
+			label: '{{ n | slice(0,3) }}',
+			tooltip: '{{ n }}: <strong>{{ confirmed }}</strong>'
 		}
-	}) | safe
-}}
+	}) | safe }}
+
+
+	{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
+		<h3>Inspire</h3>
+		
+		{% comp "dashboard.big_number", { number: 13 } %}
+		{% endcomp %}
+		{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
+		<h3>Inspire data</h3>
+		
+		{% comp "dashboard.big_number", { prefix: '£', number: '11k' } %}
+		{% endcomp %}
+
+
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+		<h3>Grow: Project</h3>
+
+		{% comp "dashboard.big_number", { number:'£8k' } %}
+		{% endcomp %}
+      	<p class="footnote">Grow: Project</p>
+
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+		<h3>Grow: Project</h3>
+
+		{% comp "dashboard.big_number", { number: '£3k' } %}
+		{% endcomp %}
+      	<p class="footnote">Grow: Project</p>
+
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 250 } %}
+		{% endcomp %}
+      	<p class="footnote">Activate</p>
+
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		<h3>Activate</h3>
+
+		{% comp "dashboard.big_number", { number: 100 } %}
+		{% endcomp %}
+      	<p class="footnote">Activate</p>
+
+		{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/grow-revenue/" }  %}
+		<h3>Grow: Revenue</h3>
+
+		{% comp "dashboard.big_number", { number: 100 } %}
+		{% endcomp %}
+      	<p class="footnote">Grow: Revenue</p>
+
+		{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive</h3>
+		{% comp "dashboard.big_number", { number: 3000 } %}
+		{% endcomp %}
+      	<p class="footnote">Thrive</p>
+		{% endcomp %}
+		
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive</h3>
+		{% comp "dashboard.big_number", { number: 100 } %}
+		{% endcomp %}
+      	<p class="footnote">Thrive</p>
+		{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+		<h3>Thrive</h3>
+		{% comp "dashboard.big_number", { number: 700 } %}
+		{% endcomp %}
+      	<p class="footnote">Thrive</p>
+		{% endcomp %}
+
+{% endcomp %}
