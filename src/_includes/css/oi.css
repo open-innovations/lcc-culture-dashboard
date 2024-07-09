@@ -34,7 +34,7 @@ h3 {
 	font-weight: 600;
 }
 h2:first-child, h3:first-child, .title { margin-top: 0; }
-h1 + *, h2 + *, h3 + * { margin-top: 1em; }
+h1 + *, h2 + *, h3 + * { margin-top: 2em; }
 strong { font-weight: 700; }
 em { font-style: italic; }
 p, time, li, td, th, footer, div { font-weight: 400; }
@@ -100,7 +100,9 @@ header nav ul li { display: inline-block; }
 header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%; color: inherit; }
 .header-holder { max-width: 1300px; position: relative; margin: auto;}
 
-.summary { padding-top: 2em; padding-bottom: 1em; }
+.about { padding: 2em; margin-bottom: 1em; border-style: groove; border-width: 1px; border-color: #bbbb;}
+ 
+.summary { padding-top: 2em; padding-bottom: 1em;  }
 
 .read-more { margin-top: 1em; padding-bottom: 0.5em; }
 .read-more a {  
