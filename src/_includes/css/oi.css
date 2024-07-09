@@ -102,7 +102,7 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 .summary { padding-top: 2em; padding-bottom: 1em; }
 
-.read-more { margin-top: 1em; padding-bottom: 0.5em;}
+.read-more { margin-top: 1em; padding-bottom: 0.5em; }
 .read-more a {  
 	font-weight: 600; 
 	color: #0a2f45; 
@@ -114,6 +114,12 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 	border-width: 1px 1px 1px; 
 	border-color: #bbbb;
 	padding: 1em;
+	transition: color 0.15s linear, background-color 0.15s linear;
+
+	&:hover {
+		color: white;
+		background: #002331;
+}
 }
 
 /* Dashboard */
