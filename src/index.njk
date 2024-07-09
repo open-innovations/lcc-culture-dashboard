@@ -15,8 +15,8 @@ title: Leeds City Council Culture Dashboard
 		<h3>Inspire</h3>
 		{% comp "dashboard.big_number", { number: 58 } %}
 		{% endcomp %}
-
-
+      	<p class="footnote">Inspire</p>
+		
 	{% endcomp %}
 
 
@@ -25,6 +25,7 @@ title: Leeds City Council Culture Dashboard
 		<h3>Inspire</h3>
 		{% comp "dashboard.big_number", { number: 17 } %}
 		{% endcomp %}
+      	<p class="footnote">Inspire</p>
 
 
 	{% endcomp %}
@@ -45,6 +46,7 @@ title: Leeds City Council Culture Dashboard
 			tooltip: '{{ n }}: <strong>{{ confirmed }}</strong>'
 		}
 	}) | safe }}
+      	<p class="footnote">Inspire</p>
 
 
 	{% endcomp %}
@@ -55,15 +57,17 @@ title: Leeds City Council Culture Dashboard
 		
 		{% comp "dashboard.big_number", { number: 13 } %}
 		{% endcomp %}
+      	<p class="footnote">Inspire</p>
+
 		{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
-		<h3>Inspire</h3>
+	{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+		<h3>Grow: Project</h3>
 		
 		{% comp "dashboard.big_number", { prefix: '£', number: '11k' } %}
 		{% endcomp %}
-
+      	<p class="footnote">Grow: Project</p>
 
 	{% endcomp %}
 
