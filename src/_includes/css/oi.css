@@ -147,7 +147,7 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
 
 .impact-link:hover { 
 	text-decoration: underline;
-	text-underline-offset: 10px; 
+	text-underline-offset: 6px; 
 	text-decoration-color: #91cfce;
 	text-decoration-thickness: 3px;
 }
@@ -179,7 +179,7 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
   }
 
 .footnote { font-size: 1.1em; text-align: center; color: inherit; padding-top: 2em; font-weight: 400;}
-.note { font-size: 0.8em; text-align: center; color: #0a2f45; font-weight: 400;}
+.note { font-size: 0.8em; text-align: center; color: inherit; font-weight: 400;}
 
 /* Header */
 
