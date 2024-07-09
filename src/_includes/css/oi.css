@@ -15,7 +15,7 @@ h1,h2,h3,h4, .title, .subtitle {
 	line-height: 1em; 
 }
 h1, .title { 
-	font-size: 2em; 
+	font-size: 1.8em; 
 	margin-top: 0.5em; 
 	font-weight: 600;
 	text-decoration: underline;
@@ -159,7 +159,6 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
 /* Header */
 
 .site-header {
-	position: sticky;
 	background: #0a2f45;
 	left: 0;
 	right: 0;
@@ -176,6 +175,9 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
 	max-width: 1600px;
 }
 .header-grid { display: grid; grid-template-columns: repeat(2,1fr); grid-gap: 0.5em; list-style: none;}
+header a { font-size: 0.9em;}
+.header-logo { float:left; margin: 0; }
+
 
 
 /* Footer */
