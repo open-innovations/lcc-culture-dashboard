@@ -74,7 +74,7 @@ section { padding: 2em 0; }
 
 .block { padding:2em; border-style: groove; margin-top: 2em; margin-bottom: 2em; border-width: 1px 1px; border-color: #bbbb}
 
-.skip-to-content-link { position: absolute; top: -3rem; right: 0.5rem; z-index: 2000; transition: top 0.3s; padding: 0.5rem 1rem; }
+.skip-to-content-link { position: absolute; top: -3rem; right: 0.5rem; z-index: 2000; transition: top 0.2s; padding: 0.5rem 1rem; }
 .skip-to-content-link:focus { top: 0.25rem; }
 
 .center {
@@ -117,16 +117,40 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 }
 
 /* Dashboard */
+.pane { 
+	padding: 2em; 
+	justify-content: space-evenly;
+
+}
 
 .grid { display: grid; grid-template-columns: 50% 50%; grid-gap: 0.5em; }
+.grid .pane { 
+	background: #91cfce; 
+	color: #0a2f45;
+	border-right: groove; 
+	border-width: 1px 1px; 
+	border-color: #7eb4b3;
+    transition: color 0.15s linear, background-color 0.15s linear;
+
+	&:hover {
+		color: white;
+		background: #002331;
+	  }
+	}
+
 ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));}
 ul.grid > li > a { display: block; text-decoration: none;}
 ul.grid > *:last-child { padding-bottom:2em; }
-.pane { padding: 2em; justify-content: space-evenly;}
-ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: #0a2f45;  }
-.grid .pane { background: #91cfce; border-right: groove; border-width: 1px 1px; border-color: #7eb4b3}
+ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: inherit;  }
 
-.impact-link:hover { text-decoration: underline; }
+
+
+.impact-link:hover { 
+	text-decoration: underline;
+	text-underline-offset: 10px; 
+	text-decoration-color: #91cfce;
+	text-decoration-thickness: 3px;
+}
 
 .legend { margin-bottom: 1em; text-align: center; }
 .legend .legend-item { display: inline-block; line-height: 1em; margin-right: 1em; cursor: pointer; }
@@ -139,7 +163,8 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
     text-align: center;
     display: block;
     margin-top: 0;
-	color: #0a2f45;
+	color: inherit;
+	transition: color 0.3s linear, background-color 0.3s linear;
   }
 
 .dashboard-figure {
@@ -153,7 +178,7 @@ ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; 
     text-decoration: none;
   }
 
-.footnote { font-size: 1.1em; text-align: center; color: #0a2f45; padding-top: 2em; font-weight: 400;}
+.footnote { font-size: 1.1em; text-align: center; color: inherit; padding-top: 2em; font-weight: 400;}
 .note { font-size: 0.8em; text-align: center; color: #0a2f45; font-weight: 400;}
 
 /* Header */
