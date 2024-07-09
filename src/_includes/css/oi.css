@@ -43,7 +43,6 @@ button, .button { border: 0px; font-size: 1em; background-color: #efefef; color:
 a:hover, a:focus { text-decoration: underline; }
 a:visited { color: inherit; }
 a { color: inherit; }
-header a { text-decoration: none; line-height: 0; }
 footer { width: 100%; padding-bottom: 3em; }
 code,pre { font-family: monospace; color: #444; background-color: #efefef; }
 code { padding: 0.125em 0.25em; }
@@ -86,7 +85,7 @@ section { padding: 2em 0; }
   }
 
 
-
+header a { text-decoration: none; line-height: 0; }
 header h1 { margin-top: 0; }
 header nav ul {
 	width: max-content;
@@ -99,6 +98,7 @@ header nav ul {
 }
 header nav ul li { display: inline-block; }
 header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%; color: inherit; }
+.header-holder { max-width: 1300px; position: relative; margin: auto;}
 
 .summary { padding-top: 2em; padding-bottom: 1em; }
 
