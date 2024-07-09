@@ -27,6 +27,7 @@
 /* OI Viz */
 
 .axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em;}
+.oi-viz { padding-bottom:1em;}
 .oi-viz tspan { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em; }
 
 /* OI dashboard component */
