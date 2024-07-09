@@ -148,7 +148,6 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));}
 ul.grid > li > a { display: block; text-decoration: none;}
-ul.grid > *:last-child { padding-bottom:2em; }
 ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: inherit;  }
 
 
