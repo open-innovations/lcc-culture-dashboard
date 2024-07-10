@@ -148,7 +148,11 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));}
 ul.grid > li > a { display: block; text-decoration: none;}
-ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: inherit;  }
+ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: inherit; 
+	color:rgba(92, 176, 177, 0.881) 0%;
+	color: rgb(0, 50, 71) 100%;
+}
+
 
 
 
@@ -222,11 +226,12 @@ header a { font-size: 0.9em;}
 .elsewhere li { display: block; margin-left: 0em; }
 .elsewhere li:first-child { margin-left: 0; }
 .elsewhere li a { display: block; }
-.elsewhere.grid { display: grid; grid-template-columns: repeat(2,1fr); grid-gap: 0em; list-style: none; }
+.elsewhere.grid { display: flex; gap: 0em; flex-direction: column; list-style: none; }
+.elsewhere.grid li a { display: flex; gap: 0.5em; align-items: center;}
+.elsewhere.grid * { margin:0; }
 
 .footer { margin-bottom: 0;}
-.footer-links { display: block; list-style: none; float: left; margin-left: 0;}
-.footer-links li { padding-bottom: 1em; }
+.footer-links { display: grid; list-style: none; float: left; margin-left: 0; grid-gap: 1em;}
 .footer-links li a { font-size: 1.1em; text-decoration: underline; }
 .footer li h3 { 
 	font-size: 1.2em; 
@@ -238,8 +243,7 @@ header a { font-size: 0.9em;}
 	text-decoration-thickness: 3px;
 }
 
-.footer-logos { display: block; list-style: none;}
-.footer-logos li p { padding-top: 2em; }
+ul.footer-logos { display: block; list-style: none; margin-left: 0;}
 
 .oi-credit { font-weight: 800px; font-size: 1.1em; padding:0;}
 
@@ -247,11 +251,27 @@ footer .address { margin-top: 1em; }
 footer a { color: inherit; }
 footer hr.about { margin: 32px 0; border: 0; border-top:1px solid #444; }
 
+.footer.grid-list { grid-template-columns: 100%; }
+
+
 @media only screen and (max-width: 1080px) {
 	.grid { grid-template-columns: 100%; }
 	.grid-list { grid-template-columns: repeat(2,1fr); grid-gap: 0.25em; }
 }
 
+@media only screen and (min-width: 800px) {
+	.footer-links {
+		display:grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.footer.grid-list { 
+		grid-template-columns: 1fr 2fr 1fr;
+	 }
+}
+
 @media only screen and (max-width: 800px) {
-	.elsewhere { float:none; margin-left: 0; margin-bottom: 1em; }
+	ul.grid.dashboard {
+		display: flex;
+		flex-direction: column;
+	}
 }

@@ -40,6 +40,5 @@
 
 @media screen and (max-width: 1200px) {
 	.oi-dashboard { grid-gap: 1.5vw; }
-	/* .oi-dashboard .panel { font-size: max(10px, 1.5vw); } */
 	.oi-dashboard .footnote { font-size: max(10px, 0.7em); }
 }
