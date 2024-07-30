@@ -84,6 +84,7 @@ section { padding: 2em 0; }
 
 .block { padding:2em; border-style: solid; margin-top: 2em; margin-bottom: 2em; border-width: 1px 1px; border-color: #bbbb}
 
+.block p { padding: 1em; }
 .skip-to-content-link { position: absolute; top: -3rem; right: 0.5rem; z-index: 2000; transition: top 0.2s; padding: 0.5rem 1rem; }
 .skip-to-content-link:focus { top: 0.25rem; }
 
