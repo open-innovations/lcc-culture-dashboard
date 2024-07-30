@@ -162,7 +162,12 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));}
 ul.grid > li > a { display: block; text-decoration: none;}
-ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.1em; color: inherit; line-height: 1.4em; 
+ul.grid > li > a > h3 { 
+	text-align: center; 
+	font-weight: 500; 
+	font-size: 1.1em; 
+	color: inherit; 
+	line-height: 1.4em; 
 	color:rgba(92, 176, 177, 0.881) 0%;
 	color: rgb(0, 50, 71) 100%;
 	line-height: 1.4em;
@@ -176,6 +181,19 @@ ul.grid > li > h3 {
 	color:rgba(92, 176, 177, 0.881) 0%;
 	color: rgb(0, 50, 71) 100%;
 	line-height: 1.4em;
+}
+
+ul.grid > li > a > h2 {
+	font-size: 1.4em;
+    transition: color 0.2s linear, background-color 0.2s linear;
+	text-underline-offset: 8px;
+	line-height: 1.6em;
+
+
+	&:hover {
+		color: white;
+		text-decoration-color: #91cfce;
+}
 }
 
 .text-panel { 

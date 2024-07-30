@@ -6,7 +6,7 @@ title: LEEDS 2023 Legacy Dashboard
 
 <div class="summary">
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	This page displays data about the <a href="https://leeds2023.co.uk/">LEEDS 2023 Year of Culture</a>. The figures are drawn from the <a href="https://data.leeds2023.co.uk">LEEDS 2023 Data Microsite</a>, where data from various systems are extracted, processed and visualised to represent the narrative and legacy left behind by the cultural programme. A full evaluation of Leeds' Year of Culture will be available in late 2024.
 </p>
 </div>
 
@@ -35,7 +35,7 @@ title: LEEDS 2023 Legacy Dashboard
 <h2>Engagement with young people</h2>
 
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	The Year of Culture offered children and young people a chance to take part in a creative learning programme - from creative workshops and participatory challenges to classroom resources and activities. Their school engagements linked back to the curriculum, so that pupils' experiences aligned with learning goals. They developed a free, inclusive programme to support cultural and creative education in Leeds schools, engaging with students across all parts of the city. The data shown below was extracted from Airtable, the data management system run internally within LEEDS 2023. 
 </p>
 
 {{
@@ -70,7 +70,7 @@ title: LEEDS 2023 Legacy Dashboard
 <h2>Volunteers</h2>
 
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	The volunteers were the heart of the Year of Culture. The data below showcases the number of shifts and hours that the volunteers completed, helping to ensure the LEEDS 2023 and partner events ran smoothly. There was a simple application process to follow to become a volunteer. After volunteers applied, applications were looked at and LEEDS 2023 guided volunteers through the assessment, before making offers to successful candidates. The data shown below was extracted from the Rosterfy volunteer management system which tracked all activity related to volunteering.
 </p>
 
 <ul class="grid dashboard" style ="grid-template-columns: repeat( 2, minmax(0, 1fr));">
@@ -121,7 +121,7 @@ title: LEEDS 2023 Legacy Dashboard
 <h2>Media coverage</h2>
 
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	The programme brought together people locally, nationally and internationally. From live major events to online digital experiences, the Year of Culture attracted a great deal of attention and coverage in the media and online. The data below presents editorial coverage of the programme, via a number of news and media outlets. These figures were collected up until January 2024, however the programme is still being mentioned and more data will follow in the evaluation report, due late 2024. 
 </p>
 
 <ul class="grid dashboard" style ="grid-template-columns: repeat( 2, minmax(0, 1fr));">
@@ -187,7 +187,7 @@ title: LEEDS 2023 Legacy Dashboard
 <h2>Web & Social Analytics</h2>
 
 <p>
-	Lorem ipsum dolor sit amet. Qui voluptates sint non nobis amet et officiis officia est voluptate libero id ipsam totam rem expedita nihil in dolores voluptatum? Ab illo incidunt cum omnis maxime aut distinctio quos sed perferendis rerum eum quia molestiae. Qui repudiandae rerum est dolorum voluptas vel maiores nihil est perspiciatis quod.
+	As part of LEEDS 2023 engagement and communication strategies, there were accounts on a range of digital and social media platforms. The figures below were derived from Sprout Social, a social media aggregation tool. LEEDS 2023 also had a presence on YouTube, Spotify and TikTok, which were not reported on the Data Microsite. As such, the total digital audience was larger than reported.
 </p>
 
 <ul class="grid dashboard" style ="grid-template-columns: repeat( 1, minmax(0, 1fr));">
@@ -211,72 +211,6 @@ title: LEEDS 2023 Legacy Dashboard
 	}) | safe
 }}
 </li>
-
-{# <li>
-{{ comp.oi.viz.chart.line({ config: {
-      title: 'Total online audience',
-      categories: search.data('working/social-media').all_weekly.columns.week_ending,
-      width: 25,
-      height: 8,
-      text: { colour: 'white' },
-      xAxis: {
-          title: 'Week ending (Sunday)',
-          titleOffset: 4.2,
-          labelRotate: 35,
-          majorTick: 4,
-          formatter: dateFormatter
-      },
-      yAxis: {
-          title: 'Total Audience',
-          titleOffset: 3.4,
-          majorTick: 5000
-      },
-      plotArea: {
-          yMin: 0,
-          yMax: 50000,
-          colour: 'var(--l23-dark-blue-grey)'
-      },
-      padding: {
-          left: 4,
-          bottom: 5
-      },
-      series: [
-          {
-          id: "all", label: "All",
-          yValues: search.data('metrics/social-media').all_weekly.columns.audience_last,
-          colour: all_colour,
-          markerOptions: { s: 5 }
-          },
-          {
-          id: "twitter", label: "Twitter",
-          yValues: search.data('metrics/social-media').service.twitter_weekly.columns.audience_last,
-          colour: twitter_colour,
-          markerOptions: { s: 5 }
-          },
-          {
-          id: "instagram", label: "Instagram",
-          yValues: search.data('metrics/social-media').service.instagram_weekly.columns.audience_last,
-          colour: instagram_colour,
-          markerOptions: { s: 5 }
-          },
-          {
-          id: "facebook", label: "Facebook",
-          yValues: search.data('metrics/social-media').service.facebook_weekly.columns.audience_last,
-          colour: facebook_colour,
-          markerOptions: { s: 5 }
-          },
-          {
-          id: "linkedin", label: "Linkedin",
-          yValues: search.data('metrics/social-media').service.linkedin_weekly.columns.audience_last,
-          colour: linkedin_colour,
-          markerOptions: { s: 5 }
-          }
-      ],
-      legend: {
-          width: "20em"
-      }
-    } }) | safe }}
-</li> #}
 
 </ul>
 
