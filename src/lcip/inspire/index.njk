@@ -15,8 +15,6 @@ title: Inspire
 		<h3>Funding surgeries offered</h3>
 		{% comp "dashboard.big_number", { number: 26 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
 
 	{% endcomp %}
 
@@ -26,8 +24,6 @@ title: Inspire
 		<h3>Applications received</h3>
 		{% comp "dashboard.big_number", { number: 25 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
 
 	{% endcomp %}
 
@@ -50,7 +46,6 @@ title: Inspire
 			tooltip: '{{ n }}: <strong>{{ value }}</strong>'
 		}
 	}) | safe }}
-    <p class="footnote">Inspire</p>
 
 
 	{% endcomp %}
@@ -64,79 +59,70 @@ title: Inspire
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
 		<h3>Total amount awarded</h3>
 		
-		{% comp "dashboard.big_number", { prefix: '£', number: '11k' } %}
+		{% comp "dashboard.big_number", { prefix: '£', number: '9901', fontsize: '3em'} %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 
 	{% endcomp %}
 
-    	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
+    	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" }  %}
 		<h3>Total amount requested</h3>
 		
-		{% comp "dashboard.big_number", { prefix: '£', number: '25k' } %}
+		{% comp "dashboard.big_number", { prefix: '£', number: '31695', fontsize: '3em' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Funding requested from Leeds City Council</h3>
+	{% comp "dashboard.pane" %}
+		<h3>Funding invested from Leeds City Council</h3>
 
-		{% comp "dashboard.big_number", { number:'£8k' } %}
+		{% comp "dashboard.big_number", { number: 11401, prefix: '£', fontsize: '3em' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		{% comp "dashboard.pane"  %}
 		<h3>Funding invested from others</h3>
 
-		{% comp "dashboard.big_number", { number: '£3k' } %}
+		{% comp "dashboard.big_number", { number: 'TBC' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
 		<h3>Artists/creatives</h3>
 
-		{% comp "dashboard.big_number", { number: 250 } %}
+		{% comp "dashboard.big_number", { number: 390 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
 		<h3>Volunteers</h3>
 
-		{% comp "dashboard.big_number", { number: 100 } %}
-		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
+		{% comp "dashboard.big_number", { number: 48 } %}
 		{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Broadcast/ online audiences</h3>
-		{% comp "dashboard.big_number", { number: 3000 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-		{% endcomp %}
-		
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+
+		{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
 		<h3>Audience - in person</h3>
-		{% comp "dashboard.big_number", { number: 1200 } %}
+		{% comp "dashboard.big_number", { number: 21710, fontsize: '3em' } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
 		{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+		{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
 		<h3>Participants - in person</h3>
-		{% comp "dashboard.big_number", { number: 700 } %}
+		{% comp "dashboard.big_number", { number: 1147 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
+		{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
+		<h3>Funded novel cultural activities & products</h3>
+		{% comp "dashboard.big_number", { number: 87 } %}
+		{% endcomp %}
 		{% endcomp %}
 
 {% endcomp %}

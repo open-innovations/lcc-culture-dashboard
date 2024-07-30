@@ -52,7 +52,7 @@ p, iframe, h2, h3, figure, ul, ol, .padded-bottom { margin-bottom: 1em; }
 button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 3em 1em; cursor: pointer; vertical-align: top; line-height: 1.25em; }
 a:hover, a:focus { text-decoration: underline; }
 a:visited { color: inherit; }
-a { color: inherit; }
+a { color: inherit; text-decoration: inherit;}
 footer { width: 100%; padding-bottom: 3em; }
 code,pre { font-family: monospace; color: #444; background-color: #efefef; }
 code { padding: 0.125em 0.25em; }
@@ -162,7 +162,7 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 ul.grid { list-style: none; margin-left: 0em; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));}
 ul.grid > li > a { display: block; text-decoration: none;}
-ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.2em; color: inherit; 
+ul.grid > li > a > h3 { text-align: center; font-weight: 500; font-size: 1.1em; color: inherit; line-height: 1.4em; 
 	color:rgba(92, 176, 177, 0.881) 0%;
 	color: rgb(0, 50, 71) 100%;
 	line-height: 1.4em;
@@ -206,7 +206,7 @@ ul.grid > li > h3 {
 .legend .legend-item svg { float: left; }
 
 .big-number {
-    font-size: 4em;
+    font-size: 3.5em;
     line-height: 1.25em;
     font-weight: bold;
     text-align: center;

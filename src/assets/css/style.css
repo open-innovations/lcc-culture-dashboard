@@ -13,7 +13,7 @@
 .dashboard-item { text-align: center;}
 .dashboard-number { text-align: center;
   font-family: var(--fontstack-heading);
-  font-size: 5em;
+  font-size: 3em;
   font-weight: 500;}
 
 .dashboard-note { text-align: center;}

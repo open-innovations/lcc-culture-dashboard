@@ -1,0 +1,23 @@
+---
+title: Workforce
+---
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+	{% comp "dashboard.pane" %}
+
+		<h3>Artists / Creatives</h3>
+		{% comp "dashboard.big_number", { number: 390 } %}
+		{% endcomp %}
+
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane" %}
+		
+		<h3>Volunteers</h3>
+		{% comp "dashboard.big_number", { number: 48 } %}
+		{% endcomp %}
+
+	{% endcomp %}
+{% endcomp %}

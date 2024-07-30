@@ -1,0 +1,27 @@
+---
+title: Reach
+---
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-surgeries" } %}
+		<h3>Audience - in person</h3>
+		{% comp "dashboard.big_number", { number: 21710 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane", { link: "/lcip/inspire/funding-surgeries" } %}
+		<h3>Broadcast/online audiences</h3>
+		{% comp "dashboard.big_number", { number: 75720 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane", { link: "/lcip/inspire/funding-surgeries" } %}
+		<h3>Participants - in person</h3>
+		{% comp "dashboard.big_number", { number: 1147 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+
+
+{% endcomp %}
