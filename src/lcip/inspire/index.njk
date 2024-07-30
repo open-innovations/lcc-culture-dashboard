@@ -4,70 +4,16 @@ title: Inspire
 
 <div class="summary">
 <p>
-    Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations.
+    Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
 </p>
 </div>
 
 	{% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-
-		<h3>Funding</h3>
-		<p class="note">Data about grants awarded through the programme</p>
-		{% comp "dashboard.big_number", { number: '£11k' } %}
-		{% endcomp %}
-      	<p class="footnote">Total amount awarded to artists</p>
-
-	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-
-		<h3>Workforce</h3>
-		<p class="note">The artists and volunteers employed</p>
-		{% comp "dashboard.big_number", { number: '350' } %}
-		{% endcomp %}
-      	<p class="footnote">Total workforce</p>
-
-	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-
-		<h3>Artforms</h3>
-		<p class="note">Data on funding applications and awards by artform</p>
-		{% comp "dashboard.big_number", { number: '13' } %}
-		{% endcomp %}
-      	<p class="footnote">Total artforms funded</p>
-
-	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-
-		<h3>Diversity</h3>
-		<p class="note">Applicant and workforce demographics</p>
-		{% comp "dashboard.big_number", { number: 'X' } %}
-		{% endcomp %}
-      	<p class="footnote">View EDI data</p>
-
-	{% endcomp %}
-
-
-	{% endcomp %}
-
-
-
-
-
-
-
-
-{#
-
-	{% comp "dashboard.panels", { columns: 4 } %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-surgeries" } %}
 
 		<h3>Funding surgeries offered</h3>
-		{% comp "dashboard.big_number", { number: 58 } %}
+		{% comp "dashboard.big_number", { number: 26 } %}
 		{% endcomp %}
       	<p class="footnote">Inspire</p>
 
@@ -75,29 +21,31 @@ title: Inspire
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-project/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
 		
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 17 } %}
+		{% comp "dashboard.big_number", { number: 25 } %}
 		{% endcomp %}
       	<p class="footnote">Inspire</p>
 
 
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/", columns: 2, rows: 2 }  %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/", columns: 2, rows: 2 }  %}
 		
 		<h3>Applications received by ward</h3>
-	{% comp "dashboard.embedded_figure", { link: "/lcip/thrive/" }  %}
+	{% comp "dashboard.embedded_figure"  %}
     <p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
 	
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.lcip.inspire.applications_by_ward,
+			data: viz.lcip.inspire.APPLICATIONS_BY_WARD,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			value: 'value',
+			min: 0, 
+			max: 2,
 			label: '{{ n | slice(0,3) }}',
 			tooltip: '{{ n }}: <strong>{{ value }}</strong>'
 		}
@@ -108,13 +56,12 @@ title: Inspire
 	{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
 		<h3>Number of funded artists</h3>
 		
-		{% comp "dashboard.big_number", { number: 13 } %}
+		{% comp "dashboard.big_number", { number: 5 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-		{% endcomp %}
+	{% endcomp %}
 
 
 	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
@@ -193,5 +140,3 @@ title: Inspire
 		{% endcomp %}
 
 {% endcomp %}
-
-#}

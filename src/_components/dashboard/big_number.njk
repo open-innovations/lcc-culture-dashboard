@@ -1,2 +1,4 @@
-<div class='big-number'>{{ prefix | d('') }}{{ number }}{{ suffix | d('') }}</div>
+<div class='big-number' style="
+    {%- if fontsize %}font-size:{{ fontsize }};{% endif -%}
+">{{ prefix | d('') }}{{ number }}{{ suffix | d('') }}</div>
 

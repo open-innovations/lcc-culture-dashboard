@@ -1,0 +1,27 @@
+---
+title: Inspire - Funding Surgeries
+---	
+    
+{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>No. of funding surgeries booked</h3>
+		{% comp "dashboard.big_number", { number: 20 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>No. of funding surgeries offered</h3>
+		{% comp "dashboard.big_number", { number: 26 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>No. of in person sessions</h3>
+		{% comp "dashboard.big_number", { number: 6 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>No. of online/Telephone sessions </h3>
+		{% comp "dashboard.big_number", { number: 14 } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}

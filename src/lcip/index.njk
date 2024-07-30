@@ -6,138 +6,203 @@ url: /lcip/
 
 <div class="summary">
 <p>
-  Leeds Cultural Investment Programme is a framework to enable culture and creativity, support the stability and growth of Leeds’ creative sector and to promote access to cultural and creative opportunities by Leeds residents.
+  Leeds Cultural Investment Programme is a framework to enable culture and creativity, support the stability and growth of Leeds’ creative sector and to promote access to cultural and creative opportunities by Leeds residents. Grants are awarded through the programme to creative individuals and organisations, building on the arts@leeds and Leeds Insired funding schemes.
+</p>
+
+<p>
+	There are five funding streams designed to enable creative and cultural activity in Leeds to flourish for the benefit of all who live, work, study and visit the city. The scheme offers both Project (one-off) funding and Revenue (ongoing) funding, divided into the funding streams: Inspire, Grow: Project, Grow: Revenue, Thrive and Cultural Anchors. Explore data relating to these funding streams below.
+</p>
+<p>
+	To read more about the programme, visit the <a href="https://www.leedscultureprogrammes.org.uk\">Leeds Culture Programmes website</a>.
 </p>
 </div>
 
+<h2>Project</h2>
+
+<p>
+	The project grants available are: Inspire, Grow: Project and Activate. These grants updated every financial quarter and are cumulative. These figures are indicative of our investment. Click the links below to view data on each funding stream.</p>
+
+	{% comp "dashboard.panels", { columns: 1 } %}
+	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
+
+	<h2>Overview: Q1 (1 Apr 2024 - 30 June 2024)</h2>
+
+	{% endcomp %}
+	{% endcomp %}
+
+
 	{% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-
-		<h3>Inspire</h3>
+	{% comp "dashboard.pane" %}
+		<h3>Number of advice sessions</h3>
 		{% comp "dashboard.big_number", { number: 58 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
-
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" } %}
-		
-		<h3>Inspire</h3>
+	{% comp "dashboard.pane" %}
+		<h3>Number of applications</h3>
 		{% comp "dashboard.big_number", { number: 17 } %}
 		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
-
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/", columns: 2, rows: 2 }  %}
-		
-		<h3>Ward-level data</h3>
-	{% comp "dashboard.embedded_figure", { link: "/lcip/inspire/" }  %}
-	
-	{{ comp.oi.map.hex_cartogram({
-		config: {
-			hexjson: hex.wards_leeds,
-			data: viz.leeds_2023.volunteers_by_ward,
-			scale:  'rgba(92, 176, 177, 0.881) 0%, rgb(1, 68, 96) 100%',
-			matchKey: 'ward_code',
-			value: 'confirmed',
-			label: '{{ n | slice(0,3) }}',
-			tooltip: '{{ n }}: <strong>{{ confirmed }}</strong>'
-		}
-	}) | safe }}
-      	<p class="footnote">Inspire</p>
+	{% comp "dashboard.pane" %}
+		<h3>Funded artforms</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}	
 
-
-	{% endcomp %}
+	{% comp "dashboard.pane" %}
+		<h3>Funding awarded</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
+		{% comp "dashboard.pane" %}
+		<h3>Workforce</h3>
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane" %}
+		<h3>Engagement</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Wards receiving activity</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}	
+
+	{% comp "dashboard.pane" %}
+		<h3>Diversity</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'}  %}
+
+	<h2>Project funding schemes</h2>
+
+	{% endcomp %}
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+
+
+	{% comp "dashboard.text-panel", { link: "/lcip/inspire/", height: '200px' } %}
 		<h3>Inspire</h3>
-		
-		{% comp "dashboard.big_number", { number: 13 } %}
-		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-		{% endcomp %}
-
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/" }  %}
-		<h3>Inspire</h3>
-		
-		{% comp "dashboard.big_number", { prefix: '£', number: '11k' } %}
-		{% endcomp %}
-      	<p class="footnote">Inspire</p>
-
-
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
+
+	{% comp "dashboard.text-panel", { link: "/lcip/grow-project/", height: '200px'  } %}
 		<h3>Grow: Project</h3>
-
-		{% comp "dashboard.big_number", { number:'£8k' } %}
-		{% endcomp %}
-      	<p class="footnote">Grow: Project</p>
-
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/grow-project/" }  %}
-		<h3>Grow: Project</h3>
-
-		{% comp "dashboard.big_number", { number: '£3k' } %}
-		{% endcomp %}
-      	<p class="footnote">Grow: Project</p>
-
-	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
+	{% comp "dashboard.text-panel", { link: "/lcip/activate/", height: '200px'  } %}
 		<h3>Activate</h3>
+	{% endcomp %}	
+{% endcomp %}
 
-		{% comp "dashboard.big_number", { number: 250 } %}
-		{% endcomp %}
-      	<p class="footnote">Activate</p>
+
+
+<h2>Revenue</h2>
+
+<p>
+	The Revenue grants available are: Grow: Revenue, Thrive and Cultural Anchors. These grants are offered over a two-year period. The figures will be updated at the beginning of the financial year. The figures are indicative of our investment.
+</p>
+
+	{% comp "dashboard.panels", { columns: 1 } %}
+	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
+
+	<h2>Revenue grants: Year 1 - 2024</h2>
 
 	{% endcomp %}
+	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/activate/" }  %}
-		<h3>Activate</h3>
 
-		{% comp "dashboard.big_number", { number: 100 } %}
+	{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Number of advice sessions</h3>
+		{% comp "dashboard.big_number", { number: 58 } %}
 		{% endcomp %}
-      	<p class="footnote">Activate</p>
+	{% endcomp %}
 
+
+	{% comp "dashboard.pane" %}
+		<h3>Number of applications</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
 		{% endcomp %}
+	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/grow-revenue/" }  %}
+	{% comp "dashboard.pane" %}
+		<h3>Funded artforms</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}	
+
+	{% comp "dashboard.pane" %}
+		<h3>Funding requested</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+		{% comp "dashboard.pane" %}
+		<h3>Workforce</h3>
+		{% comp "dashboard.big_number", { number: 58 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane" %}
+		<h3>Engagement</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Wards receiving activity</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}	
+
+	{% comp "dashboard.pane" %}
+		<h3>Diversity</h3>
+		{% comp "dashboard.big_number", { number: 17 } %}
+		{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
+
+	<h2>Revenue grant schemes</h2>
+
+	{% endcomp %}
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+
+	{% comp "dashboard.text-panel", { link: "/lcip/grow-revenue/" } %}
 		<h3>Grow: Revenue</h3>
+	{% endcomp %}
 
-		{% comp "dashboard.big_number", { number: 100 } %}
-		{% endcomp %}
-      	<p class="footnote">Grow: Revenue</p>
 
-		{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
+	{% comp "dashboard.text-panel", { link: "/lcip/thrive/" } %}
 		<h3>Thrive</h3>
-		{% comp "dashboard.big_number", { number: 3000 } %}
-		{% endcomp %}
-      	<p class="footnote">Thrive</p>
-		{% endcomp %}
-		
-		{% comp "dashboard.pane", { link: "/lcip/thrive/" }  %}
-		<h3>Thrive</h3>
-		{% comp "dashboard.big_number", { number: 100 } %}
-		{% endcomp %}
-      	<p class="footnote">Thrive</p>
-		{% endcomp %}
+	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/" }  %}
+	{% comp "dashboard.text-panel", { link: "/lcip/cultural-anchors/" } %}
 		<h3>Cultural Anchors</h3>
-		{% comp "dashboard.big_number", { number: 700 } %}
-		{% endcomp %}
-      	<p class="footnote">Cultural Anchors</p>
-		{% endcomp %}
-
+	{% endcomp %}	
 {% endcomp %}

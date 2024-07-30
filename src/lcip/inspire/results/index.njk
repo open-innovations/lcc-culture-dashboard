@@ -1,0 +1,68 @@
+---
+title: Results
+---
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Funded individual artists</h3>
+		{% comp "dashboard.big_number", { number: 5 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Funded organisations</h3>
+		{% comp "dashboard.big_number", { number: 4 } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+
+    {% comp "dashboard.pane" %}
+		<h3>Unsuccessful artist applications</h3>
+		{% comp "dashboard.big_number", { number: 12 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Unsuccessful organisation applications</h3>
+		{% comp "dashboard.big_number", { number: 3 } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Withdrawn by applicant</h3>
+		{% comp "dashboard.big_number", { number: 1 } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+    	{% comp "dashboard.pane" %}
+		<h3>Awarded to individual artists</h3>
+		{% comp "dashboard.big_number", { prefix: '£', number: 6473, fontsize: '3em' } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Awarded to organisations</h3>
+		{% comp "dashboard.big_number", { number: 3428, prefix: '£', fontsize: '3em' } %}{% endcomp %}
+	{% endcomp %}
+	
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+
+    {% comp "dashboard.pane" %}
+		<h3>Not awarded to individual artists</h3>
+		{% comp "dashboard.big_number", { number: 14897, fontsize: '3em', prefix: '£' } %}{% endcomp %}
+	{% endcomp %}
+
+        {% comp "dashboard.pane" %}
+		<h3>Total amount not awarded to organisations(£)</h3>
+		{% comp "dashboard.big_number", { number: 3497, fontsize: '3em', prefix: '£' } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+
