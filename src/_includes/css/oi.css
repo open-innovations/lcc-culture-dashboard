@@ -144,6 +144,7 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 .grid .pane { 
 	background: #91cfce; 
 	color: #0a2f45;
+	fill: #0a2f45;
 	border-right: solid; 
 	border-width: 1px 1px; 
 	border-color: #7eb4b3;
@@ -151,6 +152,7 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 	&:hover {
 		color: white;
+		fill: white;
 		background: #002331;
 	  }
 	}
@@ -177,7 +179,7 @@ ul.grid > li > a > h3 {
 ul.grid > li > h3 {
 	text-align: center; 
 	font-weight: 500; 
-	font-size: 1.1em; 
+	font-size: 1.2em; 
 	color: inherit; 
 	color:rgba(92, 176, 177, 0.881) 0%;
 	color: rgb(0, 50, 71) 100%;
