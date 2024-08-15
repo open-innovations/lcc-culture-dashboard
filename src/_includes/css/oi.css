@@ -248,7 +248,12 @@ ul.grid > li > a > h2 {
     text-decoration: none;
   }
 
-.footnote { font-size: 1.1em; text-align: center; color: inherit; padding-top: 2em; font-weight: 400;}
+.footnote { font-size: 1.1em; 
+	text-align: center; 
+	color: inherit; 
+	padding-top: 2em; 
+	font-weight: 400;
+}
 .note { font-size: 0.8em; text-align: center; color: inherit; font-weight: 400;}
 
 /* Header */

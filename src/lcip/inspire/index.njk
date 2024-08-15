@@ -4,125 +4,89 @@ title: Inspire
 
 <div class="summary">
 <p>
-    Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
+    Inspire provides small grants for one off cultural projects and activities offering grants between £500 to £1,500 for individuals or organisations. The dashboard below provides an overof the grants awarded through the scheme. Click the panels to see further detail.
 </p>
 </div>
 
 	{% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-surgeries" } %}
-
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
 		{% comp "dashboard.big_number", { number: 26 } %}
 		{% endcomp %}
-
+		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
-		
 		<h3>Applications received</h3>
 		{% comp "dashboard.big_number", { number: 25 } %}
 		{% endcomp %}
-
+		<p class="footnote">Applications</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/", columns: 2, rows: 2 }  %}
-		
-		<h3>Applications received by ward</h3>
-	{% comp "dashboard.embedded_figure"  %}
-    <p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
-	
-	{{ comp.oi.map.hex_cartogram({
-		config: {
-			hexjson: hex.wards_leeds,
-			data: viz.lcip.inspire.APPLICATIONS_BY_WARD,
-			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
-			matchKey: 'ward_code',
-			value: 'value',
-			min: 0, 
-			max: 2,
-			label: '{{ n | slice(0,3) }}',
-			tooltip: '{{ n }}: <strong>{{ value }}</strong>'
-		}
-	}) | safe }}
-
-
-	{% endcomp %}
+	<h3>Applications received by ward</h3>
+		{% comp "dashboard.embedded_figure"  %}
+		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+		{{ comp.oi.map.hex_cartogram({
+			config: {
+				hexjson: hex.wards_leeds,
+				data: viz.lcip.inspire.APPLICATIONS_BY_WARD,
+				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+				matchKey: 'ward_code',
+				value: 'value',
+				min: 0, 
+				max: 2,
+				label: '{{ n | slice(0,3) }}',
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+			}
+		}) | safe }}
+		<p class="footnote">Applications</p>
+		{% endcomp %}
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
-		<h3>Number of funded artists</h3>
-		
+		<h3>Funded artists</h3>
 		{% comp "dashboard.big_number", { number: 5 } %}
 		{% endcomp %}
+		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
-		<h3>Total amount awarded</h3>
-		
+		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { prefix: '£', number: '9901', fontsize: '3em'} %}
 		{% endcomp %}
-
+		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
-    	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" }  %}
-		<h3>Total amount requested</h3>
-		
-		{% comp "dashboard.big_number", { prefix: '£', number: '31695', fontsize: '3em' } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-invested/" } %}
+		<h3>Funding invested</h3>
+		{% comp "dashboard.big_number", { number: 'XXX', prefix: '£', fontsize: '3em' } %}
 		{% endcomp %}
-
+		<p class="footnote">Investment</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane" %}
-		<h3>Funding invested from Leeds City Council</h3>
-
-		{% comp "dashboard.big_number", { number: 11401, prefix: '£', fontsize: '3em' } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
+		<h3>Workforce</h3>
+		{% comp "dashboard.big_number", { number: 'XXX' } %}
 		{% endcomp %}
-
+		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
-		{% comp "dashboard.pane"  %}
-		<h3>Funding invested from others</h3>
-
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { number: 'XXX', fontsize: '3em' } %}
 		{% endcomp %}
-
+		<p class="footnote">Reach</p>
 	{% endcomp %}
 
-		{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
-		<h3>Artists/creatives</h3>
-
-		{% comp "dashboard.big_number", { number: 390 } %}
+	{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
+		<h3>Project outcomes</h3>
+		{% comp "dashboard.big_number", { number: 'XXX' } %}
 		{% endcomp %}
-
+		<p class="footnote">Project Outputs</p>
 	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
-		<h3>Volunteers</h3>
-
-		{% comp "dashboard.big_number", { number: 48 } %}
-		{% endcomp %}
-
-		{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
-		<h3>Audience - in person</h3>
-		{% comp "dashboard.big_number", { number: 21710, fontsize: '3em' } %}
-		{% endcomp %}
-		{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
-		<h3>Participants - in person</h3>
-		{% comp "dashboard.big_number", { number: 1147 } %}
-		{% endcomp %}
-		{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
-		<h3>Funded novel cultural activities & products</h3>
-		{% comp "dashboard.big_number", { number: 87 } %}
-		{% endcomp %}
-		{% endcomp %}
 
 {% endcomp %}
