@@ -23,6 +23,23 @@ title: Inspire - Applications
 		<h3>Organisations</h3>
 		{% comp "dashboard.big_number", { number: 8 } %}{% endcomp %}
 	{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.panels", { columns: 2 } %}
+
+
+	 {% comp "dashboard.pane" %}
+		<h3>Applications started</h3>
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: 35 } %}{% endcomp %}
+	{% endcomp %}
+
+	 {% comp "dashboard.pane" %}
+		<h3>Applications completed</h3>
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: 26 } %}{% endcomp %}
+	{% endcomp %}
+
+	{% endcomp %}
+	{% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane", { columns: 2, rows: 2 }  %}
 	<h3>Applications received by ward</h3>
@@ -82,3 +99,5 @@ title: Inspire - Applications
 	{% endcomp %}
 
 {% endcomp %}
+
+
