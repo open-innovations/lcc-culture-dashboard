@@ -26,10 +26,10 @@
 
 /* OI Viz */
 
-.axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em;}
+.axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.3em;}
 .oi-viz { padding-bottom:0.5em;}
 .oi-map-hex { padding-bottom:0;}
-.oi-viz tspan { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1em; }
+.oi-viz tspan { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em; }
 
 /* OI dashboard component */
 .oi-dashboard .oi-dashboard-inner { --auto-dashboard-min-size: 200px; width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-dashboard-min-size)), 1fr)); grid-gap: 1em; }
@@ -47,6 +47,8 @@
   fill: inherit; 
   font-family: var(--oi-main-fontstack);
 } 
+
+.oi-chart-bar line { stroke: #004563!important; stroke-opacity: 0.3; }
 
 @media screen and (max-width: 1200px) {
 	.oi-dashboard { grid-gap: 1.5vw; }

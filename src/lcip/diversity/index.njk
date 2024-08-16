@@ -1,0 +1,239 @@
+---
+title: Diversity Dashboard
+---
+
+<div class="summary">
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
+</p>
+</div>
+
+<h2>Applied</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	{% comp "dashboard.pane" %}
+	<p class="text">
+		The charts below present the makeup and diversity of people who applied for grants through the LCIP. 
+	</p>
+	{% endcomp %}
+{% endcomp %}
+
+	{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+		<h3>Applications received</h3>
+		{% comp "dashboard.big_number", { number: 'XX', suffix: '%'} %}
+		{% endcomp %}
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
+		<h3>Disability</h3>
+		{% comp "dashboard.big_number", { number: 'X', suffix: '%' } %}
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
+		<h3>Caring responsibilities</h3>
+		{% comp "dashboard.big_number", { number: 'XX', suffix: '%' } %}
+		{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+	<h3>Age</h3>
+	<p class="note">
+		The chart below presents the age of applicants across all LCIP programmes. 
+	</p>
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+	<h3>Gender</h3>
+	<p class="note">
+		The chart below presents the gender reported by applicants across all LCIP programmes. 
+	</p>
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+	<h3>Ethnic Group</h3>
+	<p class="note">
+		The chart below presents the gender reported by applicants across all LCIP programmes. 
+	</p>
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+	<h3>Sexual Orientation</h3>
+	<p class="note">
+		The chart below presents the gender reported by applicants across all LCIP programmes. 
+	</p>
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+	<h3>Disability</h3>
+	<p class="note">
+		The chart below presents the number of applicants across all LCIP programmes who disclosed that they have a disability in their application. 
+	</p>
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+	{% endcomp %}
+	{% endcomp %}
+
+
+<h2>Funded</h2>
+
+	{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+		<h3>Advice sessions offered</h3>
+		{% comp "dashboard.big_number", { number: 26 } %}
+		{% endcomp %}
+		<p class="footnote">Advice Sessions</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
+		<h3>Applications received</h3>
+		{% comp "dashboard.big_number", { number: 25 } %}
+		{% endcomp %}
+		<p class="footnote">Applications</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
+		<h3>Funded artists</h3>
+		{% comp "dashboard.big_number", { number: 5 } %}
+		{% endcomp %}
+		<p class="footnote">Programme Results</p>
+	{% endcomp %}
+
+{% endcomp %}

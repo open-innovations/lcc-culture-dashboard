@@ -115,6 +115,8 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
  
 .summary { padding-top: 2em;  }
 
+.text { padding: 1em; text-align:center; font-weight: 400; font-size: 1.1em;}
+
 .read-more { margin-top: 1em; padding-bottom: 0.5em; }
 .read-more a {  
 	font-weight: 600; 
@@ -226,6 +228,9 @@ ul.grid > li > a > h2 {
 .legend .legend-item { display: inline-block; line-height: 1em; margin-right: 1em; cursor: pointer; }
 .legend .legend-item svg { float: left; }
 
+.oi-legend-inner .oi-legend-item { background: inherit!important; outline: none; }
+.oi-legend-inner .oi-legend-item.oi-series-on { background: inherit!important; outline: none!important; }
+
 .big-number {
     font-size: 3.5em;
     line-height: 1.25em;
@@ -254,7 +259,7 @@ ul.grid > li > a > h2 {
 	padding-top: 2em; 
 	font-weight: 400;
 }
-.note { font-size: 0.8em; text-align: center; color: inherit; font-weight: 400;}
+.note { text-align: center; color: inherit; font-weight: 400; padding-bottom: 1em; }
 
 /* Header */
 
