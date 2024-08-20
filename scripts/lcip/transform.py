@@ -8,6 +8,11 @@ OUT_DIR = os.path.join('src', '_data', 'viz', 'lcip')
 DATA_DIR = os.path.join('data', 'lcip')
 WARD_DATA = os.path.join('data', 'leeds_wards.csv')
 
+headlines = [
+    'No. of funding surgeries offered',
+    'No. of eligible applications'
+]
+
 # Function to fuzzy match and merge dataframes
 def fuzzy_merge(df1, df2, key1, key2, threshold=90):
     s = df2[key2].tolist()
@@ -45,8 +50,10 @@ if __name__ == "__main__":
                 data['THEME'] = data['THEME'].str.rstrip()
                 data['METRIC'] = data['METRIC'].str.rstrip()
 
-                # data = data.dropna().loc[data['R1 Q1'] != 0]
+                #Create headline stats 
 
+
+                # Create datasets per theme
                 themes = data['THEME'].unique()
                 for theme in themes:
                     theme_df = data[data['THEME'] == theme]

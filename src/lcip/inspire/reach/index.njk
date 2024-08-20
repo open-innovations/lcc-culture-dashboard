@@ -6,22 +6,20 @@ title: Inspire - Reach
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Audience - in person</h3>
-		{% comp "dashboard.big_number", { number: 21710 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.reach['rows'][0]['Audience - in person'] } %}
 		{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Broadcast/online audiences</h3>
-		{% comp "dashboard.big_number", { number: 75720 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.reach['rows'][0]['Broadcast/online audiences'] } %}
 		{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Participants - in person</h3>
-		{% comp "dashboard.big_number", { number: 1147 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.reach['rows'][0]['Participants - in person'] } %}
 		{% endcomp %}
 	{% endcomp %}
-
-
 
 {% endcomp %}

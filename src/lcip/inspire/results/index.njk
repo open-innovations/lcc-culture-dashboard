@@ -6,12 +6,12 @@ title: Inspire - Results
 
 	{% comp "dashboard.pane" %}
 		<h3>Funded individual artists</h3>
-		{% comp "dashboard.big_number", { number: 5 } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['No. of funded individual artists'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Funded organisations</h3>
-		{% comp "dashboard.big_number", { number: 4 } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['No. of funded organisations'] } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}
@@ -21,17 +21,17 @@ title: Inspire - Results
 
     {% comp "dashboard.pane" %}
 		<h3>Unsuccessful artist applications</h3>
-		{% comp "dashboard.big_number", { number: 12 } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['No. of unsucessful artist applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Unsuccessful organisation applications</h3>
-		{% comp "dashboard.big_number", { number: 3 } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['No. of unsucessful organisation applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Withdrawn by applicant</h3>
-		{% comp "dashboard.big_number", { number: 1 } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['No. of  withdrawn by applicant'] } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}
@@ -40,29 +40,15 @@ title: Inspire - Results
 
     	{% comp "dashboard.pane" %}
 		<h3>Awarded to individual artists</h3>
-		{% comp "dashboard.big_number", { prefix: '£', number: 6473, fontsize: '3em' } %}{% endcomp %}
+		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)'], fontsize: '3em' } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Awarded to organisations</h3>
-		{% comp "dashboard.big_number", { number: 3428, prefix: '£', fontsize: '3em' } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations(£)'], prefix: '£', fontsize: '3em' } %}{% endcomp %}
 	{% endcomp %}
 	
 {% endcomp %}
 
-{% comp "dashboard.panels", { columns: 2 } %}
-
-
-    {% comp "dashboard.pane" %}
-		<h3>Not awarded to individual artists</h3>
-		{% comp "dashboard.big_number", { number: 14897, fontsize: '3em', prefix: '£' } %}{% endcomp %}
-	{% endcomp %}
-
-        {% comp "dashboard.pane" %}
-		<h3>Not awarded to organisations</h3>
-		{% comp "dashboard.big_number", { number: 3497, fontsize: '3em', prefix: '£' } %}{% endcomp %}
-	{% endcomp %}
-
-{% endcomp %}
 
 

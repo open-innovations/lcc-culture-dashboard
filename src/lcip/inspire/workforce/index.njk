@@ -7,7 +7,7 @@ title: Inspire - Workforce
 	{% comp "dashboard.pane" %}
 
 		<h3>Artists / Creatives</h3>
-		{% comp "dashboard.big_number", { number: 390 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives'] } %}
 		{% endcomp %}
 
 	{% endcomp %}
@@ -16,7 +16,7 @@ title: Inspire - Workforce
 	{% comp "dashboard.pane" %}
 		
 		<h3>Volunteers</h3>
-		{% comp "dashboard.big_number", { number: 48 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers'] } %}
 		{% endcomp %}
 
 	{% endcomp %}
