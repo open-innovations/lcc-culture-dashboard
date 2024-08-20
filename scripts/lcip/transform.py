@@ -45,18 +45,19 @@ if __name__ == "__main__":
                 data['THEME'] = data['THEME'].str.rstrip()
                 data['METRIC'] = data['METRIC'].str.rstrip()
 
-                data_na = data.dropna().loc[data['R1 Q1'] != 0]
+                # data = data.dropna().loc[data['R1 Q1'] != 0]
 
-                themes = data_na['THEME'].unique()
+                themes = data['THEME'].unique()
                 for theme in themes:
-                    theme_df = data_na[data_na['THEME'] == theme]
+                    theme_df = data[data['THEME'] == theme]
                     theme_df = theme_df.pivot_table(index='THEME', columns='METRIC', values='R1 Q1')
                     theme_df = theme_df.round(0).astype(int)
+                    theme_df.columns = theme_df.columns.str.replace(',',' ')
                     theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
 
-                process_wards(ward_data, data_na, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
-                process_wards(ward_data, data_na, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
+                process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
+                process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
 
             except Exception as e:
                 print(f"Error reading LCIP data - {filename}: {e}")

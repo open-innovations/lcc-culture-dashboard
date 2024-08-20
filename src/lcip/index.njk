@@ -1,8 +1,10 @@
 ---
 title: Leeds Cultural Investment Programme
 url: /lcip/
+metric: 'inspire'
 ---
 {% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
+{% set metric = page.metric %}
 
 <div class="summary">
 <p>
@@ -36,9 +38,11 @@ url: /lcip/
 
 	{% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: 20 } %}
+		{% comp "dashboard.big_number", { 
+			number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No of funding surgeries offered'] } %}
 		{% endcomp %}
 	{% endcomp %}
+
 
 
 	{% comp "dashboard.pane" %}
@@ -78,8 +82,8 @@ url: /lcip/
 		{% endcomp %}
 	{% endcomp %}	
 
-	{% comp "dashboard.pane" %}
-		<h3>Diversity Dashboard</h3>
+	{% comp "dashboard.pane", { link: '/lcip/diversity' } %}
+		<h3>Diversity</h3>
 		{% comp "dashboard.big_number", { number: 390 } %}
 		{% endcomp %}
 	{% endcomp %}

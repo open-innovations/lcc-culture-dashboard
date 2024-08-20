@@ -12,7 +12,7 @@ title: Inspire
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: 26 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
 		{% endcomp %}
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
@@ -20,7 +20,7 @@ title: Inspire
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 25 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.applications_received['rows'][0]['No. of eligible applications'] } %}
 		{% endcomp %}
 		<p class="footnote">Applications</p>
 	{% endcomp %}
@@ -32,7 +32,7 @@ title: Inspire
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.inspire.APPLICATIONS_BY_WARD,
+				data: viz.lcip.inspire.applications_by_ward,
 				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 				matchKey: 'ward_code',
 				value: 'value',
@@ -48,7 +48,9 @@ title: Inspire
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
 		<h3>Funded artists</h3>
-		{% comp "dashboard.big_number", { number: 5 } %}
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.inspire.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.inspire.results['rows'][0]['No. of funded organisations']) 
+		} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
@@ -56,35 +58,45 @@ title: Inspire
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
 		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { prefix: '£', number: '9901', fontsize: '3em'} %}
+		{% comp "dashboard.big_number", { 
+			prefix: '£', 
+			number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations(£)']),
+			fontsize: '3em'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-invested/" } %}
 		<h3>Funding invested</h3>
-		{% comp "dashboard.big_number", { number: 'XXX', prefix: '£', fontsize: '3em' } %}
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.inspire.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.inspire.funding['rows'][0]['Funding invested from others e.g. UKSPF']),
+			prefix: '£',
+			fontsize: '3em' } %}
 		{% endcomp %}
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
 		<h3>Workforce</h3>
-		{% comp "dashboard.big_number", { number: 'XXX' } %}
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers'])
+		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/reach/" }  %}
 		<h3>Audience</h3>
-		{% comp "dashboard.big_number", { number: 'XXX', fontsize: '3em' } %}
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.inspire.reach['rows'][0]['Audience - in person']) + (viz.lcip.inspire.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.inspire.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
 		{% endcomp %}
 		<p class="footnote">Reach</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
 		<h3>Project outcomes</h3>
-		{% comp "dashboard.big_number", { number: 'XXX' } %}
+		{% comp "dashboard.big_number", { 
+		number: viz.lcip.inspire.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
 		{% endcomp %}
 		<p class="footnote">Project Outputs</p>
 	{% endcomp %}
