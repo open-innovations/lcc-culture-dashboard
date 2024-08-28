@@ -39,7 +39,7 @@ metric: 'inspire'
 	{% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
 		{% comp "dashboard.big_number", { 
-			number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No of funding surgeries offered'] } %}
+			number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
 		{% endcomp %}
 	{% endcomp %}
 
@@ -47,7 +47,7 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 25 } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.applications_received['rows'][0]['No. of eligible applications'] } %}
 		{% endcomp %}
 	{% endcomp %}
 
@@ -59,32 +59,32 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { number: 18325, prefix: '£', fontsize: '3em' } %}
+		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations(£)']), prefix: '£', fontsize: '3em' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 		{% comp "dashboard.pane" %}
 		<h3>Workforce</h3>
-		{% comp "dashboard.big_number", { number: 'XXX', fontsize: '3em' } %}
+		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '3em' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane" %}
-		<h3>Engagement</h3>
+		<h3>Reach</h3>
+		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.reach['rows'][0]['Audience - in person']) + (viz.lcip.inspire.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.inspire.reach['rows'][0]['Participants - in person']) } %}
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Funded wards</h3>
 		{% comp "dashboard.big_number", { number: 'XXX' } %}
-		{% endcomp %}
-	{% endcomp %}
-
-	{% comp "dashboard.pane" %}
-		<h3>Wards receiving activity</h3>
-		{% comp "dashboard.big_number", { number: 14 } %}
 		{% endcomp %}
 	{% endcomp %}	
 
 	{% comp "dashboard.pane", { link: '/lcip/diversity' } %}
 		<h3>Diversity</h3>
-		{% comp "dashboard.big_number", { number: 390 } %}
+		{% comp "dashboard.big_number", { number: 108 } %}
 		{% endcomp %}
 	{% endcomp %}
 
