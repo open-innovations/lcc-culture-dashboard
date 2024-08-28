@@ -1,0 +1,103 @@
+---
+title: Grow - Revenue - Applications
+---
+
+{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Eligible applications</h3>
+		{% comp "dashboard.big_number", { number: viz.grow-revenue.thrive.applications_received['rows'][0]['No. of eligible applications'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Ineligible applications</h3>
+		{% comp "dashboard.big_number", { number: viz.grow-revenue.thrive.applications_received['rows'][0]['No. of ineligible'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Individual artists</h3>
+		{% comp "dashboard.big_number", { number: viz.grow-revenue.thrive.applications_received['rows'][0]['from an individual artist'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Organisations</h3>
+		{% comp "dashboard.big_number", { number: viz.grow-revenue.thrive.applications_received['rows'][0]['from an organisation'] } %}{% endcomp %}
+	{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.panels", { columns: 2 } %}
+
+
+	 {% comp "dashboard.pane" %}
+		<h3>Applications started</h3>
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.grow-revenue.thrive.leeds_culture_programmes_website['rows'][0]['No. applications started'] } %}{% endcomp %}
+	{% endcomp %}
+
+	 {% comp "dashboard.pane" %}
+		<h3>Applications completed</h3>
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.grow-revenue.thrive.leeds_culture_programmes_website['rows'][0]['No. of applications completed'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% endcomp %}
+	{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane", { columns: 2, rows: 2 }  %}
+	<h3>Applications received by ward</h3>
+	{% comp "dashboard.embedded_figure" %}
+    <p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+	
+	{{ comp.oi.map.hex_cartogram({
+		config: {
+			hexjson: hex.wards_leeds,
+			data: viz.grow-revenue.thrive.applications_by_ward,
+			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+			matchKey: 'ward_code',
+			min: 0, 
+			max: 2,
+			height: 600, 
+			width: 600,
+			value: 'value',
+			label: '{{ n | slice(0,3) }}',
+			tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+		}
+	}) | safe }}
+	{% endcomp %}
+	{% endcomp %}
+
+{% comp "dashboard.pane", { columns: 2, rows: 2 }  %}
+		
+	<h3>Funding awarded by ward</h3>
+	{% comp "dashboard.embedded_figure" %}
+    <p style = "text-align:center;">This map represents the number of funding applications awarded in each Leeds ward.</p>
+	
+	{{ comp.oi.map.hex_cartogram({
+		config: {
+			hexjson: hex.wards_leeds,
+			data: viz.grow-revenue.thrive.received_by_ward,
+			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+			matchKey: 'ward_code',
+			value: 'value',
+			height: 600, 
+			width: 600,
+			min: 0, 
+			max: 2,
+			label: '{{ n | slice(0,3) }}',
+			tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+		}
+	}) | safe }}
+
+	{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Funding requested</h3>
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.grow-revenue.thrive.applications_received['rows'][0]['Total amount of funding requested (£)'], prefix: "£"} %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+

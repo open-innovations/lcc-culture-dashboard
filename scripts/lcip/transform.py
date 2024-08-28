@@ -8,9 +8,23 @@ OUT_DIR = os.path.join('src', '_data', 'viz', 'lcip')
 DATA_DIR = os.path.join('data', 'lcip')
 WARD_DATA = os.path.join('data', 'leeds_wards.csv')
 
-headlines = [
-    'No. of funding surgeries offered',
-    'No. of eligible applications'
+diversity_metrics = [
+    'AGE (APPLIED)',
+    'DISABILITY (APPLIED)',
+    'SEX (APPLIED)',
+    'GENDER REGISTERED AT BIRTH (APPLIED)',
+    'ETHNIC ORIGIN (APPLIED)',
+    'SEXUAL ORIENTATION (APPLIED)',
+    'RELIGIOUS BELIEF (APPLIED)',
+    'CARER (APPLIED)',
+    'AGE (FUNDED)',
+    'DISABILITY (FUNDED)',
+    'SEX (FUNDED)',
+    'GENDER REGISTERED AT BIRTH (FUNDED)',
+    'ETHNIC ORIGIN (FUNDED)',
+    'SEXUAL ORIENTATION (FUNDED)',
+    'RELIGIOUS BELIEF (FUNDED)',
+    'CARER (FUNDED)'
 ]
 
 # Function to fuzzy match and merge dataframes
@@ -50,9 +64,6 @@ if __name__ == "__main__":
                 data['THEME'] = data['THEME'].str.rstrip()
                 data['METRIC'] = data['METRIC'].str.rstrip()
 
-                #Create headline stats 
-
-
                 # Create datasets per theme
                 themes = data['THEME'].unique()
                 for theme in themes:
@@ -62,6 +73,10 @@ if __name__ == "__main__":
                     theme_df.columns = theme_df.columns.str.replace(',',' ')
                     theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
+
+                if data['THEME'].isin(diversity_metrics).any():
+                    diversity = data.loc[data['THEME'].isin(diversity_metrics), ['THEME', 'METRIC', 'R1 Q1']]
+                    diversity.to_csv(os.path.join(OUT_DIR, 'diversity.csv'), index=False)
 
                 process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
                 process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')

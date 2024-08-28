@@ -1,0 +1,54 @@
+---
+title: Grow - Revenue - Results
+---
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Funded individual artists</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['No. of funded individual artists'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Funded organisations</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['No. of funded organisations'] } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+
+    {% comp "dashboard.pane" %}
+		<h3>Unsuccessful artist applications</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['No. of unsucessful artist applications'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Unsuccessful organisation applications</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['No. of unsucessful organisation applications'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Withdrawn by applicant</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['No. of  withdrawn by applicant'] } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+    	{% comp "dashboard.pane" %}
+		<h3>Awarded to individual artists</h3>
+		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.grow-revenue.results['rows'][0]['Total amount awarded to individual artists (£)'], fontsize: '3em' } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Awarded to organisations</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-revenue.results['rows'][0]['Total amount awarded to organisations(£)'], prefix: '£', fontsize: '3em' } %}{% endcomp %}
+	{% endcomp %}
+	
+{% endcomp %}
+
+
+
