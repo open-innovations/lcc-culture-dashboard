@@ -55,6 +55,25 @@ def process_wards(ward_data, data, out_path, theme, output_file):
     merged_data['value'] = merged_data['value'].round(0).astype(int)
     merged_data.to_csv(os.path.join(out_path, output_file), index=False)
 
+def process_diversity_metrics(data, filename_stem):
+    applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
+    funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
+
+    applied.loc[:, 'THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
+    funded.loc[:, 'THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
+
+    diversity = pd.merge(
+        applied[['THEME', 'METRIC', 'R1 Q1']],
+        funded[['THEME', 'METRIC', 'R1 Q1']],
+        on=['THEME', 'METRIC'],
+        how='outer',
+        suffixes=('_APPLIED', '_FUNDED')
+    )
+
+    diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
+    
+    return diversity
+
 if __name__ == "__main__":
 
     ward_data = pd.read_csv(WARD_DATA)
@@ -80,30 +99,16 @@ if __name__ == "__main__":
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
 
                 if data['THEME'].isin(diversity_metrics).any():
-                        applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
-                        funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
+                    diversity = process_diversity_metrics(data, filename_stem)
 
-                        applied['THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
-                        funded['THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
+                    output_file_name = f"{filename_stem}_diversity.csv"
+                    if filename_stem in project_files:
+                        output_path = os.path.join(OUT_DIR, 'diversity', 'project', output_file_name)
+                    elif filename_stem in revenue_files:
+                        output_path = os.path.join(OUT_DIR, 'diversity', 'revenue', output_file_name)
 
-                        diversity = pd.merge(
-                            applied[['THEME', 'METRIC', 'R1 Q1']],
-                            funded[['THEME', 'METRIC', 'R1 Q1']],
-                            on=['THEME', 'METRIC'],
-                            how='outer',
-                            suffixes=('_APPLIED', '_FUNDED')
-                        )
-
-                        diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
-
-                        output_file_name = f"{filename_stem}_diversity.csv"
-                        if filename_stem in project_files:
-                            output_path = os.path.join(OUT_DIR, 'diversity', 'project', output_file_name)
-                        elif filename_stem in revenue_files:
-                            output_path = os.path.join(OUT_DIR, 'diversity', 'revenue', output_file_name)
-
-                        if output_path:  
-                            diversity.to_csv(output_path, index=False)
+                    if output_path:  
+                        diversity.to_csv(output_path, index=False)
                 
                 process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
                 process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
