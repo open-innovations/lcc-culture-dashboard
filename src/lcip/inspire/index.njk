@@ -26,13 +26,13 @@ title: Inspire
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/", columns: 2, rows: 2 }  %}
-	<h3>Applications received by ward</h3>
+	<h3>Funding received by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
-		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+		<p style = "text-align:center;">This map represents the number of applicants awarded funding from each Leeds ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.inspire.applications_by_ward,
+				data: viz.lcip.inspire.received_by_ward,
 				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 				matchKey: 'ward_code',
 				value: 'value',

@@ -1,11 +1,11 @@
 ---
-title: Diversity Dashboard
+title: Revenue - Diversity Dashboard
 ---
 
 <div class="summary">
-<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
-</p>
+	<p>
+		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Revenue grant through the Leeds Cultural Investment Programme. The stats below represent diversity across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
+	</p>
 </div>
 
 <h2>Applied</h2>
@@ -22,7 +22,7 @@ title: Diversity Dashboard
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 'XX', suffix: '%'} %}
+		{% comp "dashboard.big_number", { number: 'XX', suffix: '%' } %}
 		{% endcomp %}
 	{% endcomp %}
 
@@ -43,18 +43,18 @@ title: Diversity Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
+{# {% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 	<h3>Age</h3>
 	<p class="note">
 		The chart below presents the age of applicants across all LCIP programmes. 
 	</p>
 
 		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
+			data: "viz.lcip.diversity",
+			category: 'THEME',
 			width: 1600,
 			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			{ title: 'Age', value: 'R1 Q1', color: 'darkcyan'}
 			],
 			legend: {
 			show: true,
@@ -63,7 +63,7 @@ title: Diversity Dashboard
 			axis: {
 			x: {
 				title: {
-				label: "Number of articles"
+				label: "Age"
 				},
 				"font-weight": oi_viz.bar.axis.x['font-weight'],
 				grid: oi_viz.bar.axis.x.grid
@@ -74,7 +74,7 @@ title: Diversity Dashboard
 			}
 			}
 		} }) | safe }}
-	{% endcomp %}
+	{% endcomp %} #}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 	<h3>Gender</h3>

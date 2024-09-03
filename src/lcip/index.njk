@@ -78,11 +78,11 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Funded wards</h3>
-		{% comp "dashboard.big_number", { number: 'XXX' } %}
+		{% comp "dashboard.big_number", { number: 14 } %}
 		{% endcomp %}
 	{% endcomp %}	
 
-	{% comp "dashboard.pane", { link: '/lcip/diversity' } %}
+	{% comp "dashboard.pane", { link: '/lcip/diversity/project' } %}
 		<h3>Diversity</h3>
 		{% comp "dashboard.big_number", { number: 108 } %}
 		{% endcomp %}
@@ -107,7 +107,7 @@ metric: 'inspire'
 	{% endcomp %}
 
 
-	{% comp "dashboard.text-panel", { link: "/lcip/grow-project/", height: '200px'  } %}
+	{% comp "dashboard.text-panel", { link: "/lcip/grow_project/", height: '200px'  } %}
 		<h2>Grow: Project</h2>
 	{% endcomp %}
 
@@ -179,7 +179,7 @@ metric: 'inspire'
 		{% endcomp %}
 	{% endcomp %}	
 
-	{% comp "dashboard.pane" %}
+	{% comp "dashboard.pane", { link: '/lcip/diversity/revenue' } %}
 		<h3>Diversity</h3>
 		{% comp "dashboard.big_number", { number: 'TBC' } %}
 		{% endcomp %}
@@ -198,7 +198,7 @@ metric: 'inspire'
 {% comp "dashboard.panels", { columns: 3 } %}
 
 
-	{% comp "dashboard.text-panel", { link: "/lcip/grow-revenue/" } %}
+	{% comp "dashboard.text-panel", { link: "/lcip/grow_revenue/" } %}
 		<h2>Grow: Revenue</h2>
 	{% endcomp %}
 

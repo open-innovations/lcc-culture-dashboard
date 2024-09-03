@@ -113,7 +113,7 @@ header nav ul > li > a { padding: 0.5em 1em; display: inline-block; width: 100%;
 
 .about { padding: 2em; margin-bottom: 1em; border-style: solid; border-width: 1px; border-color: #bbbb;}
  
-.summary { padding-top: 2em;  }
+.summary { padding-top: 2em; text-align:center; }
 
 .text { padding: 1em; text-align:center; font-weight: 400; font-size: 1.1em;}
 

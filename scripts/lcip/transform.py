@@ -75,7 +75,27 @@ if __name__ == "__main__":
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
 
                 if data['THEME'].isin(diversity_metrics).any():
-                    diversity = data.loc[data['THEME'].isin(diversity_metrics), ['THEME', 'METRIC', 'R1 Q1']]
+                    # Split data into applied and funded
+                    applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
+                    funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
+
+                    # Remove the (APPLIED) and (FUNDED) from the THEME
+                    applied['THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
+                    funded['THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
+
+                    # Merge applied and funded on THEME and METRIC
+                    diversity = pd.merge(
+                        applied[['THEME', 'METRIC', 'R1 Q1']],
+                        funded[['THEME', 'METRIC', 'R1 Q1']],
+                        on=['THEME', 'METRIC'],
+                        how='outer',
+                        suffixes=('_APPLIED', '_FUNDED')
+                    )
+
+                    # Rename columns to metric, applied, funded
+                    diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
+
+                    # Save to CSV
                     diversity.to_csv(os.path.join(OUT_DIR, 'diversity.csv'), index=False)
 
                 process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')

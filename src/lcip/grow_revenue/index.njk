@@ -10,29 +10,29 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 
 {% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/advice-sessions" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.thrive.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_revenue.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
 		{% endcomp %}
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/applications/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/applications/" } %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.thrive.applications_received['rows'][0]['No. of eligible applications'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_revenue.applications_received['rows'][0]['No. of eligible applications'] } %}
 		{% endcomp %}
 		<p class="footnote">Applications</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/applications/", columns: 2, rows: 2 }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/applications/", columns: 2, rows: 2 }  %}
 	<h3>Applications received by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
 		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.thrive.applications_by_ward,
+				data: viz.lcip.grow_revenue.applications_by_ward,
 				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 				matchKey: 'ward_code',
 				value: 'value',
@@ -46,57 +46,57 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/" }  %}
 		<h3>Funded artists</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.thrive.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.thrive.results['rows'][0]['No. of funded organisations']) 
+		number: (viz.lcip.grow_revenue.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_revenue.results['rows'][0]['No. of funded organisations']) 
 		} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/" }  %}
 		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
-			number: (viz.lcip.thrive.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.thrive.results['rows'][0]['Total amount awarded to organisations(£)']),
+			number: (viz.lcip.grow_revenue.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.grow_revenue.results['rows'][0]['Total amount awarded to organisations(£)']),
 			fontsize: '3em'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/funding-invested/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/funding-invested/" } %}
 		<h3>Funding invested</h3>
 		{% comp "dashboard.big_number", { 
-			number: (viz.lcip.thrive.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.thrive.funding['rows'][0]['Funding invested from others e.g. UKSPF']),
+			number: (viz.lcip.grow_revenue.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.grow_revenue.funding['rows'][0]['Funding invested from others e.g. UKSPF']),
 			prefix: '£',
 			fontsize: '3em' } %}
 		{% endcomp %}
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/workforce/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.thrive.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.thrive.contribution_to_workforce['rows'][0]['Volunteers'])
+		number: (viz.lcip.grow_revenue.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.grow_revenue.contribution_to_workforce['rows'][0]['Volunteers'])
 		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/reach/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/reach/" }  %}
 		<h3>Audience</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.thrive.reach['rows'][0]['Audience - in person']) + (viz.lcip.thrive.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.thrive.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		number: (viz.lcip.grow_revenue.reach['rows'][0]['Audience - in person']) + (viz.lcip.grow_revenue.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.grow_revenue.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
 		{% endcomp %}
 		<p class="footnote">Reach</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/project-outputs/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/project-outputs/" }  %}
 		<h3>Project outcomes</h3>
 		{% comp "dashboard.big_number", { 
-		number: viz.lcip.thrive.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
+		number: viz.lcip.grow_revenue.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
 		{% endcomp %}
 		<p class="footnote">Project Outputs</p>
 	{% endcomp %}

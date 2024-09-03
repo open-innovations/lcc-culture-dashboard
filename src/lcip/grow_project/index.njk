@@ -1,0 +1,106 @@
+---
+title: Grow - Project
+---
+
+<div class="summary">
+<p>
+Grow: Project – provides larger grants for one-off larger scale and artistically ambitious projects. Grants offered are between £5,000 to £15,000. This strand is open to individuals and organisations. 
+</p>
+</div>
+
+{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/advice-sessions" } %}
+		<h3>Advice sessions offered</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% endcomp %}
+		<p class="footnote">Advice Sessions</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/applications/" } %}
+		<h3>Applications received</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.applications_received['rows'][0]['No. of eligible applications'] } %}
+		{% endcomp %}
+		<p class="footnote">Applications</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/applications/", columns: 2, rows: 2 }  %}
+	<h3>Applications received by ward</h3>
+		{% comp "dashboard.embedded_figure"  %}
+		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+		{{ comp.oi.map.hex_cartogram({
+			config: {
+				hexjson: hex.wards_leeds,
+				data: viz.lcip.grow_project.applications_by_ward,
+				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+				matchKey: 'ward_code',
+				value: 'value',
+				min: 0, 
+				max: 2,
+				label: '{{ n | slice(0,3) }}',
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+			}
+		}) | safe }}
+		<p class="footnote">Applications</p>
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/results/" }  %}
+		<h3>Funded artists</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.grow_project.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_project.results['rows'][0]['No. of funded organisations']) 
+		} %}
+		{% endcomp %}
+		<p class="footnote">Programme Results</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/results/" }  %}
+		<h3>Funding awarded</h3>
+		{% comp "dashboard.big_number", { 
+			prefix: '£', 
+			number: (viz.lcip.grow_project.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.grow_project.results['rows'][0]['Total amount awarded to organisations(£)']),
+			fontsize: '3em'} %}
+		{% endcomp %}
+		<p class="footnote">Programme Results</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/funding-invested/" } %}
+		<h3>Funding invested</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.grow_project.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.grow_project.funding['rows'][0]['Funding invested from others e.g. UKSPF']),
+			prefix: '£',
+			fontsize: '3em' } %}
+		{% endcomp %}
+		<p class="footnote">Investment</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/workforce/" }  %}
+		<h3>Workforce</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Volunteers'])
+		} %}
+		{% endcomp %}
+		<p class="footnote">Workforce</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/reach/" }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.grow_project.reach['rows'][0]['Audience - in person']) + (viz.lcip.grow_project.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.grow_project.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		{% endcomp %}
+		<p class="footnote">Reach</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/project-outputs/" }  %}
+		<h3>Project outcomes</h3>
+		{% comp "dashboard.big_number", { 
+		number: viz.lcip.grow_project.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
+		{% endcomp %}
+		<p class="footnote">Project Outputs</p>
+	{% endcomp %}
+
+{% endcomp %}
+
+

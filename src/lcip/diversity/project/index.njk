@@ -1,0 +1,65 @@
+---
+title: Project - Diversity Dashboard
+---
+
+<div class="summary">
+	<p>
+		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Project grant through the Leeds Cultural Investment Programme. The stats below represent diversity across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
+	</p>
+</div>
+
+<h2>Age</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+		{{ comp.oi.viz.chart.bar({ config: {
+			data: "viz.leeds_2023.medium_count",
+			category: 'medium',
+			width: 1600,
+			series: [
+			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
+			],
+			legend: {
+			show: true,
+			position: "top"
+			},
+			axis: {
+			x: {
+				title: {
+				label: "Number of articles"
+				},
+				"font-weight": oi_viz.bar.axis.x['font-weight'],
+				grid: oi_viz.bar.axis.x.grid
+			},
+			y: {
+				"font-weight": oi_viz.bar.axis.y['font-weight'],
+				grid: oi_viz.bar.axis.y.grid
+			}
+			}
+		} }) | safe }}
+
+{% endcomp %}
+
+<h2>Gender</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	
+
+
+{% endcomp %}
+
+<h2>Ethnicity</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	
+
+
+{% endcomp %}
+
+<h2>Disability</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+	
+
+
+{% endcomp %}
