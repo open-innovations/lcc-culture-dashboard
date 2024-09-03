@@ -27,6 +27,11 @@ diversity_metrics = [
     'CARER (FUNDED)'
 ]
 
+project_files = ['inspire', 'grow_project', 'activate']
+revenue_files = ['grow_revenue', 'thrive', 'cultural_anchors']
+project_aggregated = pd.DataFrame()
+revenue_aggregated = pd.DataFrame()
+
 # Function to fuzzy match and merge dataframes
 def fuzzy_merge(df1, df2, key1, key2, threshold=90):
     s = df2[key2].tolist()
@@ -75,29 +80,31 @@ if __name__ == "__main__":
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
 
                 if data['THEME'].isin(diversity_metrics).any():
-                    # Split data into applied and funded
-                    applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
-                    funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
+                        applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
+                        funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
 
-                    # Remove the (APPLIED) and (FUNDED) from the THEME
-                    applied['THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
-                    funded['THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
+                        applied['THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
+                        funded['THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
 
-                    # Merge applied and funded on THEME and METRIC
-                    diversity = pd.merge(
-                        applied[['THEME', 'METRIC', 'R1 Q1']],
-                        funded[['THEME', 'METRIC', 'R1 Q1']],
-                        on=['THEME', 'METRIC'],
-                        how='outer',
-                        suffixes=('_APPLIED', '_FUNDED')
-                    )
+                        diversity = pd.merge(
+                            applied[['THEME', 'METRIC', 'R1 Q1']],
+                            funded[['THEME', 'METRIC', 'R1 Q1']],
+                            on=['THEME', 'METRIC'],
+                            how='outer',
+                            suffixes=('_APPLIED', '_FUNDED')
+                        )
 
-                    # Rename columns to metric, applied, funded
-                    diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
+                        diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
 
-                    # Save to CSV
-                    diversity.to_csv(os.path.join(OUT_DIR, 'diversity.csv'), index=False)
+                        output_file_name = f"{filename_stem}_diversity.csv"
+                        if filename_stem in project_files:
+                            output_path = os.path.join(OUT_DIR, 'diversity', 'project', output_file_name)
+                        elif filename_stem in revenue_files:
+                            output_path = os.path.join(OUT_DIR, 'diversity', 'revenue', output_file_name)
 
+                        if output_path:  
+                            diversity.to_csv(output_path, index=False)
+                
                 process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
                 process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
 
