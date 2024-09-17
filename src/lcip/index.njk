@@ -5,6 +5,7 @@ metric: 'inspire'
 ---
 {% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
 {% set metric = page.metric %}
+{% set most_recent_quarter = "1 Jun 2024"%}
 
 <div class="summary">
 <p>
@@ -28,7 +29,7 @@ metric: 'inspire'
 	{% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
 
-	<h2>Overview: Q1 (1 Apr 2024 - 30 June 2024)</h2>
+	<h2>1 Apr 2024 - {{ most_recent_quarter }}</h2>
 
 	{% endcomp %}
 	{% endcomp %}
@@ -127,7 +128,7 @@ metric: 'inspire'
 	{% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
 
-	<h2>Revenue grants: Year 1 - 2024</h2>
+	<h2>Revenue grants: 2024</h2>
 
 	{% endcomp %}
 	{% endcomp %}
