@@ -55,24 +55,43 @@ def process_wards(ward_data, data, out_path, theme, output_file):
     merged_data['value'] = merged_data['value'].round(0).astype(int)
     merged_data.to_csv(os.path.join(out_path, output_file), index=False)
 
-def process_diversity_metrics(data, filename_stem):
+def process_diversity_metrics(data, out_path, filename_stem):
     applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
     funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
 
     applied.loc[:, 'THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
     funded.loc[:, 'THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
 
-    diversity = pd.merge(
-        applied[['THEME', 'METRIC', 'R1 Q1']],
-        funded[['THEME', 'METRIC', 'R1 Q1']],
-        on=['THEME', 'METRIC'],
-        how='outer',
-        suffixes=('_APPLIED', '_FUNDED')
-    )
+    unique_themes = applied['THEME'].unique()
 
-    diversity.rename(columns={'THEME': 'METRIC', 'R1 Q1_APPLIED': 'APPLIED', 'R1 Q1_FUNDED': 'FUNDED'}, inplace=True)
-    
-    return diversity
+    for theme in unique_themes:
+        applied_theme = applied[applied['THEME'] == theme]
+        funded_theme = funded[funded['THEME'] == theme]
+
+        diversity_theme = pd.merge(
+            applied_theme[['THEME', 'METRIC', 'R1 Q1']],
+            funded_theme[['THEME', 'METRIC', 'R1 Q1']],
+            on=['THEME', 'METRIC'],
+            how='outer',
+            suffixes=('_APPLIED', '_FUNDED')
+        )
+
+        diversity_theme['R1 Q1_APPLIED'] = diversity_theme['R1 Q1_APPLIED'].round(0).astype('Int64')
+        diversity_theme['R1 Q1_FUNDED'] = diversity_theme['R1 Q1_FUNDED'].round(0).astype('Int64')
+
+        diversity_theme.drop(columns=['THEME'], inplace=True)
+
+        diversity_theme = diversity_theme.rename(columns={
+            'R1 Q1_APPLIED': 'APPLIED',
+            'R1 Q1_FUNDED': 'FUNDED'
+        })
+
+        theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
+        theme_out_path = os.path.join(out_path, 'diversity', filename_stem, theme_filename)
+
+        os.makedirs(os.path.dirname(theme_out_path), exist_ok=True)
+
+        diversity_theme.to_csv(theme_out_path, index=False)
 
 if __name__ == "__main__":
 
@@ -98,18 +117,11 @@ if __name__ == "__main__":
                     theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
                     theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
 
+                # Process diversity metrics if applicable
                 if data['THEME'].isin(diversity_metrics).any():
-                    diversity = process_diversity_metrics(data, filename_stem)
+                    process_diversity_metrics(data, OUT_DIR, filename_stem)
 
-                    output_file_name = f"{filename_stem}_diversity.csv"
-                    if filename_stem in project_files:
-                        output_path = os.path.join(OUT_DIR, 'diversity', 'project', output_file_name)
-                    elif filename_stem in revenue_files:
-                        output_path = os.path.join(OUT_DIR, 'diversity', 'revenue', output_file_name)
-
-                    if output_path:  
-                        diversity.to_csv(output_path, index=False)
-                
+                # Process ward data
                 process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
                 process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
 

@@ -12,31 +12,36 @@ title: Project - Diversity Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.age,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
 			}
-			}
-		} }) | safe }}
+		}
+	}
+}
+} %}{% endcomp %}
+
+
+
+
+
+
 
 {% endcomp %}
 
@@ -60,6 +65,4 @@ title: Project - Diversity Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 	
-
-
 {% endcomp %}
