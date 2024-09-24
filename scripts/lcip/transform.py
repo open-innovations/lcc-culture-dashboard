@@ -4,6 +4,9 @@ from pathlib import Path
 
 from thefuzz import process
 
+ROOT = Path('../../')
+ROOT.resolve()
+
 OUT_DIR = os.path.join('src', '_data', 'viz', 'lcip')
 DATA_DIR = os.path.join('data', 'lcip')
 WARD_DATA = os.path.join('data', 'leeds_wards.csv')
@@ -85,6 +88,8 @@ def process_diversity_metrics(data, out_path, filename_stem):
             'R1 Q1_APPLIED': 'APPLIED',
             'R1 Q1_FUNDED': 'FUNDED'
         })
+
+        diversity_theme = diversity_theme.dropna()
 
         theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
         theme_out_path = os.path.join(out_path, 'diversity', filename_stem, theme_filename)
