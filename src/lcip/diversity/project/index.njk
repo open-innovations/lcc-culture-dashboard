@@ -36,33 +36,125 @@ title: Project - Diversity Dashboard
 	}
 }
 } %}{% endcomp %}
-
-
-
-
-
-
-
 {% endcomp %}
+
+
 
 <h2>Gender</h2>
-
 {% comp "dashboard.panels", { columns: 1 } %}
-	
-
-
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.sex,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}
 {% endcomp %}
 
-<h2>Ethnicity</h2>
-
-{% comp "dashboard.panels", { columns: 1 } %}
-	
-
-
-{% endcomp %}
 
 <h2>Disability</h2>
 
 {% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.disability,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
+
 	
+<h2>Ethnicity</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.ethnic_origin,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
+
+
+
+<h2>Caring Responsibility</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.carer,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
 {% endcomp %}
