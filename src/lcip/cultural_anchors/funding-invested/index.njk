@@ -16,7 +16,7 @@ title: Cultural Anchors - Funding Invested (TBC)
 
     {% comp "dashboard.pane" %}
 		<h3>Cumulative spend</h3>
-		{% comp "dashboard.big_number", { number: 'XXX'} %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: (viz.lcip.cultural-anchors.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.cultural-anchors.funding['rows'][0]['Funding invested from others']) } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}
