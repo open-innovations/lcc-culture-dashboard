@@ -1,15 +1,15 @@
-METRIC,METRIC,APPLIED,FUNDED
-ARTFORM,Circus,0,0
-ARTFORM,Combined Arts,4,0
-ARTFORM,Crafts,1,1
-ARTFORM,Dance,1,0
-ARTFORM,Design,0,0
-ARTFORM,Digital Media,2,2
-ARTFORM,Festival/Carnival,1,0
-ARTFORM,Film,2,0
-ARTFORM,Literature / Poetry / Spoken Word,1,0
-ARTFORM,Live Art,0,0
-ARTFORM,Music,7,2
-ARTFORM,Photography,2,1
-ARTFORM,Theatre,1,0
-ARTFORM,Visual Art,5,3
+METRIC,APPLIED,FUNDED
+Circus,0,0
+Combined Arts,8,8
+Crafts,0,0
+Dance,4,4
+Design,0,0
+Digital Media,0,0
+Festival/Carnival,1,0
+Film,2,0
+Literature / Poetry / Spoken Word,1,1
+Live Art,2,2
+Music,5,5
+Photography,0,0
+Theatre,8,7
+Visual Art,3,3

@@ -1,30 +1,30 @@
-METRIC,METRIC,APPLIED,FUNDED
-ETHNIC ORIGIN,African,1,
-ETHNIC ORIGIN,Any other Asian background,,
-ETHNIC ORIGIN,Any other Black background,,
-ETHNIC ORIGIN,Any other background,,
-ETHNIC ORIGIN,Any other mixed/multiple ethnic group,,
-ETHNIC ORIGIN,Any other white background,8,3
-ETHNIC ORIGIN,Arab,,
-ETHNIC ORIGIN,Asian or Asian British,,
-ETHNIC ORIGIN,Bangladeshi,,
-ETHNIC ORIGIN,Black or Black British,,
-ETHNIC ORIGIN,Caribbean,2,2
-ETHNIC ORIGIN,Chinese,1,
-ETHNIC ORIGIN,Indian,1,
-ETHNIC ORIGIN,Kashmiri,,
-ETHNIC ORIGIN,Mixed/ multiple ethnic group,,
-ETHNIC ORIGIN,Other ethnic groups,,
-ETHNIC ORIGIN,Pakistani,,
-ETHNIC ORIGIN,Prefer not to say,8,
-ETHNIC ORIGIN,White,,
-ETHNIC ORIGIN,White British,7,1
-ETHNIC ORIGIN,White English,64,31
-ETHNIC ORIGIN,White Gypsy or Traveller,,
-ETHNIC ORIGIN,White Irish,,
-ETHNIC ORIGIN,White Northern Irish,,
-ETHNIC ORIGIN,White Scottish,3,
-ETHNIC ORIGIN,White Welsh,3,1
-ETHNIC ORIGIN,White and Asian,1,1
-ETHNIC ORIGIN,White and Black African,1,
-ETHNIC ORIGIN,White and Black Caribbean,1,
+METRIC,APPLIED,FUNDED
+African,1,0
+Any other Asian background,0,0
+Any other Black background,0,0
+Any other background,0,0
+Any other mixed/multiple ethnic group,0,0
+Any other white background,8,3
+Arab,0,0
+Asian or Asian British,0,0
+Bangladeshi,0,0
+Black or Black British,0,0
+Caribbean,2,2
+Chinese,1,0
+Indian,1,0
+Kashmiri,0,0
+Mixed/ multiple ethnic group,0,0
+Other ethnic groups,0,0
+Pakistani,0,0
+Prefer not to say,8,0
+White,0,0
+White British,7,1
+White English,64,31
+White Gypsy or Traveller,0,0
+White Irish,0,0
+White Northern Irish,0,0
+White Scottish,3,0
+White Welsh,3,1
+White and Asian,1,1
+White and Black African,1,0
+White and Black Caribbean,1,0

@@ -1,11 +1,11 @@
-METRIC,METRIC,APPLIED,FUNDED
-AGE,18 - 24,11,1
-AGE,25 - 34,16,3
-AGE,35 - 44,24,17
-AGE,45 - 54,14,3
-AGE,55 - 64,9,7
-AGE,65 - 74,8,4
-AGE,75 - 84,13,8
-AGE,85+,1,1
-AGE,Not known,2,0
-AGE,Prefer not to say,0,0
+METRIC,APPLIED,FUNDED
+18 - 24,0,0
+25 - 34,0,0
+35 - 44,0,0
+45 - 54,0,0
+55 - 64,0,0
+65 - 74,0,0
+75 - 84,0,0
+85+,0,0
+Not known,0,0
+Prefer not to say,0,0

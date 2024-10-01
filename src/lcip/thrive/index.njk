@@ -12,8 +12,8 @@ title: Thrive
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.thrive.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
-		{% endcomp %}
+		{# {% comp "dashboard.big_number", { number: viz.lcip.thrive.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% endcomp %} #}
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
 
@@ -32,7 +32,7 @@ title: Thrive
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.thrive.applications_by_ward,
+				data: viz.lcip.thrive.wards_applicant_based,
 				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 				matchKey: 'ward_code',
 				value: 'value',
@@ -58,18 +58,18 @@ title: Thrive
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
 		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { 
+		{# {% comp "dashboard.big_number", { 
 			prefix: '£', 
 			number: (viz.lcip.thrive.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.thrive.results['rows'][0]['Total amount awarded to organisations(£)']),
 			fontsize: '3em'} %}
-		{% endcomp %}
+		{% endcomp %} #}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/funding-invested/" } %}
 		<h3>Funding invested</h3>
 		{% comp "dashboard.big_number", { 
-			number: (viz.lcip.thrive.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.thrive.funding['rows'][0]['Funding invested from others e.g. UKSPF']),
+			number: (viz.lcip.thrive.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.thrive.funding['rows'][0]['Funding invested from others']),
 			prefix: '£',
 			fontsize: '3em' } %}
 		{% endcomp %}

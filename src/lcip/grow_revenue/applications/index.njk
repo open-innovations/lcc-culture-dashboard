@@ -49,7 +49,7 @@ title: Grow - Revenue - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.lcip.grow_revenue.applications_by_ward,
+			data: viz.lcip.grow_revenue.wards_applicant_based,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			min: 0, 
@@ -73,7 +73,7 @@ title: Grow - Revenue - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.lcip.grow_revenue.received_by_ward,
+			data: viz.lcip.grow_revenue.wards_funded,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			value: 'value',

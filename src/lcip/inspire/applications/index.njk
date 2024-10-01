@@ -49,7 +49,7 @@ title: Inspire - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.lcip.inspire.applications_by_ward,
+			data: viz.lcip.inspire.wards_applicant_based,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			min: 0, 
@@ -73,7 +73,7 @@ title: Inspire - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.lcip.inspire.received_by_ward,
+			data: viz.lcip.inspire.wards_funded,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			value: 'value',

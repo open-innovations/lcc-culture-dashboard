@@ -6,22 +6,22 @@ title: Activate - Applications
 
 	{% comp "dashboard.pane" %}
 		<h3>Eligible applications</h3>
-		{% comp "dashboard.big_number", { number: viz.activate.thrive.applications_received['rows'][0]['No. of eligible applications'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.activate.activate.applications_received['rows'][0]['No. of eligible applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Ineligible applications</h3>
-		{% comp "dashboard.big_number", { number: viz.activate.thrive.applications_received['rows'][0]['No. of ineligible'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.activate.activate.applications_received['rows'][0]['No. of ineligible'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Individual artists</h3>
-		{% comp "dashboard.big_number", { number: viz.activate.thrive.applications_received['rows'][0]['from an individual artist'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.activate.activate.applications_received['rows'][0]['from an individual artist'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Organisations</h3>
-		{% comp "dashboard.big_number", { number: viz.activate.thrive.applications_received['rows'][0]['from an organisation'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.activate.activate.applications_received['rows'][0]['from an organisation'] } %}{% endcomp %}
 	{% endcomp %}
 	{% endcomp %}
 
@@ -30,12 +30,12 @@ title: Activate - Applications
 
 	 {% comp "dashboard.pane" %}
 		<h3>Applications started</h3>
-		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.thrive.leeds_culture_programmes_website['rows'][0]['No. applications started'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.activate.leeds_culture_programmes_website['rows'][0]['No. applications started'] } %}{% endcomp %}
 	{% endcomp %}
 
 	 {% comp "dashboard.pane" %}
 		<h3>Applications completed</h3>
-		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.thrive.leeds_culture_programmes_website['rows'][0]['No. of applications completed'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.activate.leeds_culture_programmes_website['rows'][0]['No. of applications completed'] } %}{% endcomp %}
 	{% endcomp %}
 
 	{% endcomp %}
@@ -49,7 +49,7 @@ title: Activate - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.activate.thrive.applications_by_ward,
+			data: viz.activate.activate.wards_applicant_based,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			min: 0, 
@@ -73,7 +73,7 @@ title: Activate - Applications
 	{{ comp.oi.map.hex_cartogram({
 		config: {
 			hexjson: hex.wards_leeds,
-			data: viz.activate.thrive.received_by_ward,
+			data: viz.activate.activate.wards_funded,
 			scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
 			matchKey: 'ward_code',
 			value: 'value',
@@ -95,7 +95,7 @@ title: Activate - Applications
 
     {% comp "dashboard.pane" %}
 		<h3>Funding requested</h3>
-		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.thrive.applications_received['rows'][0]['Total amount of funding requested (£)'], prefix: "£"} %}{% endcomp %}
+		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.activate.activate.applications_received['rows'][0]['Total amount of funding requested (£)'], prefix: "£"} %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}

@@ -1,11 +1,11 @@
-METRIC,METRIC,APPLIED,FUNDED
-DISABILITY,Hearing impairment,1,1
-DISABILITY,Learning disability,7,2
-DISABILITY,Long-standing illness or health condition,4,2
-DISABILITY,Mental health condition,5,2
-DISABILITY,Neuro Diverse,8,3
-DISABILITY,Not known,39,4
-DISABILITY,Other,0,0
-DISABILITY,Physical impairment,6,6
-DISABILITY,Prefer not to say,10,10
-DISABILITY,Visual impairment,0,0
+METRIC,APPLIED,FUNDED
+Hearing impairment,1,1
+Learning disability,7,2
+Long-standing illness or health condition,4,2
+Mental health condition,5,2
+Neuro Diverse,8,3
+Not known,39,4
+Other,0,0
+Physical impairment,6,6
+Prefer not to say,10,10
+Visual impairment,0,0

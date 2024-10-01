@@ -1,10 +1,10 @@
 ---
-title: Project - Diversity Dashboard
+title: Project - Dashboard
 ---
 
-<div class="summary">
+<div class="">
 	<p>
-		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Project grant through the Leeds Cultural Investment Programme. The stats below represent diversity across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
+		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Project grant through the Leeds Cultural Investment Programme. The stats below represent across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
 	</p>
 </div>
 
@@ -12,54 +12,149 @@ title: Project - Diversity Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.age,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
 			}
-			}
-		} }) | safe }}
-
+		}
+	}
+}
+} %}{% endcomp %}
 {% endcomp %}
+
+
 
 <h2>Gender</h2>
-
 {% comp "dashboard.panels", { columns: 1 } %}
-	
-
-
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.sex,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}
 {% endcomp %}
 
-<h2>Ethnicity</h2>
-
-{% comp "dashboard.panels", { columns: 1 } %}
-	
-
-
-{% endcomp %}
 
 <h2>Disability</h2>
 
 {% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.disability,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
+
 	
+<h2>Ethnicity</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.ethnic_origin,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
 
 
+
+<h2>Caring Responsibility</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.inspire.carer,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED"
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 7.5
+			}
+		}
+	}
+}
+} %}{% endcomp %}	
 {% endcomp %}

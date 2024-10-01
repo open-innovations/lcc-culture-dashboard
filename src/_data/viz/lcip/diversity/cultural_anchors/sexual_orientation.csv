@@ -1,8 +1,8 @@
-METRIC,METRIC,APPLIED,FUNDED
-SEXUAL ORIENTATION,Bi-sexual,7,1
-SEXUAL ORIENTATION,Gay,3,1
-SEXUAL ORIENTATION,Heterosexual or Straight,38,32
-SEXUAL ORIENTATION,Lesbian,2,2
-SEXUAL ORIENTATION,Not known,54,7
-SEXUAL ORIENTATION,Other,1,1
-SEXUAL ORIENTATION,Prefer not to say,3,
+METRIC,APPLIED,FUNDED
+Bi-sexual,0,0
+Gay,0,0
+Heterosexual or Straight,0,0
+Lesbian,0,0
+Not known,0,0
+Other,0,0
+Prefer not to say,0,0

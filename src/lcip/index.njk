@@ -39,9 +39,9 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { 
+		{# {% comp "dashboard.big_number", { 
 			number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
-		{% endcomp %}
+		{% endcomp %} #}
 	{% endcomp %}
 
 
@@ -60,8 +60,8 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations(£)']), prefix: '£', fontsize: '3em' } %}
-		{% endcomp %}
+		{# {% comp "dashboard.big_number", { number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations (£)']), prefix: '£', fontsize: '3em' } %}
+		{% endcomp %} #}
 	{% endcomp %}
 
 		{% comp "dashboard.pane" %}

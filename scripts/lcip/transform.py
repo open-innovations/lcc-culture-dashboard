@@ -8,6 +8,9 @@ OUT_DIR = os.path.join('src', '_data', 'viz', 'lcip')
 DATA_DIR = os.path.join('data', 'lcip')
 WARD_DATA = os.path.join('data', 'leeds_wards.csv')
 
+LCIP_DATA = os.path.join('data', 'lcip', 'LCIP GRANT STATS FINAL Q1 & 2 2024.xlsx')
+
+
 diversity_metrics = [
     'AGE (APPLIED)',
     'DISABILITY (APPLIED)',
@@ -27,12 +30,15 @@ diversity_metrics = [
     'CARER (FUNDED)'
 ]
 
+ward_themes = [
+    'WARDS - APPLICANT BASED', 
+    'WARDS - FUNDED',
+    'WARDS - RECEIVING ACTIVITY'
+]
+
 project_files = ['inspire', 'grow_project', 'activate']
 revenue_files = ['grow_revenue', 'thrive', 'cultural_anchors']
-project_aggregated = pd.DataFrame()
-revenue_aggregated = pd.DataFrame()
 
-# Function to fuzzy match and merge dataframes
 def fuzzy_merge(df1, df2, key1, key2, threshold=90):
     s = df2[key2].tolist()
 
@@ -44,83 +50,110 @@ def fuzzy_merge(df1, df2, key1, key2, threshold=90):
     merged.drop(['matches', 'score'], axis=1, inplace=True)
     return merged
 
-def process_wards(ward_data, data, out_path, theme, output_file):
+def process_wards(ward_data, data, theme, name, filename):
     wards_data = data[data['THEME'] == theme]
     merged_data = (
         fuzzy_merge(ward_data, wards_data, 'WD21NM', 'METRIC')
         .dropna()
         .drop(columns='WD21NM')
-        .rename(columns={'WD21CD': 'ward_code', 'THEME': 'metric', 'METRIC': 'ward_name', 'R1 Q1': 'value'})
+        .rename(columns={'WD21CD': 'ward_code', 'THEME': 'metric', 'METRIC': 'ward_name', 'TOTAL': 'value'})
     )
     merged_data['value'] = merged_data['value'].round(0).astype(int)
-    merged_data.to_csv(os.path.join(out_path, output_file), index=False)
+    merged_data.to_csv(os.path.join(OUT_DIR, name, filename), index=False)
 
-def process_diversity_metrics(data, out_path, filename_stem):
-    applied = data[data['THEME'].str.contains(r'\(APPLIED\)')]
-    funded = data[data['THEME'].str.contains(r'\(FUNDED\)')]
-
-    applied.loc[:, 'THEME'] = applied['THEME'].str.replace(r' \(APPLIED\)', '', regex=True)
-    funded.loc[:, 'THEME'] = funded['THEME'].str.replace(r' \(FUNDED\)', '', regex=True)
+def process_diversity_metrics(data, out_path, name):
+    applied = data[data['THEME'].str.contains(r'- APPLIED')]
+    funded = data[data['THEME'].str.contains(r'- FUNDED')]
+    applied.loc[:, 'THEME'] = applied['THEME'].str.replace(r'- APPLIED', '', regex=False)
+    funded.loc[:, 'THEME'] = funded['THEME'].str.replace(r'- FUNDED', '', regex=False)
 
     unique_themes = applied['THEME'].unique()
 
     for theme in unique_themes:
         applied_theme = applied[applied['THEME'] == theme]
         funded_theme = funded[funded['THEME'] == theme]
+        print(applied_theme)
 
         diversity_theme = pd.merge(
-            applied_theme[['THEME', 'METRIC', 'R1 Q1']],
-            funded_theme[['THEME', 'METRIC', 'R1 Q1']],
+            applied_theme[['THEME', 'METRIC', 'TOTAL']],
+            funded_theme[['THEME', 'METRIC', 'TOTAL']],
             on=['THEME', 'METRIC'],
             how='outer',
             suffixes=('_APPLIED', '_FUNDED')
         )
 
-        diversity_theme['R1 Q1_APPLIED'] = diversity_theme['R1 Q1_APPLIED'].round(0).astype('Int64')
-        diversity_theme['R1 Q1_FUNDED'] = diversity_theme['R1 Q1_FUNDED'].round(0).astype('Int64')
+        diversity_theme = diversity_theme.drop(columns={'THEME'})
+        diversity_theme = diversity_theme.loc[(diversity_theme != 0).any(axis=1)]
 
-        diversity_theme.rename(columns={
-            'THEME': 'METRIC', 
-            'R1 Q1_APPLIED': 'APPLIED', 
-            'R1 Q1_FUNDED': 'FUNDED'
-        }, inplace=True)
+        diversity_theme['TOTAL_APPLIED'] = diversity_theme['TOTAL_APPLIED'].round(0).astype(int)
+        diversity_theme['TOTAL_FUNDED'] = diversity_theme['TOTAL_FUNDED'].round(0).astype(int)
 
-        theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
-        theme_out_path = os.path.join(out_path, 'diversity', filename_stem, theme_filename)
+        diversity_theme = diversity_theme.rename(columns={
+            'TOTAL_APPLIED': 'APPLIED', 
+            'TOTAL_FUNDED': 'FUNDED'
+        })
 
-        os.makedirs(os.path.dirname(theme_out_path), exist_ok=True)
+        # Remove trailing underscore from filename
+        theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower().rstrip('_') + '.csv'
+        theme_out_path = os.path.join(out_path, 'diversity', name, theme_filename)
 
-        diversity_theme.to_csv(theme_out_path, index=False)
+        if not diversity_theme.empty:
+            os.makedirs(os.path.dirname(theme_out_path), exist_ok=True)
+            diversity_theme.to_csv(theme_out_path, index=False)
+
+def clean_name(name):
+    name_clean = name.replace(' 2024', '')
+    name_clean = (name_clean.lower().rstrip().replace(' ', '_'))
+    return name_clean
+
+def clean_sheet(sheet):
+    sheet = sheet.dropna(axis='columns', how='all')
+    period_cols = [col for col in sheet.columns if col.startswith('PERIOD')]
+    sheet['TOTAL'] = sheet[period_cols].sum(axis=1)
+    sheet = sheet.drop(columns=period_cols)
+    sheet.loc[:, 'THEME'] = sheet['THEME'].str.rstrip()
+    sheet.loc[:, 'METRIC'] = sheet['METRIC'].str.rstrip()
+    return sheet
+
+def clean_theme(theme):
+    theme = (theme.replace(" ", "_")
+             .replace("/", "_")
+             .replace('(', '')
+             .replace(')', '')
+             .replace('_-_', '_')
+             .rstrip()
+             .lower() + '.csv')
+    return theme
 
 if __name__ == "__main__":
 
+    lcip_data = pd.read_excel(LCIP_DATA, sheet_name=['Inspire 2024', 'Grow Project 2024', 'Activate 2024', 'Grow Revenue 2024', 'Thrive 2024', 'Cultural Anchors 2024'])
     ward_data = pd.read_csv(WARD_DATA)
 
-    for filename in os.listdir(DATA_DIR):
-        if filename.endswith(".xlsx") or filename.endswith(".xls"):  
-            file_path = os.path.join(DATA_DIR, filename)
-            filename_stem = Path(filename).stem
-            out_path = os.path.join(OUT_DIR, filename_stem)
-            try:
-                data = pd.read_excel(file_path).drop(columns={'R2 Q2','R3 Q3','R4 Q4'})
-                data['THEME'] = data['THEME'].str.rstrip()
-                data['METRIC'] = data['METRIC'].str.rstrip()
+    for name, sheet in lcip_data.items():
+            # Clean up sheet name
+            name = clean_name(name)
 
-                # Create datasets per theme
-                themes = data['THEME'].unique()
-                for theme in themes:
-                    theme_df = data[data['THEME'] == theme]
-                    theme_df = theme_df.pivot_table(index='THEME', columns='METRIC', values='R1 Q1')
+            # Define output path
+            theme_path = os.path.join(OUT_DIR, name)
+            os.makedirs(theme_path, exist_ok=True)
+
+            # Clean up data
+            sheet = clean_sheet(sheet)
+
+            process_diversity_metrics(sheet, OUT_DIR, name)
+            # Create datasets for each theme:
+            themes = sheet['THEME'].unique()
+            for theme in themes:
+                if theme in ward_themes:
+                    process_wards(ward_data, sheet, theme, name, f'{clean_theme(theme)}')
+                elif not theme in diversity_metrics:
+                    theme_df = sheet[sheet['THEME'] == theme]
+                    # theme_df = theme_df.fillna(0)
+                    theme_df = theme_df.pivot_table(index='THEME', columns='METRIC', values='TOTAL')
                     theme_df = theme_df.round(0).astype(int)
                     theme_df.columns = theme_df.columns.str.replace(',',' ')
-                    theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower() + '.csv'
-                    theme_df.to_csv(os.path.join(out_path, theme_filename), index=True)
+                    theme_filename = clean_theme(theme)
+                    theme_df.to_csv(os.path.join(theme_path, theme_filename), index=True)
 
-                if data['THEME'].isin(diversity_metrics).any():
-                    process_diversity_metrics(data, OUT_DIR, filename_stem)
-                
-                process_wards(ward_data, data, out_path, 'WARDS - APPLICANT BASED', 'applications_by_ward.csv')
-                process_wards(ward_data, data, out_path, 'WARDS - RECEIVING ACTIVITY', 'received_by_ward.csv')
 
-            except Exception as e:
-                print(f"Error reading LCIP data - {filename}: {e}")
