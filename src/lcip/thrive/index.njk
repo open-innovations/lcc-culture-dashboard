@@ -58,11 +58,11 @@ title: Thrive
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
 		<h3>Funding awarded</h3>
-		{# {% comp "dashboard.big_number", { 
+		{% comp "dashboard.big_number", { 
 			prefix: '£', 
-			number: (viz.lcip.thrive.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.thrive.results['rows'][0]['Total amount awarded to organisations(£)']),
+			number: (viz.lcip.grow_revenue.results['rows'][0]['Total amount awarded to organisations (£)']),
 			fontsize: '3em'} %}
-		{% endcomp %} #}
+		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
