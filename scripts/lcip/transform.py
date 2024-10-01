@@ -72,7 +72,6 @@ def process_diversity_metrics(data, out_path, name):
     for theme in unique_themes:
         applied_theme = applied[applied['THEME'] == theme]
         funded_theme = funded[funded['THEME'] == theme]
-        print(applied_theme)
 
         diversity_theme = pd.merge(
             applied_theme[['THEME', 'METRIC', 'TOTAL']],
@@ -82,8 +81,7 @@ def process_diversity_metrics(data, out_path, name):
             suffixes=('_APPLIED', '_FUNDED')
         )
 
-        diversity_theme = diversity_theme.drop(columns={'THEME'})
-        diversity_theme = diversity_theme.loc[(diversity_theme != 0).any(axis=1)]
+        diversity_theme = diversity_theme.drop(columns={'THEME'}).dropna()
 
         diversity_theme['TOTAL_APPLIED'] = diversity_theme['TOTAL_APPLIED'].round(0).astype(int)
         diversity_theme['TOTAL_FUNDED'] = diversity_theme['TOTAL_FUNDED'].round(0).astype(int)

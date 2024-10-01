@@ -68,7 +68,7 @@ title: Activate
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/funding-invested/" } %}
 		<h3>Funding invested</h3>
-		{% comp "dashboard.big_number", { number: 'XXX'} %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.grow-project.funding['rows'][0]['Funding invested from others'] + viz.lcip.activate.funding['rows'][0]['Funding invested from Leeds City Council']} %}{% endcomp %}
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
