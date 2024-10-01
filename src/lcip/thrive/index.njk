@@ -46,17 +46,9 @@ title: Thrive
 		{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
-		<h3>Funded artists</h3>
-		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.thrive.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.thrive.results['rows'][0]['No. of funded organisations']) 
-		} %}
-		{% endcomp %}
-		<p class="footnote">Programme Results</p>
-	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/thrive/results/", columns: 2 }  %}
 		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
@@ -66,7 +58,7 @@ title: Thrive
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/funding-invested/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/thrive/funding-invested/", columns: 2 } %}
 		<h3>Funding invested</h3>
 		{% comp "dashboard.big_number", { 
 			number: (viz.lcip.thrive.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.thrive.funding['rows'][0]['Funding invested from others']),
@@ -76,7 +68,16 @@ title: Thrive
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/workforce/" }  %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/reach/", columns: 2 }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.thrive.reach['rows'][0]['Audience - in person']) + (viz.lcip.thrive.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.thrive.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		{% endcomp %}
+		<p class="footnote">Reach</p>
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/thrive/workforce/", columns: 2 }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.thrive.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.thrive.contribution_to_workforce['rows'][0]['Volunteers'])
@@ -85,15 +86,7 @@ title: Thrive
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/thrive/reach/" }  %}
-		<h3>Audience</h3>
-		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.thrive.reach['rows'][0]['Audience - in person']) + (viz.lcip.thrive.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.thrive.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
-		{% endcomp %}
-		<p class="footnote">Reach</p>
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/thrive/project-outputs/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/thrive/project-outputs/", columns: 2}  %}
 		<h3>Project outcomes</h3>
 		{% comp "dashboard.big_number", { 
 		number: viz.lcip.thrive.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}

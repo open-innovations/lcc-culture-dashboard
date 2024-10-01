@@ -10,7 +10,7 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 
 {% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/advice-sessions" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
 		{# {% comp "dashboard.big_number", { number: viz.lcip.grow_revenue.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
 		{% endcomp %} #}
@@ -18,14 +18,14 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/applications/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/applications/" } %}
 		<h3>Applications received</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.grow_revenue.applications_received['rows'][0]['No. of eligible applications'] } %}
 		{% endcomp %}
 		<p class="footnote">Applications</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/applications/", columns: 2, rows: 2 }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/applications/", columns: 2, rows: 2 }  %}
 	<h3>Applications received by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
 		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
@@ -46,17 +46,9 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/" }  %}
-		<h3>Funded artists</h3>
-		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_revenue.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_revenue.results['rows'][0]['No. of funded organisations']) 
-		} %}
-		{% endcomp %}
-		<p class="footnote">Programme Results</p>
-	{% endcomp %}
 
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/results/", columns: 2 }  %}
 		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
@@ -66,7 +58,7 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/funding-invested/" } %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/funding-invested/", columns: 2 } %}
 		<h3>Funding invested</h3>
 		{% comp "dashboard.big_number", { 
 			number: (viz.lcip.grow_revenue.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.grow_revenue.funding['rows'][0]['Funding invested from others']),
@@ -76,7 +68,16 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/workforce/" }  %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/reach/", columns: 2 }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.grow_revenue.reach['rows'][0]['Audience - in person']) + (viz.lcip.grow_revenue.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.grow_revenue.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		{% endcomp %}
+		<p class="footnote">Reach</p>
+	{% endcomp %}
+
+		{% comp "dashboard.pane", { link: "/lcip/grow-revenue/workforce/", columns: 2 }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.grow_revenue.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.grow_revenue.contribution_to_workforce['rows'][0]['Volunteers'])
@@ -85,15 +86,7 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/reach/" }  %}
-		<h3>Audience</h3>
-		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_revenue.reach['rows'][0]['Audience - in person']) + (viz.lcip.grow_revenue.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.grow_revenue.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
-		{% endcomp %}
-		<p class="footnote">Reach</p>
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/project-outputs/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow-revenue/project-outputs/", columns: 2}  %}
 		<h3>Project outcomes</h3>
 		{% comp "dashboard.big_number", { 
 		number: viz.lcip.grow_revenue.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
