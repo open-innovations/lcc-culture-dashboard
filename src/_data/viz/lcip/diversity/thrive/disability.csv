@@ -1,11 +1,11 @@
 METRIC,APPLIED,FUNDED
-Hearing impairment,0,0
-Learning disability,0,0
-Long-standing illness or health condition,0,0
-Mental health condition,0,0
-Neuro Diverse,0,0
-Not known,0,0
-Other,0,0
-Physical impairment,0,0
-Prefer not to say,0,0
-Visual impairment,0,0
+Hearing impairment,1,1
+Learning disability,4,4
+Long-standing illness or health condition,10,10
+Mental health condition,3,3
+Neuro Diverse,9,9
+Not known,302,273
+Other,88,88
+Physical impairment,4,4
+Prefer not to say,19,19
+Visual impairment,1,1

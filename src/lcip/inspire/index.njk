@@ -12,8 +12,8 @@ title: Inspire
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
-		{% endcomp %} #}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% endcomp %} 
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
 
@@ -49,8 +49,8 @@ title: Inspire
 	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
 		<h3>Funded artists</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.inspire.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.inspire.results['rows'][0]['No. of funded organisations']) 
-		} %}
+		number: (viz.lcip.inspire.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.inspire.results['rows'][0]['No. of funded organisations']), 
+		fontsize: '3em'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
@@ -60,7 +60,7 @@ title: Inspire
 		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
-			number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations (£)']),
+			number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations(£)']),
 			fontsize: '3em'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
@@ -79,8 +79,7 @@ title: Inspire
 	{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers'])
-		} %}
+		number: (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '3em'} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
@@ -96,7 +95,7 @@ title: Inspire
 	{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
 		<h3>Project outcomes</h3>
 		{% comp "dashboard.big_number", { 
-		number: viz.lcip.inspire.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
+		number: viz.lcip.inspire.project_outputs_funded['rows'][0]['Performances or exhibition days'], fontsize: '3em' } %}
 		{% endcomp %}
 		<p class="footnote">Project Outputs</p>
 	{% endcomp %}

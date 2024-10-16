@@ -5,23 +5,23 @@ title: Inspire - Advice sessions
 {% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane" %}
-		<h3>No. of advice sessions booked</h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries booked'] } %}{% endcomp %} #}
+		<h3>Advice sessions booked</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries booked'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
-		<h3>No. of advice sessions offered</h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}{% endcomp %} #}
+		<h3>Advice sessions offered</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
-		<h3>No. of in person sessions</h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of in person sessions'] } %}{% endcomp %} #}
+		<h3>In person<br>sessions</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of in person sessions'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
-		<h3>No. of online/Telephone sessions </h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of online/Telephone sessions'] } %}{% endcomp %} #}
+		<h3>Online/Telephone sessions </h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of online/Telephone sessions'] } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}

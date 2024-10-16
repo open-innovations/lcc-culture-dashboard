@@ -12,8 +12,8 @@ title: Activate
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{# {% comp "dashboard.big_number", { number: viz.lcip.activate.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
-		{% endcomp %} #}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% endcomp %} 
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
 
@@ -47,17 +47,17 @@ title: Activate
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/results/" }  %}
-		<h3>Funded artists</h3>
-		{# {% comp "dashboard.big_number", { 
-		number: (viz.lcip.activate.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.activate.results['rows'][0]['No. of funded organisations']) 
+		<h3>Funded organisations</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.activate.results['rows'][0]['No. of funded organisations'])
 		} %}
-		{% endcomp %} #}
+		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/results/" }  %}
-		<h3>Funding awarded</h3>
+		<h3>Funding<br>awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
 			number: (viz.lcip.activate.results['rows'][0]['Total amount awarded to organisations (£)']),

@@ -39,54 +39,53 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
-		{# {% comp "dashboard.big_number", { 
-			number: viz.lcip.inspire.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
-		{% endcomp %} #}
+		{% comp "dashboard.big_number", { 
+			number: 96, fontsize: '3em'  } %}
+		{% endcomp %}
 	{% endcomp %}
 
 
 
 	{% comp "dashboard.pane" %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.inspire.applications_received['rows'][0]['No. of eligible applications'] } %}
+		{% comp "dashboard.big_number", { number: 63, fontsize: '3em' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
-		<h3>Funded artforms</h3>
-		{% comp "dashboard.big_number", { number: 9 } %}
+		<h3>Funded<br>artforms</h3>
+		{% comp "dashboard.big_number", { number: 41, fontsize: '3em' } %}
 		{% endcomp %}
 	{% endcomp %}	
 
 	{% comp "dashboard.pane" %}
-		<h3>Funding awarded</h3>
-		{# {% comp "dashboard.big_number", { number: (viz.lcip.inspire.results['rows'][0]['Total amount awarded to individual artists (£)']) + (viz.lcip.inspire.results['rows'][0]['Total amount awarded to organisations (£)']), prefix: '£', fontsize: '3em' } %}
-		{% endcomp %} #}
+		<h3>Funding<br>awarded</h3>
+		 {% comp "dashboard.big_number", { number: '£130,600', fontsize: '2.5rem'} %}
+		{% endcomp %}
 	{% endcomp %}
 
 		{% comp "dashboard.pane" %}
 		<h3>Workforce</h3>
-		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.inspire.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '3em' } %}
+		{% comp "dashboard.big_number", { number: '71,521', fontsize: '2.5em' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane" %}
 		<h3>Reach</h3>
-		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.reach['rows'][0]['Audience - in person']) + (viz.lcip.inspire.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.inspire.reach['rows'][0]['Participants - in person']) } %}
+		{% comp "dashboard.big_number", { number: '256,008', fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
 		<h3>Funded wards</h3>
-		{% comp "dashboard.big_number", { number: 14 } %}
+		{% comp "dashboard.big_number", { number: 13, fontsize: '3rem' } %}
 		{% endcomp %}
 	{% endcomp %}	
 
 	{% comp "dashboard.pane", { link: '/lcip/diversity/project' } %}
-		<h3>Diversity</h3>
-		{% comp "dashboard.big_number", { number: 108 } %}
-		{% endcomp %}
+		<h2>Diversity</h2>
+    <h3><strong>See more</strong></h3>
 	{% endcomp %}
 
 {% endcomp %}
@@ -138,52 +137,51 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		{% comp "dashboard.big_number", { number: 80, fontsize: '3rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane" %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		{% comp "dashboard.big_number", { number: 39, fontsize: '3rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
-		<h3>Funded artforms</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		<h3>Funded<br>artforms</h3>
+		{% comp "dashboard.big_number", { number: 42, fontsize: '3rem' } %}
 		{% endcomp %}
 	{% endcomp %}	
 
 	{% comp "dashboard.pane" %}
-		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		<h3>Funding<br>awarded</h3>
+		{% comp "dashboard.big_number", { number: '£1,713,170', fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 		{% comp "dashboard.pane" %}
-		<h3>Workforce</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		<h3>Workforce<br><br></h3>
+		{% comp "dashboard.big_number", { number: '15,298', fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 
 	{% comp "dashboard.pane" %}
-		<h3>Engagement</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		<h3>Engagement<br><br></h3>
+		{% comp "dashboard.big_number", { number: '2,219,107', fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
 		<h3>Wards receiving activity</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
+		{% comp "dashboard.big_number", { number: 27, fontsize: '3rem' } %}
 		{% endcomp %}
 	{% endcomp %}	
 
 	{% comp "dashboard.pane", { link: '/lcip/diversity/revenue' } %}
 		<h3>Diversity</h3>
-		{% comp "dashboard.big_number", { number: 'TBC' } %}
-		{% endcomp %}
+		<h3><strong>See more</strong></h3>
 	{% endcomp %}
 
 {% endcomp %}

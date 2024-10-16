@@ -2,7 +2,7 @@
 title: Thrive - Applications
 ---
 
-{% comp "dashboard.panels", { columns: 4 } %}
+{% comp "dashboard.panels", { columns: 3 } %}
 
 	{% comp "dashboard.pane" %}
 		<h3>Eligible applications</h3>
@@ -15,30 +15,11 @@ title: Thrive - Applications
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
-		<h3>Individual artists</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.thrive.applications_received['rows'][0]['from an individual artist'] } %}{% endcomp %}
-	{% endcomp %}
-
-    {% comp "dashboard.pane" %}
 		<h3>Organisations</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.thrive.applications_received['rows'][0]['from an organisation'] } %}{% endcomp %}
 	{% endcomp %}
 	{% endcomp %}
 
-	{% comp "dashboard.panels", { columns: 2 } %}
-
-
-	 {% comp "dashboard.pane" %}
-		<h3>Applications started</h3>
-		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.lcip.thrive.leeds_culture_programmes_website['rows'][0]['No. applications started'] } %}{% endcomp %}
-	{% endcomp %}
-
-	 {% comp "dashboard.pane" %}
-		<h3>Applications completed</h3>
-		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.lcip.thrive.leeds_culture_programmes_website['rows'][0]['No. of applications completed'] } %}{% endcomp %}
-	{% endcomp %}
-
-	{% endcomp %}
 	{% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane", { columns: 2, rows: 2 }  %}

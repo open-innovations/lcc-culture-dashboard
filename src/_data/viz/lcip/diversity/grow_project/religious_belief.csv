@@ -1,11 +1,11 @@
 METRIC,APPLIED,FUNDED
-Buddhist,0,0
-Christian,0,0
+Buddhist,1,0
+Christian,1,0
 Hindu,0,0
 Jewish,0,0
 Muslim,0,0
-No religion/belief,0,0
-Not known,0,0
-Other,0,0
-Prefer not to say,0,0
+No religion/belief,8,6
+Not known,7,7
+Other,2,1
+Prefer not to say,6,2
 Sikh,0,0

@@ -21,12 +21,12 @@ title: Activate - Results
 
     {% comp "dashboard.pane" %}
 		<h3>Unsuccessful artist applications</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsuccessful artist applications'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsucessful artist applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Unsuccessful organisation applications</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsuccessful organisation applications'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsucessful organisations applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
@@ -40,7 +40,7 @@ title: Activate - Results
 
     	{% comp "dashboard.pane" %}
 		<h3>Awarded to individual artists</h3>
-		{# {% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists (£)'], fontsize: '3em' } %}{% endcomp %} #}
+		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists'], fontsize: '3em' } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
