@@ -1,4 +1,6 @@
 <div class='big-number' style="
     {%- if fontsize %}font-size:{{ fontsize }};{% endif -%}
-">{{ prefix | d('') }}{{ number }}{{ suffix | d('') }}</div>
+">{{ prefix | d('') }}<span class="bignum"  data="{{ number }}" title="{{ number | toLocaleString }}"
+{%- if abbreviate %} data-compact-format="true">{{ number | abbreviateNumber }}
+{% else %}>{{ number | toLocaleString }}{% endif -%}</span>{{ suffix | d('') }}</div>
 

@@ -34,19 +34,20 @@ site.loadData([".csv", ".tsv", ".dat"], csvLoader({ basic: true }));
 site.loadData([".geojson"], jsonLoader);
 site.loadData([".hexjson"], jsonLoader);
 
+// site.filter('toLocaleString', (value) => { return value.toLocaleString()||value; });
 
 // Import lume viz
 import oiVizConfig from "./oi-viz-config.ts";
 site.use(oiViz(oiVizConfig));
 
 site.use(oiViz({
-	assetPath: '/assets/oi',
+  assetPath: '/assets/oi',
 	componentNamespace: 'oi.viz',
-		"scales": {
-			"lightcyan": 'rgb(255,255,255) 0%, hsl(173, 100%, 50%) 100%',
-      "darkcyan": 'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
-      
-		}
+  "scales": {
+    "lightcyan": 'rgb(255,255,255) 0%, hsl(173, 100%, 50%) 100%',
+    "darkcyan": 'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+    
+  }
 }));
 
 site.use(base_path());
@@ -58,9 +59,25 @@ site.use(metas({
 site.use(date());
 site.use(postcss({}));
 
+site.filter("uppercase", (value) => (value + '').toUpperCase());
+site.filter("toLocaleString", (value) => parseFloat(value).toLocaleString());
+site.filter("abbreviateNumber", (v) => {
+  if(typeof v !== "number") return v;
+  if (v > 1e10) return (v / 1e9).toFixed(1) + "B";
+  if (v > 1e9) return (v / 1e9).toFixed(1) + "B";
+  if (v > 1e7) return (v / 1e6).toFixed(1) + "M";
+  if (v > 1e6) return (v / 1e6).toFixed(1) + "M";
+  if (v > 1e5) return Math.round(v / 1e3) + "k";
+  if (v > 1e4) return (v / 1e3).toFixed(1) + "k";
+  if (v > 1e3) return (v / 1e3).toFixed(1) + "k";
+  return (v);
+});
+
 site.copy('CNAME');
 site.copy('.nojekyll');
 site.copy('assets/images');
 site.copy('assets/css/fonts');
+site.copy('assets/js/');
+
 
 export default site;
