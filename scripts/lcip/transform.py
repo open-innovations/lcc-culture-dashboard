@@ -126,17 +126,13 @@ if __name__ == "__main__":
         for theme in themes:
             if theme in ward_themes:
                 process_wards(ward_data, sheet, theme, name, f'{clean_theme(theme)}')
-            elif theme in diversity_metrics: 
-                process_diversity_metrics(sheet, OUT_DIR, name)
             elif not theme in diversity_metrics:
                 theme_df = sheet[sheet['THEME'] == theme]
-                # theme_df = theme_df.fillna(0)
                 theme_df = theme_df.pivot_table(index='THEME', columns='METRIC', values='TOTAL')
                 theme_df = theme_df.round(0).astype(int)
                 theme_df.columns = theme_df.columns.str.replace(',',' ')
                 theme_filename = clean_theme(theme)
                 theme_df = theme_df.fillna(0)
-                # theme_df = theme_df.loc[~(theme_df == 0).all(axis=1)]
                 if not theme_df.empty:
                     theme_df.to_csv(os.path.join(theme_path, theme_filename), index=True)
 
