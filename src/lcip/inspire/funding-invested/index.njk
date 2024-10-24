@@ -1,22 +1,22 @@
 ---
-title: Inspire - Funding Invested (TBC)
+title: Inspire - Funding Invested
 ---	
     
 {% comp "dashboard.panels", { columns: 3 } %}
 
 	{% comp "dashboard.pane" %}
 		<h3>Funding invested from Leeds City Council</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding['rows'][0]['Funding invested from Leeds City Council'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding['rows'][0]['Funding invested from Leeds City Council'], prefix: '£'  } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Funding invested from others</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding['rows'][0]['Funding invested from others'] } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding['rows'][0]['Funding invested from others'], prefix: '£'  } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Cumulative<br>spend</h3>
-		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.inspire.funding['rows'][0]['Funding invested from others']) } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: (viz.lcip.inspire.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.inspire.funding['rows'][0]['Funding invested from others']), prefix: '£'  } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}

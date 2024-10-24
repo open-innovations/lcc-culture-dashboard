@@ -58,43 +58,6 @@ def process_wards(ward_data, data, theme, name, filename):
     merged_data['value'] = merged_data['value'].round(0).astype(int)
     merged_data.to_csv(os.path.join(OUT_DIR, name, filename), index=False)
 
-def process_diversity_metrics(data, out_path, name):
-    applied = data[data['THEME'].str.contains(r'- APPLIED')]
-    funded = data[data['THEME'].str.contains(r'- FUNDED')]
-    applied.loc[:, 'THEME'] = applied['THEME'].str.replace(r'- APPLIED', '', regex=False)
-    funded.loc[:, 'THEME'] = funded['THEME'].str.replace(r'- FUNDED', '', regex=False)
-
-    unique_themes = applied['THEME'].unique()
-
-    for theme in unique_themes:
-        applied_theme = applied[applied['THEME'] == theme]
-        funded_theme = funded[funded['THEME'] == theme]
-
-        diversity_theme = pd.merge(
-            applied_theme[['THEME', 'METRIC', 'TOTAL']],
-            funded_theme[['THEME', 'METRIC', 'TOTAL']],
-            on=['THEME', 'METRIC'],
-            how='outer',
-            suffixes=('_APPLIED', '_FUNDED')
-        )
-
-        diversity_theme = diversity_theme.drop(columns={'THEME'}).dropna()
-
-        diversity_theme['TOTAL_APPLIED'] = diversity_theme['TOTAL_APPLIED'].round(0).astype(int)
-        diversity_theme['TOTAL_FUNDED'] = diversity_theme['TOTAL_FUNDED'].round(0).astype(int)
-
-        diversity_theme = diversity_theme.rename(columns={
-            'TOTAL_APPLIED': 'APPLIED', 
-            'TOTAL_FUNDED': 'FUNDED'
-        })
-
-        theme_filename = theme.replace(" ", "_").replace("/", "_").replace('(', '').replace(')', '').replace('_-_', '_').lower().rstrip('_') + '.csv'
-        theme_out_path = os.path.join(out_path, 'diversity', name, theme_filename)
-
-        if not diversity_theme.empty:
-            os.makedirs(os.path.dirname(theme_out_path), exist_ok=True)
-            diversity_theme.to_csv(theme_out_path, index=False)
-
 def clean_name(name):
     name_clean = name.replace(' 2024', '')
     name_clean = (name_clean.upper().rstrip().replace(' ', '_'))
@@ -127,6 +90,9 @@ def clean_theme(theme):
              .lower() + '.csv')
     return theme
 
+
+
+
 if __name__ == "__main__":
 
     lcip_data = pd.read_excel(LCIP_DATA, sheet_name=['Inspire 2024', 'Grow Project 2024', 'Activate 2024', 'Grow Revenue 2024', 'Thrive 2024', 'Cultural Anchors 2024'])
@@ -156,8 +122,6 @@ if __name__ == "__main__":
             revenue_df = revenue_df.merge(sheet[['METRIC', 'TOTAL']], on='METRIC', how='left', suffixes=('', f'_{name}'))
             revenue_df = revenue_df.rename(columns={'TOTAL': f'TOTAL_{name}'})
 
-        process_diversity_metrics(sheet, OUT_DIR, name)
-
         themes = sheet['THEME'].unique()
         for theme in themes:
             if theme in ward_themes:
@@ -175,9 +139,6 @@ if __name__ == "__main__":
                 # theme_df = theme_df.loc[~(theme_df == 0).all(axis=1)]
                 if not theme_df.empty:
                     theme_df.to_csv(os.path.join(theme_path, theme_filename), index=True)
-
-
-
 
     project_df = project_df.set_index(['THEME', 'METRIC']).fillna(0)
     revenue_df = revenue_df.set_index(['THEME', 'METRIC']).fillna(0)
