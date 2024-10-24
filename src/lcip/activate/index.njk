@@ -12,7 +12,7 @@ title: Activate
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'], fontsize: '2.75rem' } %}
 		{% endcomp %} 
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
@@ -20,7 +20,7 @@ title: Activate
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/applications/" } %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.applications_received['rows'][0]['No. of eligible applications'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.applications_received['rows'][0]['No. of eligible applications'], fontsize: '2.75rem' } %}
 		{% endcomp %}
 		<p class="footnote">Applications</p>
 	{% endcomp %}
@@ -47,9 +47,9 @@ title: Activate
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/results/" }  %}
-		<h3>Funded applications</h3>
+		<h3>Funded<br>applications</h3>
 		{% comp "dashboard.big_number", { 
-			number: viz.lcip.activate.results['rows'][0]['No. of funded organisations'] + viz.lcip.activate.results['rows'][0]['No. of funded individual artists'] 
+			number: viz.lcip.activate.results['rows'][0]['No. of funded organisations'] + viz.lcip.activate.results['rows'][0]['No. of funded individual artists'], fontsize: '2.75rem'
 		} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
@@ -61,21 +61,21 @@ title: Activate
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
 			number: (viz.lcip.activate.results['rows'][0]['Total amount awarded to organisations (£)']),
-			fontsize: '3em'} %}
+			fontsize: '2.75rem'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/funding-invested/" } %}
 		<h3>Funding invested</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding['rows'][0]['Funding invested from others'] + viz.lcip.activate.funding['rows'][0]['Funding invested from Leeds City Council']} %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding['rows'][0]['Funding invested from others'] + viz.lcip.activate.funding['rows'][0]['Funding invested from Leeds City Council'], fontsize: '2.75rem'} %}{% endcomp %}
 		<p class="footnote">Investment</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.activate.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.activate.contribution_to_workforce['rows'][0]['Volunteers'])
+		number: (viz.lcip.activate.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.activate.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.75rem'
 		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
@@ -84,7 +84,7 @@ title: Activate
 	{% comp "dashboard.pane", { link: "/lcip/activate/reach/" }  %}
 		<h3>Audience</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.activate.reach['rows'][0]['Audience - in person']) + (viz.lcip.activate.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.activate.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		number: (viz.lcip.activate.reach['rows'][0]['Audience - in person']) + (viz.lcip.activate.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.activate.reach['rows'][0]['Participants - in person']), fontsize: '2.75rem' } %}
 		{% endcomp %}
 		<p class="footnote">Reach</p>
 	{% endcomp %}
@@ -92,7 +92,7 @@ title: Activate
 	{% comp "dashboard.pane", { link: "/lcip/activate/project-outputs/" }  %}
 		<h3>Project outcomes</h3>
 		{% comp "dashboard.big_number", { 
-		number: viz.lcip.activate.project_outputs_funded['rows'][0]['Performances or exhibition days'] } %}
+		number: viz.lcip.activate.project_outputs_funded['rows'][0]['Performances or exhibition days'], fontsize: '2.75rem' } %}
 		{% endcomp %}
 		<p class="footnote">Project Outputs</p>
 	{% endcomp %}

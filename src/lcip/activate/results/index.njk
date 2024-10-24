@@ -40,12 +40,12 @@ title: Activate - Results
 
     	{% comp "dashboard.pane" %}
 		<h3>Awarded to individual artists</h3>
-		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists'], fontsize: '3em' } %}{% endcomp %}
+		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists'], fontsize: '2.5rem' } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
 		<h3>Awarded to organisations</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['Total amount awarded to organisations (£)'], prefix: '£', fontsize: '3em' } %}{% endcomp %}
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['Total amount awarded to organisations (£)'], prefix: '£', fontsize: '2.5rem' } %}{% endcomp %}
 	{% endcomp %}
 	
 {% endcomp %}

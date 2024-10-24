@@ -52,7 +52,7 @@ Cultural Anchors includes some of the largest, building based, cultural organisa
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 
 			number: (viz.lcip.cultural_anchors.results['rows'][0]['Total amount awarded to organisations (£)']),
-			fontsize: '3em'} %}
+			fontsize: '2.5rem'} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
@@ -62,7 +62,7 @@ Cultural Anchors includes some of the largest, building based, cultural organisa
 		{% comp "dashboard.big_number", { 
 			number: (viz.lcip.cultural_anchors.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.cultural_anchors.funding['rows'][0]['Funding invested from others']),
 			prefix: '£',
-			fontsize: '3em' } %}
+			fontsize: '2.5rem' } %}
 		{% endcomp %}
 		<p class="footnote">Investment</p>
 	{% endcomp %}
@@ -71,7 +71,7 @@ Cultural Anchors includes some of the largest, building based, cultural organisa
 	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/reach/", columns: 2 }  %}
 		<h3>Audience</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.cultural_anchors.reach['rows'][0]['Audience - in person']) + (viz.lcip.cultural_anchors.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.cultural_anchors.reach['rows'][0]['Participants - in person']), fontsize: '3em' } %}
+		number: (viz.lcip.cultural_anchors.reach['rows'][0]['Audience - in person']) + (viz.lcip.cultural_anchors.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.cultural_anchors.reach['rows'][0]['Participants - in person']), fontsize: '2.5rem' } %}
 		{% endcomp %}
 		<p class="footnote">Reach</p>
 	{% endcomp %}
