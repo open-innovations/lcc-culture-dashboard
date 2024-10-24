@@ -47,9 +47,9 @@ title: Activate
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/results/" }  %}
-		<h3>Funded organisations</h3>
+		<h3>Funded applications</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.activate.results['rows'][0]['No. of funded organisations'])
+			number: viz.lcip.activate.results['rows'][0]['No. of funded organisations'] + viz.lcip.activate.results['rows'][0]['No. of funded individual artists'] 
 		} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>

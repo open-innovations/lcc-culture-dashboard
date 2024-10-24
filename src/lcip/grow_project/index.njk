@@ -47,7 +47,7 @@ Grow: Project – provides larger grants for one-off larger scale and artistical
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/results/" }  %}
-		<h3>Funded artists</h3>
+		<h3>Funded applications</h3>
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.grow_project.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_project.results['rows'][0]['No. of funded organisations']), 
 		fontsize: '3em'} %}
