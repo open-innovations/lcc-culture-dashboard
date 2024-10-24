@@ -1,239 +1,177 @@
-{# ---
+---
 title: Revenue - Diversity Dashboard
 ---
 
-<div class="summary">
+<div class="">
 	<p>
-		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Revenue grant through the Leeds Cultural Investment Programme. The stats below represent diversity across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
+		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Revenue grant through the Leeds Cultural Investment Programme. The stats below represent across all 3 of the revenue LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
 	</p>
 </div>
 
-<h2>Applied</h2>
-
-{% comp "dashboard.panels", { columns: 1 } %}
-	{% comp "dashboard.pane" %}
-	<p class="text">
-		The charts below present the makeup and diversity of people who applied for grants through the LCIP. 
-	</p>
-	{% endcomp %}
-{% endcomp %}
-
-	{% comp "dashboard.panels", { columns: 3 } %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 'XX', suffix: '%' } %}
-		{% endcomp %}
-	{% endcomp %}
-
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
-		<h3>Disability</h3>
-		{% comp "dashboard.big_number", { number: 'X', suffix: '%' } %}
-		{% endcomp %}
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
-		<h3>Caring responsibilities</h3>
-		{% comp "dashboard.big_number", { number: 'XX', suffix: '%' } %}
-		{% endcomp %}
-	{% endcomp %}
-
-{% endcomp %}
+<h2>Age</h2>
 
 {% comp "dashboard.panels", { columns: 1 } %}
 
-{# {% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-	<h3>Age</h3>
-	<p class="note">
-		The chart below presents the age of applicants across all LCIP programmes. 
-	</p>
-
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.lcip.diversity",
-			category: 'THEME',
-			width: 1600,
-			series: [
-			{ title: 'Age', value: 'R1 Q1', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Age"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.revenue.AGE,
+	width: 1000,
+	height: 400,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED",
+			colour: '#004563'
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 50
 			}
+		}
+	}
+}
+} %}{% endcomp %}
+{% endcomp %}
+
+
+
+<h2>Gender</h2>
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.revenue.SEX,
+	width: 1000,
+	height: 200,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED",
+			colour: '#004563'
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 50
 			}
-		} }) | safe }}
-	{% endcomp %} 
+		}
+	}
+}
+} %}{% endcomp %}
+{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-	<h3>Gender</h3>
-	<p class="note">
-		The chart below presents the gender reported by applicants across all LCIP programmes. 
-	</p>
 
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
+<h2>Disability</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.revenue.DISABILITY,
+	width: 1000,
+	height: 350,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED",
+			colour: '#004563'
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 50
 			}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
+
+	
+<h2>Ethnicity</h2>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.revenue['ETHNIC ORIGIN'],
+	width: 1000,
+	height: 550,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED",
+			colour: '#004563'
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 50
 			}
-		} }) | safe }}
-	{% endcomp %}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-	<h3>Ethnic Group</h3>
-	<p class="note">
-		The chart below presents the gender reported by applicants across all LCIP programmes. 
-	</p>
 
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
+
+<h2>Caring Responsibility</h2>
+
+<p>The chart below presents the number of people who applied for, or was funded by, any of the 3 Revenue schemes run by LCIP, and answered that they currently have caring responsibilities.</p>
+
+{% comp "dashboard.panels", { columns: 1 } %}
+{% comp 'oi.chart.bar', { "config": {
+	"data": viz.lcip.diversity.revenue.CARER,
+	width: 1000,
+	height: 300,
+	"category": "METRIC",
+	"series": [{
+			"title": "APPLIED",
+			"value": "APPLIED"
+		},
+		{
+			"title": "FUNDED",
+			"value": "FUNDED",
+			colour: '#004563'
+		}],
+	"legend": {
+		"show": true,
+		"position": "top"
+	},
+	"axis": {
+		"x": {
+			"tick": {
+				"spacing": 100
 			}
-			}
-		} }) | safe }}
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-	<h3>Sexual Orientation</h3>
-	<p class="note">
-		The chart below presents the gender reported by applicants across all LCIP programmes. 
-	</p>
-
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
-			}
-			}
-		} }) | safe }}
-	{% endcomp %}
-
-		{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-	<h3>Disability</h3>
-	<p class="note">
-		The chart below presents the number of applicants across all LCIP programmes who disclosed that they have a disability in their application. 
-	</p>
-
-		{{ comp.oi.viz.chart.bar({ config: {
-			data: "viz.leeds_2023.medium_count",
-			category: 'medium',
-			width: 1600,
-			series: [
-			{ title: 'Number of articles', value: 'count', color: 'darkcyan'}
-			],
-			legend: {
-			show: true,
-			position: "top"
-			},
-			axis: {
-			x: {
-				title: {
-				label: "Number of articles"
-				},
-				"font-weight": oi_viz.bar.axis.x['font-weight'],
-				grid: oi_viz.bar.axis.x.grid
-			},
-			y: {
-				"font-weight": oi_viz.bar.axis.y['font-weight'],
-				grid: oi_viz.bar.axis.y.grid
-			}
-			}
-		} }) | safe }}
-	{% endcomp %}
-	{% endcomp %}
-
-
-<h2>Funded</h2>
-
-	{% comp "dashboard.panels", { columns: 3 } %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/advice-sessions" } %}
-		<h3>Advice sessions offered</h3>
-		{# {% comp "dashboard.big_number", { number: 'XXX' } %}
-		{% endcomp %} 
-		<p class="footnote">Advice Sessions</p>
-	{% endcomp %}
-
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/" } %}
-		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: 25 } %}
-		{% endcomp %}
-		<p class="footnote">Applications</p>
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/inspire/results/" }  %}
-		<h3>Funded artists</h3>
-		{% comp "dashboard.big_number", { number: 5 } %}
-		{% endcomp %}
-		<p class="footnote">Programme Results</p>
-	{% endcomp %}
-
-{% endcomp %} #}
+		}
+	}
+}
+} %}{% endcomp %}	
+{% endcomp %} 

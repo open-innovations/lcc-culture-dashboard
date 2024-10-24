@@ -1,10 +1,10 @@
-{# ---
-title: Project - Dashboard
+---
+title: Project - Diversity Dashboard
 ---
 
 <div class="">
 	<p>
-		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Project grant through the Leeds Cultural Investment Programme. The stats below represent across all 6 of the LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
+		This dashboard represents the diversity of the individuals and organisations that have applied for and been awarded a Project grant through the Leeds Cultural Investment Programme. The stats below represent across all 3 of the Project LCIP schemes to maintain confidentiality. Leeds Culture Programmes has a commitment to ensuring that opportunities are awarded to a diverse range of practitioners that reflect the cultural makeup and population of Leeds' communities. 
 	</p>
 </div>
 
@@ -13,7 +13,9 @@ title: Project - Dashboard
 {% comp "dashboard.panels", { columns: 1 } %}
 
 {% comp 'oi.chart.bar', { "config": {
-	"data": viz.lcip.diversity.INSPIRE.age,
+	"data": viz.lcip.diversity.project.AGE,
+	width: 1000,
+	height: 400,
 	"category": "METRIC",
 	"series": [{
 			"title": "APPLIED",
@@ -21,7 +23,8 @@ title: Project - Dashboard
 		},
 		{
 			"title": "FUNDED",
-			"value": "FUNDED"
+			"value": "FUNDED",
+			colour: '#004563'
 		}],
 	"legend": {
 		"show": true,
@@ -30,7 +33,7 @@ title: Project - Dashboard
 	"axis": {
 		"x": {
 			"tick": {
-				"spacing": 7.5
+				"spacing": 10
 			}
 		}
 	}
@@ -43,7 +46,9 @@ title: Project - Dashboard
 <h2>Gender</h2>
 {% comp "dashboard.panels", { columns: 1 } %}
 {% comp 'oi.chart.bar', { "config": {
-	"data": viz.lcip.diversity.inspire.sex,
+	"data": viz.lcip.diversity.project.SEX,
+	width: 1000,
+	height: 200,
 	"category": "METRIC",
 	"series": [{
 			"title": "APPLIED",
@@ -51,7 +56,8 @@ title: Project - Dashboard
 		},
 		{
 			"title": "FUNDED",
-			"value": "FUNDED"
+			"value": "FUNDED",
+			colour: '#004563'
 		}],
 	"legend": {
 		"show": true,
@@ -60,7 +66,7 @@ title: Project - Dashboard
 	"axis": {
 		"x": {
 			"tick": {
-				"spacing": 7.5
+				"spacing": 10
 			}
 		}
 	}
@@ -73,7 +79,9 @@ title: Project - Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 {% comp 'oi.chart.bar', { "config": {
-	"data": viz.lcip.diversity.inspire.disability,
+	"data": viz.lcip.diversity.project.DISABILITY,
+	width: 1000,
+	height: 400,
 	"category": "METRIC",
 	"series": [{
 			"title": "APPLIED",
@@ -81,7 +89,8 @@ title: Project - Dashboard
 		},
 		{
 			"title": "FUNDED",
-			"value": "FUNDED"
+			"value": "FUNDED",
+			colour: '#004563'
 		}],
 	"legend": {
 		"show": true,
@@ -90,7 +99,7 @@ title: Project - Dashboard
 	"axis": {
 		"x": {
 			"tick": {
-				"spacing": 7.5
+				"spacing": 10
 			}
 		}
 	}
@@ -103,7 +112,9 @@ title: Project - Dashboard
 
 {% comp "dashboard.panels", { columns: 1 } %}
 {% comp 'oi.chart.bar', { "config": {
-	"data": viz.lcip.diversity.inspire.ethnic_origin,
+	"data": viz.lcip.diversity.project['ETHNIC ORIGIN'],
+	width: 1000,
+	height: 400,
 	"category": "METRIC",
 	"series": [{
 			"title": "APPLIED",
@@ -111,7 +122,8 @@ title: Project - Dashboard
 		},
 		{
 			"title": "FUNDED",
-			"value": "FUNDED"
+			"value": "FUNDED",
+			colour: '#004563'
 		}],
 	"legend": {
 		"show": true,
@@ -120,7 +132,7 @@ title: Project - Dashboard
 	"axis": {
 		"x": {
 			"tick": {
-				"spacing": 7.5
+				"spacing": 10
 			}
 		}
 	}
@@ -132,9 +144,13 @@ title: Project - Dashboard
 
 <h2>Caring Responsibility</h2>
 
+<p>The chart below presents the number of people who applied for, or was funded by, any of the 3 Project schemes run by LCIP, and answered that they currently have caring responsibilities.</p>
+
 {% comp "dashboard.panels", { columns: 1 } %}
 {% comp 'oi.chart.bar', { "config": {
-	"data": viz.lcip.diversity.inspire.carer,
+	"data": viz.lcip.diversity.project.CARER,
+	width: 1000,
+	height: 300,
 	"category": "METRIC",
 	"series": [{
 			"title": "APPLIED",
@@ -142,7 +158,8 @@ title: Project - Dashboard
 		},
 		{
 			"title": "FUNDED",
-			"value": "FUNDED"
+			"value": "FUNDED",
+			colour: '#004563'
 		}],
 	"legend": {
 		"show": true,
@@ -151,10 +168,10 @@ title: Project - Dashboard
 	"axis": {
 		"x": {
 			"tick": {
-				"spacing": 7.5
+				"spacing": 10
 			}
 		}
 	}
 }
 } %}{% endcomp %}	
-{% endcomp %} #}
+{% endcomp %} 
