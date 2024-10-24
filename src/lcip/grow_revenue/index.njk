@@ -26,14 +26,14 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/applications/", columns: 2, rows: 2 }  %}
-	<h3>Applications received by ward</h3>
+	<h3>Funding awarded by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
-		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+		<p style = "text-align:center;">This map represents the number of applications awarded funding from each Leeds ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.grow_revenue.wards_applicant_based,
-				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+				data: viz.lcip.grow_revenue.wards_funded,
+				scale:  'rgb(9, 156, 161) 0%, rgb(5, 64, 89) 100%',
 				matchKey: 'ward_code',
 				value: 'value',
 				min: 0, 
@@ -46,9 +46,16 @@ Grow: Revenue – provides revenue grants to support organisations working year-
 		{% endcomp %}
 	{% endcomp %}
 
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/", columns: 1 }  %}
+		<h3>Funded applications</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.grow_revenue.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_revenue.results['rows'][0]['No. of funded organisations']),
+			fontsize: '3em'} %}
+		{% endcomp %}
+		<p class="footnote">Programme Results</p>
+	{% endcomp %}
 
-
-	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/", columns: 2 }  %}
+	{% comp "dashboard.pane", { link: "/lcip/grow_revenue/results/", columns: 1 }  %}
 		<h3>Funding awarded</h3>
 		{% comp "dashboard.big_number", { 
 			prefix: '£', 

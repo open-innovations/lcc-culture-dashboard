@@ -29,6 +29,7 @@
 .axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.3em;}
 .oi-viz { padding-bottom:0.5em;}
 .oi-map-hex { padding-bottom:0;}
+.oi-map-hex text { fill: #ffffff;}
 .oi-viz tspan { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em; }
 
 /* OI dashboard component */

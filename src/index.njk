@@ -4,7 +4,7 @@ title: Leeds City Council Culture Dashboard
 
 {% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
 {% set metric = page.metric %}
-{% set most_recent_quarter = "1 Jun 2024"%}
+{% set most_recent_quarter = "30 Sept 2024"%}
 
 <div class="summary">
 <p>
@@ -82,7 +82,7 @@ title: Leeds City Council Culture Dashboard
 	{% endcomp %}	
 
 	{% comp "dashboard.pane", { link: '/lcip/diversity/project' } %}
-		<h2>Diversity</h2>
+		<h3>Diversity</h3>
     <h3>See more</h3>
 	{% endcomp %}
 
@@ -178,7 +178,7 @@ title: Leeds City Council Culture Dashboard
 	{% endcomp %}	
 
 	{% comp "dashboard.pane", { link: '/lcip/diversity/revenue' } %}
-		<h2>Diversity</h2>
+		<h3>Diversity</h3>
     <h3>See more</h3>
 	{% endcomp %}
 

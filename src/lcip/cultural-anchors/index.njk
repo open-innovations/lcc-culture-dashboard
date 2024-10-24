@@ -25,14 +25,14 @@ Cultural Anchors includes some of the largest, building based, cultural organisa
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/applications/", columns: 2, rows: 2 }  %}
-	<h3>Applications received by ward</h3>
+	<h3>Funding awarded by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
-		<p style = "text-align:center;">This map represents the number of applications received from each Leeds ward.</p>
+		<p style = "text-align:center;">This map represents the number of applications awarded funding from each Leeds ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
-				data: viz.lcip.cultural_anchors.wards_applicant_based,
-				scale:  'rgb(30, 172, 175) 0%, rgb(0, 69, 99) 100%',
+				data: viz.lcip.cultural_anchors.wards_funded,
+				scale:  'rgb(9, 156, 161) 0%, rgb(5, 64, 89) 100%',
 				matchKey: 'ward_code',
 				value: 'value',
 				min: 0, 

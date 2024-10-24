@@ -1,5 +1,5 @@
 <div class='big-number' style="
-    {%- if fontsize %}font-size:{{ fontsize }};{% endif -%}
+    {%- if fontsize %}font-size:{{ fontsize }};{% else %}font-size: '2.5rem'{% endif -%};
 ">{{ prefix | d('') }}<span class="bignum"  data="{{ number }}" title="{{ number | toLocaleString }}"
 {%- if abbreviate %} data-compact-format="true">{{ number | abbreviateNumber }}
 {% else %}>{{ number | toLocaleString }}{% endif -%}</span>{{ suffix | d('') }}</div>
