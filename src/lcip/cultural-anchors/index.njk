@@ -77,11 +77,11 @@ Cultural Anchors includes some of the largest, building based, cultural organisa
 
 {% comp "dashboard.panels", { columns: 2 } %}
 
-		{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/workforce/" }  %}
+	{% comp "dashboard.pane", { link: "/lcip/cultural-anchors/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.cultural_anchors.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.cultural_anchors.contribution_to_workforce['rows'][0]['Volunteers']),
-		fontsize: '2.5rem'} %}
+		number: (viz.lcip.cultural_anchors.contribution_to_workforce['rows'][0]['Artists/Creatives'] + viz.lcip.cultural_anchors.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.75rem'
+		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
 	{% endcomp %}

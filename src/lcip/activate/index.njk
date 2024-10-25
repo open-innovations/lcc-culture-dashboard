@@ -107,7 +107,7 @@ title: Activate
 	{% comp "dashboard.pane", { link: "/lcip/activate/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.activate.contribution_to_workforce['rows'][0]['total']), fontsize: '2.75rem'
+		number: (viz.lcip.activate.contribution_to_workforce['rows'][0]['Artists/Creatives'] + viz.lcip.activate.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.75rem'
 		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>

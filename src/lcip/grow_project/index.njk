@@ -108,7 +108,7 @@ Grow: Project – provides larger grants for one-off larger scale and artistical
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['total']), fontsize: '2.75rem'
+		number: (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Artists/Creatives'] + viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.75rem'
 		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
