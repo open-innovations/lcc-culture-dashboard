@@ -4,14 +4,14 @@ title: Grow - Project - Advice sessions
     
 {% comp "dashboard.panels", { columns: 4 } %}
 
-	{% comp "dashboard.pane" %}
-		<h3>Advice sessions booked</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries booked'] } %}{% endcomp %}
-	{% endcomp %}
-
     {% comp "dashboard.pane" %}
 		<h3>Advice sessions offered</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Advice sessions booked</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries booked'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
