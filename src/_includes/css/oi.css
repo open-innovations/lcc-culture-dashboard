@@ -310,6 +310,7 @@ header a { font-size: 0.9em;}
 	text-underline-offset: 10px; 
 	text-decoration-color: #91cfce;
 	text-decoration-thickness: 3px;
+	text-align: left;
 }
 
 ul.footer-logos { display: block; list-style: none; margin-left: 0;}
