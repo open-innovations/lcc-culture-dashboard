@@ -8,6 +8,118 @@ title: Thrive
     </p>
 </div>
 
+
+
+{% comp "dashboard.panels", { columns: 4 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/advice-sessions" } %}
+		<h3>Advice sessions offered</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.thrive.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'], fontsize: '2.75rem' } %}
+		{% endcomp %} 
+		<p class="footnote">Advice Sessions</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/applications/" } %}
+		<h3>Applications received</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.thrive.applications_received['rows'][0]['No. of eligible applications'], fontsize: '2.75rem' } %}
+		{% endcomp %}
+		<p class="footnote">Applications</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/applications/", columns: 2, rows: 2 }  %}
+	<h3>Funding awarded by ward</h3>
+		{% comp "dashboard.embedded_figure"  %}
+		<p style = "text-align:center;">This map represents the number of applicants awarded funding from each Leeds ward.</p>
+		{{ comp.oi.map.hex_cartogram({
+			config: {
+				hexjson: hex.wards_leeds,
+				data: viz.lcip.thrive.wards_funded,
+				scale:  'rgb(9, 156, 161) 0%, rgb(5, 64, 89) 100%',
+				matchKey: 'ward_code',
+				value: 'value',
+				min: 0, 
+				max: 2,
+				label: '{{ n | slice(0,3) }}',
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+			}
+		}) | safe }}
+		<p class="footnote">Applications</p>
+		{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/results/" }  %}
+		<h3>Funded<br>applications</h3>
+		{% comp "dashboard.big_number", { 
+			number: viz.lcip.thrive.results['rows'][0]['No. of funded organisations'] + viz.lcip.thrive.results['rows'][0]['No. of funded individual artists'], fontsize: '2.75rem'
+		} %}
+		{% endcomp %}
+		<p class="footnote">Programme Results</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/funding-invested/" } %}
+		<h3>Funding<br>invested</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.thrive.funding['rows'][0]['total'], fontsize: '2.75rem'} %}{% endcomp %}
+		<p class="footnote">Investment</p>
+	{% endcomp %}
+	{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/project-outputs/" }  %}
+		<h3>Project<br>Outputs</h3>
+		{% comp "dashboard.big_number", { 
+		number: viz.lcip.thrive.project_outputs_funded['rows'][0]['total'], fontsize: '2.75rem' } %}
+		{% endcomp %}
+		<p class="footnote">Project Outputs</p>
+	{% endcomp %}
+
+
+		{% comp "dashboard.pane", { link: "/lcip/thrive/artforms/" }  %}
+		<h3>Funded<br>Artforms</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.thrive.artform_funded['rows'][0]['total']),
+			fontsize: '2.75rem'} %}
+		{% endcomp %}
+		<p class="footnote">Artforms</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/target-groups/" }  %}
+		<h3>Target<br>Groups</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.thrive.target_groups_funded['rows'][0]['total']),
+			fontsize: '2.75rem'} %}
+		{% endcomp %}
+		<p class="footnote">Target Groups</p>
+	{% endcomp %}
+	{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/reach/" }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.thrive.reach['rows'][0]['total']), fontsize: '2.75rem' } %}
+		{% endcomp %}
+		<p class="footnote">Reach</p>
+	{% endcomp %}
+
+	{% comp "dashboard.pane", { link: "/lcip/thrive/workforce/" }  %}
+		<h3>Workforce</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.thrive.contribution_to_workforce['rows'][0]['total']), fontsize: '2.75rem'
+		} %}
+		{% endcomp %}
+		<p class="footnote">Workforce</p>
+	{% endcomp %}
+
+
+{% endcomp %}
+
+
+{# 
 {% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane" %}
@@ -94,4 +206,4 @@ title: Thrive
 		<p class="footnote">Project Outputs</p>
 	{% endcomp %}
 
-{% endcomp %}
+{% endcomp %} #}

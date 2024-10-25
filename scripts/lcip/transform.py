@@ -128,11 +128,13 @@ if __name__ == "__main__":
                 process_wards(ward_data, sheet, theme, name, f'{clean_theme(theme)}')
             elif not theme in diversity_metrics:
                 theme_df = sheet[sheet['THEME'] == theme]
+                # theme_df = theme_df.loc[theme_df['TOTAL']!=0]
                 theme_df = theme_df.pivot_table(index='THEME', columns='METRIC', values='TOTAL')
                 theme_df = theme_df.round(0).astype(int)
                 theme_df.columns = theme_df.columns.str.replace(',',' ')
                 theme_filename = clean_theme(theme)
                 theme_df = theme_df.fillna(0)
+                theme_df["total"] = theme_df.sum(axis=1)
                 if not theme_df.empty:
                     theme_df.to_csv(os.path.join(theme_path, theme_filename), index=True)
 

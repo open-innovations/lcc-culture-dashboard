@@ -1,0 +1,44 @@
+---
+title: Activate - Artforms
+---	
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+    {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
+		<h2>Applied</h2>
+	{% endcomp %}
+{% endcomp %}
+{% comp "dashboard.panels", { columns: 2 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Festival/Carnival</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.artform_applied['rows'][0]['Festival/Carnival']} %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Music</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.artform_applied['rows'][0]['Music'] } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+    {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
+		<h2>Funded</h2>
+	{% endcomp %}
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Festival/Carnival</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.artform_funded['rows'][0]['Festival/Carnival']} %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Music</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.activate.artform_funded['rows'][0]['Music']} %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}

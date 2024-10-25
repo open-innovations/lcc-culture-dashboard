@@ -8,11 +8,12 @@ Grow: Project – provides larger grants for one-off larger scale and artistical
 </p>
 </div>
 
-	{% comp "dashboard.panels", { columns: 4 } %}
+
+{% comp "dashboard.panels", { columns: 4 } %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/advice-sessions" } %}
 		<h3>Advice sessions offered</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding_advice_sessions['rows'][0]['No. of funding surgeries offered'], fontsize: '2.75rem' } %}
 		{% endcomp %} 
 		<p class="footnote">Advice Sessions</p>
 	{% endcomp %}
@@ -20,7 +21,7 @@ Grow: Project – provides larger grants for one-off larger scale and artistical
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/applications/" } %}
 		<h3>Applications received</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.applications_received['rows'][0]['No. of eligible applications'] } %}
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.applications_received['rows'][0]['No. of eligible applications'], fontsize: '2.75rem' } %}
 		{% endcomp %}
 		<p class="footnote">Applications</p>
 	{% endcomp %}
@@ -47,57 +48,71 @@ Grow: Project – provides larger grants for one-off larger scale and artistical
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/results/" }  %}
-		<h3>Funded applications</h3>
+		<h3>Funded<br>applications</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_project.results['rows'][0]['No. of funded individual artists']) + (viz.lcip.grow_project.results['rows'][0]['No. of funded organisations']), 
-		fontsize: '2.5rem'} %}
-		{% endcomp %}
-		<p class="footnote">Programme Results</p>
-	{% endcomp %}
-
-
-	{% comp "dashboard.pane", { link: "/lcip/grow_project/results/" }  %}
-		<h3>Funding awarded</h3>
-		{% comp "dashboard.big_number", { 
-			prefix: '£', 
-			number: (viz.lcip.grow_project.results['rows'][0]['Total amount awarded to organisations (£)']),
-			fontsize: '2.5rem'} %}
+			number: viz.lcip.grow_project.results['rows'][0]['No. of funded organisations'] + viz.lcip.grow_project.results['rows'][0]['No. of funded individual artists'], fontsize: '2.75rem'
+		} %}
 		{% endcomp %}
 		<p class="footnote">Programme Results</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/funding-invested/" } %}
-		<h3>Funding invested</h3>
-		{% comp "dashboard.big_number", { 
-			number: (viz.lcip.grow_project.funding['rows'][0]['Funding invested from Leeds City Council']) + (viz.lcip.grow_project.funding['rows'][0]['Funding invested from others']),
-			prefix: '£',
-			fontsize: '2.5rem' } %}
-		{% endcomp %}
+		<h3>Funding<br>invested</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.funding['rows'][0]['total'], fontsize: '2.75rem'} %}{% endcomp %}
 		<p class="footnote">Investment</p>
+	{% endcomp %}
+	{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/project-outputs/" }  %}
+		<h3>Project<br>Outputs</h3>
+		{% comp "dashboard.big_number", { 
+		number: viz.lcip.grow_project.project_outputs_funded['rows'][0]['total'], fontsize: '2.75rem' } %}
+		{% endcomp %}
+		<p class="footnote">Project Outputs</p>
+	{% endcomp %}
+
+
+		{% comp "dashboard.pane", { link: "/lcip/grow_project/artforms/" }  %}
+		<h3>Funded<br>Artforms</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.grow_project.artform_funded['rows'][0]['total']),
+			fontsize: '2.75rem'} %}
+		{% endcomp %}
+		<p class="footnote">Artforms</p>
+	{% endcomp %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/target-groups/" }  %}
+		<h3>Target<br>Groups</h3>
+		{% comp "dashboard.big_number", { 
+			number: (viz.lcip.grow_project.target_groups_funded['rows'][0]['total']),
+			fontsize: '2.75rem'} %}
+		{% endcomp %}
+		<p class="footnote">Target Groups</p>
+	{% endcomp %}
+	{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 2 } %}
+
+
+	{% comp "dashboard.pane", { link: "/lcip/grow_project/reach/" }  %}
+		<h3>Audience</h3>
+		{% comp "dashboard.big_number", { 
+		number: (viz.lcip.grow_project.reach['rows'][0]['total']), fontsize: '2.75rem' } %}
+		{% endcomp %}
+		<p class="footnote">Reach</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/grow_project/workforce/" }  %}
 		<h3>Workforce</h3>
 		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Artists/Creatives']) + (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.5rem'} %}
+		number: (viz.lcip.grow_project.contribution_to_workforce['rows'][0]['total']), fontsize: '2.75rem'
+		} %}
 		{% endcomp %}
 		<p class="footnote">Workforce</p>
 	{% endcomp %}
 
-	{% comp "dashboard.pane", { link: "/lcip/grow_project/reach/" }  %}
-		<h3>Audience</h3>
-		{% comp "dashboard.big_number", { 
-		number: (viz.lcip.grow_project.reach['rows'][0]['Audience - in person']) + (viz.lcip.grow_project.reach['rows'][0]['Broadcast/online audiences']) + (viz.lcip.grow_project.reach['rows'][0]['Participants - in person']), fontsize: '2.5rem' } %}
-		{% endcomp %}
-		<p class="footnote">Reach</p>
-	{% endcomp %}
-
-	{% comp "dashboard.pane", { link: "/lcip/grow_project/project-outputs/" }  %}
-		<h3>Project outcomes</h3>
-		{% comp "dashboard.big_number", { 
-		number: viz.lcip.grow_project.project_outputs_funded['rows'][0]['Performances or exhibition days'], fontsize: '2.5rem' } %}
-		{% endcomp %}
-		<p class="footnote">Project Outputs</p>
-	{% endcomp %}
 
 {% endcomp %}

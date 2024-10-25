@@ -1,0 +1,100 @@
+---
+title: Grow Project - Artforms
+---	
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+    {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
+		<h2>Applied</h2>
+	{% endcomp %}
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Combined Arts</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Combined Arts']} %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Crafts</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Crafts'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Dance</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Dance'] } %}{% endcomp %}
+	{% endcomp %}
+
+		{% comp "dashboard.pane" %}
+		<h3>Festival/Carnival</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Festival/Carnival']} %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Literature/Poetry</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Literature / Poetry / Spoken Word'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Music</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Music'] } %}{% endcomp %}
+	{% endcomp %}
+
+			{% comp "dashboard.pane" %}
+		<h3>Theatre</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Theatre']} %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Photography</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Photography'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Visual Art</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_applied['rows'][0]['Visual Art'] } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 1 } %}
+
+    {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
+		<h2>Funded</h2>
+	{% endcomp %}
+{% endcomp %}
+
+{% comp "dashboard.panels", { columns: 3 } %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Combined Arts</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Combined Arts']} %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Dance</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Dance'] } %}{% endcomp %}
+	{% endcomp %}
+
+    {% comp "dashboard.pane" %}
+		<h3>Literature/Poetry</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Literature / Poetry / Spoken Word'] } %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Music</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Music'] } %}{% endcomp %}
+	{% endcomp %}
+
+			{% comp "dashboard.pane" %}
+		<h3>Theatre</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Theatre']} %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Visual Art</h3>
+		{% comp "dashboard.big_number", { number: viz.lcip.grow_project.artform_funded['rows'][0]['Visual Art'] } %}{% endcomp %}
+	{% endcomp %}
+
+{% endcomp %}
