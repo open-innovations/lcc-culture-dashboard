@@ -67,7 +67,7 @@ title: Thrive - Target Groups
 {% endcomp %}
 
 {% comp "dashboard.pane" %}
-    <h3>School staff</h3>
+    <h3>School<br>staff</h3>
         {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['People in school (teachers  governors  support staff etc)'] } %}
     {% endcomp %}
 {% endcomp %} 
@@ -121,74 +121,74 @@ title: Thrive - Target Groups
 {% comp "dashboard.panels", { columns: 4 } %}
 {# {% comp "dashboard.pane" %}
     <h3>Carers</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Carers'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Carers'] } %}
     {% endcomp %}
 {% endcomp %}  #}
 
 {% comp "dashboard.pane" %}
     <h3>Disabled<br>people</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Disabled people'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Disabled people'] } %}
     {% endcomp %}
 {% endcomp %} 
 
 {% comp "dashboard.pane" %}
     <h3>Ethnically diverse people</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Ethnically diverse people'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Ethnically diverse people'] } %}
     {% endcomp %}
 {% endcomp %}
 
 {% comp "dashboard.pane" %}
     <h3>LGBT+<br><br></h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['LGBT+'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['LGBT+'] } %}
     {% endcomp %}
 {% endcomp %} 
 
 {# {% comp "dashboard.pane" %}
     <h3>Men<br><br></h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Men'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Men'] } %}
     {% endcomp %}
 {% endcomp %}  #}
 
 {% comp "dashboard.pane" %}
     <h3>Mental<br>health</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Mental health'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Mental health'] } %}
     {% endcomp %}
 {% endcomp %}
 
 {# {% comp "dashboard.pane" %}
     <h3>Non-binary<br>people</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Non-binary people'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Non-binary people'] } %}
     {% endcomp %}
 {% endcomp %}  #}
 
 {% comp "dashboard.pane" %}
     <h3>Not targeted at a specific group</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Not targeted at a specific group'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Not targeted at a specific group'] } %}
     {% endcomp %}
 {% endcomp %}
 
 {% comp "dashboard.pane" %}
     <h3>Older people<br>(over 55)</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Older people (over 55)'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Older people (over 55)'] } %}
     {% endcomp %}
 {% endcomp %}
 
 {% comp "dashboard.pane" %}
     <h3>School<br>staff</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['People in school (teachers  governors  support staff etc)'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['People in school (teachers  governors  support staff etc)'] } %}
     {% endcomp %}
 {% endcomp %} 
 
 {% comp "dashboard.pane" %}
     <h3>People with challenging lives</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['People with challenging lives (e.g.  those who are socially excluded  those from a low-income household  young people at risk  in care or NEET  carers)'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['People with challenging lives (e.g.  those who are socially excluded  those from a low-income household  young people at risk  in care or NEET  carers)'] } %}
     {% endcomp %}
 {% endcomp %}
 
 
 {# {% comp "dashboard.pane" %}
     <h3>Religious or Belief Communities</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Religious or Belief Communities'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Religious or Belief Communities'] } %}
     {% endcomp %}
 {% endcomp %} #}
 
@@ -199,20 +199,20 @@ title: Thrive - Target Groups
 
 {% comp "dashboard.pane" %}
     <h3>Pupils in<br>schools</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Pupils in schools'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Pupils in schools'] } %}
     {% endcomp %}
 {% endcomp %} 
 
 
 {# {% comp "dashboard.pane" %}
     <h3>Women</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Women'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Women'] } %}
     {% endcomp %}
 {% endcomp %} #}
 
 {% comp "dashboard.pane" %}
     <h3>Younger people<br>(under 25)</h3>
-        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_applied['rows'][0]['Younger people (under 25)'] } %}
+        {% comp "dashboard.big_number", { number: viz.lcip.thrive.target_groups_funded['rows'][0]['Younger people (under 25)'] } %}
     {% endcomp %}
 {% endcomp %}
 
