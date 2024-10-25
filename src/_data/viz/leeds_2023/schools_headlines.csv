@@ -1,11 +1,2 @@
-title,value
-Date build,2024-06-19
-Earliest date,2022-11-01
-Engagements with pupils not assigned to ward,2860
-Engagements with schools not assigned to ward,23
-Percentage of Leeds schools engaged,65.9%
-Schools in Leeds,346
-Schools not assigned to ward,31
-Total pupil engagements,35376
-Total school engagements,501
-Unique schools,228
+Date build,Earliest date,Engagements with pupils not assigned to ward,Engagements with schools not assigned to ward,Percentage of Leeds schools engaged,Schools in Leeds,Schools not assigned to ward,Total pupil engagements,Total school engagements,Unique schools
+2024-10-25,2022-11-01,2860,23,65.9%,346,31,35376,501,228

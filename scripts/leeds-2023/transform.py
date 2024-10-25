@@ -72,7 +72,7 @@ if __name__ == "__main__":
         'Total tickets sold': tickets_by_date['tickets'].sum()
     }, index=[0])
 
-    headlines = headlines.melt(var_name='title', value_name='value')
+    # headlines = headlines.melt(var_name='title', value_name='value')
 
     headlines.to_csv(os.path.join(DATA_DIR, 'events_ticketing_headlines.csv'), index=False)
 
@@ -150,7 +150,11 @@ if __name__ == "__main__":
 
     # Write summary CSV
     summary = pd.DataFrame.from_dict(summary, orient="index", columns=['value']).sort_index()
+
     summary = summary.reset_index().rename(columns={'index': 'title'})
+
+    summary = summary.set_index('title').T
+
     summary.to_csv(os.path.join(DATA_DIR, 'schools_headlines.csv'), index=False)
 
 

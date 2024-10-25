@@ -9,25 +9,33 @@ title: Engagement with Children & Young People
     The creative learning programme was designed to be inclusive, engaging with schools across all wards in Leeds and interacting with young people in areas previously underserved by creative and cultural education.
 </p>
 
-{{
-	comp.oi.dashboard({
-		config: {
-			data: "viz.leeds_2023.schools_headlines",
-			title: "title",
-			value: "value",
-			width: "20%",
-			panels: [{
-				name: "Total school engagements"
-			},{
-				name: "Unique schools"
-			},{
-				name: "Total pupil engagements"
-			},{
-				name: "Percentage of Leeds schools engaged"
-			}]
-		}
-	}) | safe
-}}
+{% comp "dashboard.panels", { columns: 4 } %}
+
+    {% comp "dashboard.pane" %}
+    <h3>Total<br>events</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Total school engagements'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total in person attendances</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Unique schools'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total tickets<br>sold</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Total pupil engagements'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total tickets<br>sold</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Percentage of Leeds schools engaged'], fontsize: '2.5rem', suffix: '%'  } %}
+    {% endcomp %}
+    {% endcomp %}
+
+{% endcomp %}
 
 {% comp "dashboard.panels", { columns: 1 } %}
 
@@ -327,5 +335,5 @@ title: Engagement with Children & Young People
 			}]
 		}
 	}) | safe
-}} #}
-
+}} #} 
+ 

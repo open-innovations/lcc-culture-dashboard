@@ -26,7 +26,7 @@
 
 /* OI Viz */
 
-.axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.3em;}
+.axis-grid-title { font-family: var(--oi-main-fontstack); font-weight: 600; font-size: 1.2em;}
 .oi-viz { padding-bottom:0.5em;}
 .oi-map-hex { padding-bottom:0;}
 .oi-map-hex text { fill: #ffffff;}
@@ -36,7 +36,7 @@
 .oi-dashboard .oi-dashboard-inner { --auto-dashboard-min-size: 200px; width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--auto-dashboard-min-size)), 1fr)); grid-gap: 1em; }
 .oi-dashboard .panel h3 { font-weight: 400; font-size: 1.2em; text-align: center; }
 .oi-dashboard .panel { padding: 2em; background: #91cfce; color: #0a2f45;  display: grid; }
-.oi-dashboard .bignum { font-size: 4em; line-height: 1.25em; font-weight: bold; text-align: center; display: block; margin-top: 0; }
+.oi-dashboard .bignum { font-size: 2.5rem; line-height: 1.25em; font-weight: bold; text-align: center; display: block; margin-top: 0; }
 .oi-dashboard .footnote { font-size: 0.8em; text-align: center; display: block; }
 .oi-dashboard { grid-gap: 0.5rem!important;}
 
@@ -50,6 +50,7 @@
 } 
 
 .oi-chart-bar line { stroke: #004563!important; stroke-opacity: 0.3; }
+.oi-chart-line line { stroke: #004563!important; stroke-opacity: 0.3;  }
 
 @media screen and (max-width: 1200px) {
 	.oi-dashboard { grid-gap: 1.5vw; }

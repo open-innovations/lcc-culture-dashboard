@@ -10,25 +10,27 @@ title: LEEDS 2023 Legacy Dashboard
 </p>
 </div>
 
-{{
-	comp.oi.dashboard({
-		config: {
-			data: "viz.leeds_2023.events_ticketing_headlines",
-			title: "title",
-			value: "value",
-			width: "20%",
-			panels: [{
-				name: "Total events"
-			},{
-				name: "Total in person attendances"
-			},{
-				name: "Total online attendances"
-			},{
-				name: "Total tickets sold"
-			}]
-		}
-	}) | safe
-}}
+{% comp "dashboard.panels", { columns: 3 } %}
+
+    {% comp "dashboard.pane" %}
+    <h3>Total events</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.events_ticketing_headlines['rows'][0]['Total events'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total in person attendances</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.events_ticketing_headlines['rows'][0]['Total in person attendances'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total tickets sold</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.events_ticketing_headlines['rows'][0]['Total tickets sold'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+{% endcomp %}
 
 <div class="block">
 
@@ -38,25 +40,34 @@ title: LEEDS 2023 Legacy Dashboard
 	The Year of Culture offered children and young people a chance to take part in a creative learning programme - from creative workshops and participatory challenges to classroom resources and activities. Their school engagements linked back to the curriculum, so that pupils' experiences aligned with learning goals. They developed a free, inclusive programme to support cultural and creative education in Leeds schools, engaging with students across all parts of the city. The data shown below was extracted from Airtable, the data management system run internally within LEEDS 2023. 
 </p>
 
-{{
-	comp.oi.dashboard({
-		config: {
-			data: "viz.leeds_2023.schools_headlines",
-			title: "title",
-			value: "value",
-			width: "20%",
-			panels: [{
-				name: "Total school engagements"
-			},{
-				name: "Unique schools"
-			},{
-				name: "Total pupil engagements"
-			},{
-				name: "Percentage of Leeds schools engaged"
-			}]
-		}
-	}) | safe
-}}
+{% comp "dashboard.panels", { columns: 4 } %}
+
+    {% comp "dashboard.pane" %}
+    <h3>Total<br>events</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Total school engagements'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total in person attendances</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Unique schools'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total tickets<br>sold</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Total pupil engagements'], fontsize: '2.5rem'   } %}
+    {% endcomp %}
+    {% endcomp %}
+
+	{% comp "dashboard.pane" %}
+    <h3>Total tickets<br>sold</h3>
+    {% comp "dashboard.big_number", { number: viz.leeds_2023.schools_headlines['rows'][0]['Percentage of Leeds schools engaged'], fontsize: '2.5rem', suffix: '%'  } %}
+    {% endcomp %}
+    {% endcomp %}
+
+{% endcomp %}
+
 
 <div class="read-more">
 <a href="/leeds-2023-legacy/school-engagement/">READ MORE</a>
@@ -109,11 +120,6 @@ title: LEEDS 2023 Legacy Dashboard
 	}) | safe }}
 </li>
 </ul>
-
-{# <div class="read-more">
-<a href="/leeds-2023-legacy/volunteers/">READ MORE</a>
-</div> #}
-
 
 </div>
 
@@ -176,11 +182,6 @@ title: LEEDS 2023 Legacy Dashboard
   </li>
 </ul>
 
-{# <div class="read-more">
-<a href="/leeds-2023-legacy/media-coverage/">READ MORE</a>
-</div> #}
-
-
 </div>
 
 <div class="block">
@@ -215,11 +216,7 @@ title: LEEDS 2023 Legacy Dashboard
 
 </ul>
 
-{# <div class="read-more">
-<a href="/leeds-2023-legacy/social-analytics/">READ MORE</a>
-</div> #}
-
-</div>
+</div> 
 
 
 
