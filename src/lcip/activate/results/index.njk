@@ -5,7 +5,7 @@ title: Activate - Results
 {% comp "dashboard.panels", { columns: 2 } %}
 
 	{% comp "dashboard.pane" %}
-		<h3>Funded individual artists</h3>
+		<h3>Funded individuals</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of funded individual artists'] } %}{% endcomp %}
 	{% endcomp %}
 
@@ -16,22 +16,17 @@ title: Activate - Results
 
 {% endcomp %}
 
-{% comp "dashboard.panels", { columns: 3 } %}
+{% comp "dashboard.panels", { columns: 2 } %}
 
 
     {% comp "dashboard.pane" %}
-		<h3>Unsuccessful artist applications</h3>
+		<h3>Unsuccessful applications - individual</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsucessful artist applications'] } %}{% endcomp %}
 	{% endcomp %}
 
     {% comp "dashboard.pane" %}
-		<h3>Unsuccessful organisation applications</h3>
+		<h3>Unsuccessful applications - organisations</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of unsucessful organisations applications'] } %}{% endcomp %}
-	{% endcomp %}
-
-    {% comp "dashboard.pane" %}
-		<h3>Withdrawn by applicant</h3>
-		{% comp "dashboard.big_number", { number: viz.lcip.activate.results['rows'][0]['No. of  withdrawn by applicant'] } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}
@@ -39,7 +34,7 @@ title: Activate - Results
 {% comp "dashboard.panels", { columns: 2 } %}
 
     	{% comp "dashboard.pane" %}
-		<h3>Awarded to individual artists</h3>
+		<h3>Awarded to individuals</h3>
 		{% comp "dashboard.big_number", { prefix: '£', number: viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists'], fontsize: '2.5rem' } %}{% endcomp %}
 	{% endcomp %}
 

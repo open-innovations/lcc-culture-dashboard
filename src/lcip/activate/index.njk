@@ -31,7 +31,7 @@ Activate is a flexible funding strand which enables the Council to distribute ex
 	{% comp "dashboard.pane", { link: "/lcip/activate/applications/", columns: 2, rows: 2 }  %}
 	<h3>Funding awarded by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
-		<p style = "text-align:center;">This map represents the number of applicants awarded funding from each Leeds ward.</p>
+		<p style = "text-align:center;">This map represents the accrued number of applications awarded funding by ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
@@ -45,7 +45,7 @@ Activate is a flexible funding strand which enables the Council to distribute ex
 				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
 			}
 		}) | safe }}
-		<p class="footnote">Applications</p>
+		<p class="footnote">Awards</p>
 		{% endcomp %}
 	{% endcomp %}
 
@@ -61,14 +61,14 @@ Activate is a flexible funding strand which enables the Council to distribute ex
 	{% comp "dashboard.pane", { link: "/lcip/activate/funding-invested/" } %}
 		<h3>Funding invested</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.funding['rows'][0]['total'], fontsize: '2.75rem'} %}{% endcomp %}
-		<p class="footnote">Investment</p>
+		<p class="footnote">Investment Sources</p>
 	{% endcomp %}
 	{% endcomp %}
 
 {% comp "dashboard.panels", { columns: 3 } %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/project-outputs/" }  %}
-		<h3>Project<br>Outputs</h3>
+		<h3>Total funded<br>project outputs</h3>
 		{% comp "dashboard.big_number", { 
 		number: viz.lcip.activate.project_outputs_funded['rows'][0]['total'], fontsize: '2.75rem' } %}
 		{% endcomp %}
@@ -104,7 +104,7 @@ Activate is a flexible funding strand which enables the Council to distribute ex
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.activate.reach['rows'][0]['total']), fontsize: '2.75rem' } %}
 		{% endcomp %}
-		<p class="footnote">Reach</p>
+		<p class="footnote">Engagement</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/activate/workforce/" }  %}

@@ -8,14 +8,14 @@ This data refers to what and how many things were created as outputs of awarded 
 {% comp "dashboard.panels", { columns: 1 } %}
 
     {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
-		<h2>Applied</h2>
+		<h2>Combined outputs from application forms</h2>
 	{% endcomp %}
 {% endcomp %}
 
 {% comp "dashboard.panels", { columns: 3 } %}
 
     {% comp "dashboard.pane" %}
-    <h3>Days employment for artists and creatives</h3>
+    <h3>Days employment for individuals and creatives</h3>
     {% comp "dashboard.big_number", { number: viz.lcip.activate.project_outputs_applied['rows'][0]['Days employment for freelance artists and creatives'] } %}
     {% endcomp %}
     {% endcomp %}
@@ -55,7 +55,7 @@ This data refers to what and how many things were created as outputs of awarded 
 {% comp "dashboard.panels", { columns: 1 } %}
 
     {% comp "dashboard.pane", { bg: '#004563', color: '#ffffff' } %}
-		<h2>Funded</h2>
+		<h2>Combined funded project outputs</h2>
 	{% endcomp %}
 {% endcomp %}
 

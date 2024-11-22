@@ -1,5 +1,5 @@
 ---
-title: Activate - Applications
+title: Activate - Applications Received
 ---
 
 {% comp "dashboard.panels", { columns: 3 } %}
@@ -14,7 +14,7 @@ title: Activate - Applications
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.applications_received['rows'][0]['No. of ineligible'] } %}{% endcomp %}
 	{% endcomp %}
 
-    {% comp "dashboard.pane" %}
+    {% comp "dashboard.pane", { bg: '#bb6b5' } %}
 		<h3>Organisations</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.activate.applications_received['rows'][0]['from an organisation'] } %}{% endcomp %}
 	{% endcomp %}
@@ -72,11 +72,16 @@ title: Activate - Applications
 
 {% endcomp %}
 
-{% comp "dashboard.panels", { columns: 1 } %}
+{% comp "dashboard.panels", { columns: 2 } %}
 
     {% comp "dashboard.pane" %}
-		<h3>Funding requested</h3>
+		<h3>Total funding requested</h3>
 		{% comp "dashboard.big_number", { fontsize: '2.6em', number: viz.lcip.activate.applications_received['rows'][0]['Total amount of funding requested (£)'], prefix: "£"} %}{% endcomp %}
+	{% endcomp %}
+
+	{% comp "dashboard.pane" %}
+		<h3>Total amount awarded</h3>
+		{% comp "dashboard.big_number", { number: (viz.lcip.activate.results['rows'][0]['Total amount awarded to organisations(£)'] + viz.lcip.activate.results['rows'][0]['Total amount awarded to individual artists (£)']), prefix: '£', fontsize: '3em' } %}{% endcomp %}
 	{% endcomp %}
 
 {% endcomp %}

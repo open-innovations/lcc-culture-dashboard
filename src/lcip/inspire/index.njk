@@ -29,7 +29,7 @@ Inspire provides support for one off cultural projects and activities currently 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/applications/", columns: 2, rows: 2 }  %}
 	<h3>Funding awarded by ward</h3>
 		{% comp "dashboard.embedded_figure"  %}
-		<p style = "text-align:center;">This map represents the number of applicants awarded funding from each Leeds ward.</p>
+		<p style = "text-align:center;">This map represents the accrued number of applications awarded funding by ward.</p>
 		{{ comp.oi.map.hex_cartogram({
 			config: {
 				hexjson: hex.wards_leeds,
@@ -43,7 +43,7 @@ Inspire provides support for one off cultural projects and activities currently 
 				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
 			}
 		}) | safe }}
-		<p class="footnote">Applications</p>
+		<p class="footnote">Awards</p>
 		{% endcomp %}
 	{% endcomp %}
 
@@ -59,14 +59,14 @@ Inspire provides support for one off cultural projects and activities currently 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/funding-invested/" } %}
 		<h3>Funding<br>invested</h3>
 		{% comp "dashboard.big_number", { number: viz.lcip.inspire.funding['rows'][0]['total'], fontsize: '2.75rem', prefix: '£'} %}{% endcomp %}
-		<p class="footnote">Investment</p>
+		<p class="footnote">Investment Sources</p>
 	{% endcomp %}
 	{% endcomp %}
 
 {% comp "dashboard.panels", { columns: 3 } %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/project-outputs/" }  %}
-		<h3>Project<br>Outputs</h3>
+		<h3>Total funded<br>project outputs</h3>
 		{% comp "dashboard.big_number", { 
 		number: viz.lcip.inspire.project_outputs_funded['rows'][0]['total'], fontsize: '2.75rem' } %}
 		{% endcomp %}
@@ -102,7 +102,7 @@ Inspire provides support for one off cultural projects and activities currently 
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.inspire.reach['rows'][0]['total']), fontsize: '2.75rem' } %}
 		{% endcomp %}
-		<p class="footnote">Reach</p>
+		<p class="footnote">Engagement</p>
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/inspire/workforce/" }  %}

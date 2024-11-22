@@ -24,9 +24,7 @@ title: Leeds City Council Culture Dashboard
 <p>
 	Project grants are delivered through three funding schemes: <strong>Inspire, Grow: Project and Activate</strong>. These grants are updated every financial quarter and are cumulative. The figures below are aggregated across all Project streams and are indicative of our investment. Click the links below to view data on each funding scheme.
 </p>
-
 <p>These figures are derived from the total across all 3 strands, deriving the cumulative sum across all quarterly data to date.</p>
-
 
 	{% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
@@ -54,8 +52,8 @@ title: Leeds City Council Culture Dashboard
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
-		<h3>Funded<br>artforms</h3>
-		{% comp "dashboard.big_number", { number: 41, fontsize: '2.5rem' } %}
+		<h3>Funded<br>applications</h3>
+		{% comp "dashboard.big_number", { number: 31, fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}	
 
@@ -73,7 +71,7 @@ title: Leeds City Council Culture Dashboard
 
 
 	{% comp "dashboard.pane" %}
-		<h3>Reach<br><br></h3>
+		<h3>Engagement<br><br></h3>
 		{% comp "dashboard.big_number", { number: 795204, fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}
@@ -84,7 +82,7 @@ title: Leeds City Council Culture Dashboard
 		{% endcomp %}
 	{% endcomp %}	
 
-	{% comp "dashboard.pane", { link: '/lcip/diversity/project' } %}
+	{% comp "dashboard.pane" %}
 		<h3>Diversity</h3>
     <h3><br>See more</h3>
 	{% endcomp %}
@@ -150,7 +148,7 @@ title: Leeds City Council Culture Dashboard
 	{% endcomp %}
 
 	{% comp "dashboard.pane" %}
-		<h3>Funded<br>artforms</h3>
+		<h3>Funded<br>applications</h3>
 		{% comp "dashboard.big_number", { number: 42, fontsize: '2.5rem' } %}
 		{% endcomp %}
 	{% endcomp %}	
@@ -180,7 +178,7 @@ title: Leeds City Council Culture Dashboard
 		{% endcomp %}
 	{% endcomp %}	
 
-	{% comp "dashboard.pane", { link: '/lcip/diversity/revenue' } %}
+	{% comp "dashboard.pane" %}
 		<h3>Diversity</h3>
     <h3><br>See more</h3>
 	{% endcomp %}
