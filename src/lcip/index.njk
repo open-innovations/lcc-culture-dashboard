@@ -1,31 +1,32 @@
 ---
 title: Leeds Cultural Investment Programme
-url: /lcip/
-metric: 'inspire'
 ---
+
 {% from 'macros.njk' import dateFormatterNoDayMonth as dateFormatter %}
 {% set metric = page.metric %}
 {% set most_recent_quarter = "30 Sept 2024"%}
 
 <div class="summary">
 <p>
-  Leeds Cultural Investment Programme is a framework to enable culture and creativity, support the stability and growth of Leeds’ creative sector and to promote access to cultural and creative opportunities by Leeds residents. Grants are awarded through the programme to creative individuals and organisations, building on the arts@leeds and Leeds Insired funding schemes.
+The Leeds Cultural Investment Programme (LCIP) provides a strategic framework which supports delivery of cultural ambitions aligned with the Council’s corporate plan: <a href="https://www.leeds.gov.uk/plans-and-strategies/best-city-ambition">Best City Ambition</a> and features within the city’s <a href="https://www.inclusivegrowthleeds.com">Inclusive Growth Strategy</a>.
 </p>
 
 <p>
-	There are five funding streams designed to enable creative and cultural activity in Leeds to flourish for the benefit of all who live, work, study and visit the city. The scheme offers both Project (one-off) funding and Revenue (ongoing) funding, divided into the funding streams: Inspire, Grow: Project, Grow: Revenue, Thrive and Cultural Anchors. Explore data relating to these funding streams below.
+	The Leeds Cultural Investment Programme (LCIP) is a Leeds City Council development framework which serves to support the development of culture, to facilitate a broad range of cultural and creative activities in the city, and to promote access to cultural and creative opportunities for the benefit of those that live in and visit Leeds. LCIP is a successor to the arts@leeds and Leeds Inspired cultural grants schemes and part of the city’s evolving LEEDS 2023 legacy. 
 </p>
 <p>
-	To read more about the programme, visit the <a href="https://www.leedscultureprogrammes.org.uk\">Leeds Culture Programmes website</a>.
+	LCIP comprises six development strands designed to enable creative and cultural activity in Leeds to flourish for the benefit of all who live, work, study and visit the city. The framework is flexible and subject to available resources, offers funding for both Project (one-off) and Programme (ongoing) activities. Activate is a unique strand which, responsive to opportunity, has scope to deliver funding, commissioning or strategic interventions. 
+</p>
+<p>
+	To read more about the programme, visit the <a href="https://www.leedscultureprogrammes.org.uk\">Leeds Culture Programmes website</a>. Explore data relating to these funding strands below.
 </p>
 </div>
 
 <h2>Project</h2>
 
 <p>
-	Project grants are delivered through three funding schemes: <strong>Inspire, Grow: Project and Activate</strong>. These grants are updated every financial quarter and are cumulative. The figures below are aggregated across all Project streams and are indicative of our investment. Click the links below to view data on each funding scheme.
+	Project grants are currently delivered through three distinct strands: <strong>Inspire, Grow: Project and Activate</strong>. The data for these grants are updated every financial quarter and will accrue through the year. The figures below are combined across all Project streams and are indicative of our investment (i.e. based on data from application forms). Click the links below to view data on each funding strand.
 </p>
-
 <p>These figures are derived from the total across all 3 strands, deriving the cumulative sum across all quarterly data to date.</p>
 
 	{% comp "dashboard.panels", { columns: 1 } %}
@@ -86,7 +87,7 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Diversity</h3>
-    {# <h3><br>See more</h3> #}
+    <h3><br>See more</h3>
 	{% endcomp %}
 
 {% endcomp %}
@@ -94,7 +95,7 @@ metric: 'inspire'
 {% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'}  %}
 
-	<h2>Project funding schemes</h2>
+	<h2>Project funding strands</h2>
 
 	{% endcomp %}
 {% endcomp %}
@@ -122,13 +123,13 @@ metric: 'inspire'
 <h2>Revenue</h2>
 
 <p>
-	Revenue grants are delivered through three funding schemes: <strong>Grow: Revenue, Thrive and Cultural Anchors</strong>. These grants are offered over a two-year period. These figures will be updated at the beginning of the financial year. The figures below are aggregated across all Revenue streams and are indicative of our investment. Click the links below to view data on each funding scheme. 
+	Programme (revenue) grants are currently delivered through three strands: <strong>Grow: Revenue, Thrive and Cultural Anchors</strong>. These grants are offered over a two-year period. These figures will be updated at the beginning of the financial year. The figures below are combined across all Revenue streams and are indicative of our investment. Click the links below to view data on each funding scheme.
 </p>
 
 	{% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
 
-	<h2>Revenue grants: 2024</h2>
+	<h2>Programme (revenue) funding 2024-27’</h2>
 
 	{% endcomp %}
 	{% endcomp %}
@@ -182,7 +183,7 @@ metric: 'inspire'
 
 	{% comp "dashboard.pane" %}
 		<h3>Diversity</h3>
-    {# <h3><br>See more</h3> #}
+    <h3><br>See more</h3>
 	{% endcomp %}
 
 {% endcomp %}
@@ -190,7 +191,7 @@ metric: 'inspire'
 {% comp "dashboard.panels", { columns: 1 } %}
 	{% comp "dashboard.pane", { bg: '#004563', color: '#ffffff'} %}
 
-	<h2>Revenue grant schemes</h2>
+	<h2>Programme (revenue) funding strands</h2>
 
 	{% endcomp %}
 {% endcomp %}
