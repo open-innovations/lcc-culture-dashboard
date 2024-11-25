@@ -110,12 +110,12 @@ Thrive provides support for ongoing activities for more established cultural org
 	{% endcomp %}
 
 	{% comp "dashboard.pane", { link: "/lcip/thrive/workforce/" }  %}
-		<h3>Workforce</h3>
+		<h3>Employment and<br>Volunteers</h3>
 		{% comp "dashboard.big_number", { 
 		number: (viz.lcip.thrive.contribution_to_workforce['rows'][0]['Artists/Creatives'] + viz.lcip.thrive.contribution_to_workforce['rows'][0]['Volunteers']), fontsize: '2.75rem'
 		} %}
 		{% endcomp %}
-		<p class="footnote">Workforce</p>
+		<p class="footnote">Employment and Volunteers</p>
 	{% endcomp %}
 
 
