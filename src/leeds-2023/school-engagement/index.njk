@@ -54,7 +54,8 @@ title: Engagement with Children & Young People
       {
         title: 'Engagements (cumulative)',
         x: "date_decimal",
-        y: "cumulative_pupil_engagements"
+        y: "cumulative_pupil_engagements",
+		tooltip: "Engagements (cumulative)\n{{ date }}: {{ cumulative_pupil_engagements | toLocaleString() }}"
       }
     ],
     legend: {
