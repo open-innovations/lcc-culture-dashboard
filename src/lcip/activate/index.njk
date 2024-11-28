@@ -40,9 +40,25 @@ Activate is a flexible funding strand which enables the Council to distribute ex
 				matchKey: 'ward_code',
 				value: 'value',
 				min: 0, 
-				max: 2,
+				max: 3,
 				label: '{{ n | slice(0,3) }}',
-				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>',
+				legend: {
+					position: 'top',
+					items: [{
+						value: 3,
+						label: "3"
+					},{
+						value: 2,
+						label: "2"
+					},{
+						value: 1,
+						label: "1"
+					},{
+						value: 0,
+						label: "0"
+					}]
+				}
 			}
 		}) | safe }}
 		<p class="footnote">Awards</p>

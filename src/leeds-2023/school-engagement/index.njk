@@ -44,7 +44,7 @@ title: Engagement with Children & Young People
 <p>The chart below presents the number of activities that were delivered with children in Leeds schools as part of the LEEDS 2023 programme.</p>
 {{ comp.oi.chart.line({ config: {
     data: viz.leeds_2023.engagements_by_week,
-    width: 800,
+    width: 983,
     height: 500,
     "columns": [{
       "name": "date_decimal",
@@ -54,7 +54,8 @@ title: Engagement with Children & Young People
       {
         title: 'Engagements (cumulative)',
         x: "date_decimal",
-        y: "cumulative_pupil_engagements"
+        y: "cumulative_pupil_engagements",
+		tooltip: "Engagements (cumulative)\n{{ date | strftime('%e %B %Y') }}: {{ cumulative_pupil_engagements | toLocaleString() }}"
       }
     ],
     legend: {

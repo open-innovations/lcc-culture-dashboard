@@ -4,7 +4,7 @@ title: Grow - Project
 
 <div class="summary">
 <p>
-Grow: Project provides support for one off larger scale and artistically ambitious projects, currently offering grants between £5,000 to £15,000 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
+Grow: Project provides support for one-off, larger-scale, and artistically ambitious projects, currently offering grants between £5,000 to £15,000 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
 </p>
 <p>
 These figures are derived by calculating the total amount across all quarterly data to date.
@@ -45,7 +45,20 @@ These figures are derived by calculating the total amount across all quarterly d
 				min: 0, 
 				max: 2,
 				label: '{{ n | slice(0,3) }}',
-				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>',
+				legend: {
+					position: 'top',
+					items: [{
+						value: 2,
+						label: "2"
+					},{
+						value: 1,
+						label: "1"
+					},{
+						value: 0,
+						label: "0"
+					}]
+				}
 			}
 		}) | safe }}
 		<p class="footnote">Awards</p>

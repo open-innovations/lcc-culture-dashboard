@@ -4,7 +4,7 @@ title: Inspire
 
 <div class="summary">
 <p>
-Inspire provides support for one off cultural projects and activities currently offering microgrants between £500 to £1,500 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
+Inspire provides support for one-off cultural projects and activities currently offering microgrants between £500 to £1,500 for individuals or organisations. The dashboard below provides an overview of the grants awarded through the scheme. Click the panels to see further detail.
 </p>
 <p>These figures are derived by calculating the total amount across all quarterly data to date.</p>
 </div>
@@ -40,7 +40,20 @@ Inspire provides support for one off cultural projects and activities currently 
 				min: 0, 
 				max: 2,
 				label: '{{ n | slice(0,3) }}',
-				tooltip: '{{ n }}: <strong>{{ value }}</strong>'
+				tooltip: '{{ n }}: <strong>{{ value }}</strong>',
+				legend: {
+					position: 'top',
+					items: [{
+						value: 2,
+						label: "2"
+					},{
+						value: 1,
+						label: "1"
+					},{
+						value: 0,
+						label: "0"
+					}]
+				}
 			}
 		}) | safe }}
 		<p class="footnote">Awards</p>
