@@ -19,11 +19,11 @@ const site = lume({
   location: new URL("https://open-innovations.github.io/lcc-culture-dashboard/"),
 });
 
-
+// Include some remote asset files
+site.remoteFile("assets/images/oi-square-white.svg", "https://open-innovations.org/resources/images/logos/oi-square-white.svg")
 
 // Need to explicitly include it for Lume 2
 site.use(nunjucks());
-
 
 // The autodependency processor needs to be registered before the base path plugin,
 // or else the autodepended paths will not be rewritten to include the path prefix
