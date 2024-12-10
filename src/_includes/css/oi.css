@@ -74,6 +74,7 @@ a.button:hover, button:hover, button:focus, a.button:focus { background-color: #
 .b5-bg, .off label { background-color: #dfdfdf; color: black!important; }
 .b6-bg { background-color: #ffffff; color: black!important; }
 .warning { color: rgb(95, 82, 7); background-color: rgb(251, 245, 208); filter: drop-shadow(0px 0px 1px rgb(95, 82, 7)); }
+.message { text-align: center; }
 .padded { padding: 1em; }
 .padded-bottom { padding: 1em; margin-bottom: 1em; }
 .doublepadded { padding: 2em; }
